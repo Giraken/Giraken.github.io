@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
+    <title>Habit Tracker</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style._habit.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="#">Habit Tracker</a></div>
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="habit.html" class="active">Habit</a></li>
+                <li><a href="tracking.html">Perfomance</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+
+            <a href="#" class="action-btn">Our Team</a>
+        </div>
+    </header>
+
+    <section id="form">
+        <h1>Add new habit</h1>
+        <div class="grid-container">
+            <div class="question">
+                <ul>
+                    <li><label for="fname">Activity name </label></li>
+                    <li><label for="fname">Duration of habit </label></li>
+                    <li><label for="fname">Activity time </label></li>
+                    <li><label for="fname">Choose icon </label></li>
+                    <li><label for="fname">Choose background color </label></li>
+                </ul>
+            </div>
+
+            <div class="form-input">
+                <ul>
+                    <li><input class="habit-name" type="text" id="fname" name="" required></li>
+                    <li class="habit-duration">
+                        <input class="custom-radio" type="radio" name="radio"><label class="time-duration" value="15M">15 Minutes</label>
+                        <input class="custom-radio" type="radio" name="radio"><label class="time-duration" value="30M">30 Minutes</label>
+                        <input class="custom-radio" type="radio" name="radio"><label class="time-duration" value="45M">45 Minutes</label>
+                        <input class="custom-radio" type="radio" name="radio"><label class="time-duration" value="1H">1 Hour</label>
+                    </li>
+                    <li><input class="habit-time" type="time" id="fname" name="" required></li>
+                    <li class="habit-icon">
+                        <input class="custom-icon-1" type="radio" name="radio">
+                        <input class="custom-icon" type="radio" name="radio">
+                        <input class="custom-icon" type="radio" name="radio">
+                        <input class="custom-icon" type="radio" name="radio">
+                        <input class="custom-icon" type="radio" name="radio">
+                        <input class="custom-icon" type="radio" name="radio">
+                        <input class="custom-icon" type="radio" name="radio">
+                        <input class="custom-icon" type="radio" name="radio">
+                        <input class="custom-icon" type="radio" name="radio">
+                        <input class="custom-icon" type="radio" name="radio">
+                    </li>
+                    <li class="habit-color">
+                        <input class="custom-color-1" type="radio" name="radio"><label for="" class="custom-color-1"></label>
+                        <input class="custom-color-1" type="radio" name="radio"><label for="" class="custom-color-2"></label>
+                        <input class="custom-color-1" type="radio" name="radio">
+                        <input class="custom-color-1" type="radio" name="radio">
+                        <input class="custom-color-1" type="radio" name="radio">
+                        <input class="custom-color-1" type="radio" name="radio">
+                        <input class="custom-color-1" type="radio" name="radio">
+                        <input class="custom-color-1" type="radio" name="radio">
+                        <input class="custom-color-1" type="radio" name="radio">
+                        <input class="custom-color-1" type="radio" name="radio">
+                    </li>
+                </ul> 
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-color: #F8FAB2;
+}
+
+/* Header */
+header {
+    position: relative;
+    padding: 0 2rem;
+}
+
+.active{
+    font-weight: 700;
+}
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.navbar .logo a{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .links {
+    display: flex;
+    gap: 2rem;
+}
+
+.action-btn{
+    color: #000;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale 0.2 ease;
+}
+
+.action-btn:hover{
+    scale: 1.05;
+    color: #EBA236;
+}
+
+.action-btn:active{
+    scale: 0.95;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+}
+
+a:hover{
+    color: #EBA236;
+}
+
+/* Form Section */
+#form{
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 50px;
+    background-color: #FAE67D;
+    border-radius: 20px;
+    padding: 50px;
+}
+
+#form .grid-container{
+    display: inline-grid;
+    grid-template-columns: 350px 800px;
+    padding: 10px;
+}
+
+#form h1{
+    font-size: 2.5rem;
+}
+
+.question li{
+    margin: 30px;
+}
+
+.question label{
+    font-size: 1.7rem;
+    font-weight: 300;
+}
+
+.form-input li{
+    margin: 30px;
+}
+
+.form-input .habit-name{
+    width: 70%;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.form-input .habit-duration{
+    padding: 10px;
+}
+
+.form-input .custom-radio{
+    width: 25px;
+}
+
+.form-input .time-duration{
+    font-size: 1.2rem;
+    padding: 5px;
+}
+
+.form-input .habit-time{
+    width: 16%;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.form-input .habit-icon{
+    background-color: #DAD182;
+    padding: 10px;
+}
+
+.custom-icon-1{
+
+}
+
+.form-input .habit-color{
+    background-color: #DAD182;
+    padding: 5px;
+    width: 90%;
+}
+
+.form-input .habit-color input[type="radio"]{
+    display: none;
+}
+
+.form-input .habit-color label{
+    margin: 10px;
+}
+
+.form-input .habit-color .custom-color-1{
+    position: relative;
+    background-color: #000;
+    border: 2px solid #000;
+    padding: 20px;
+    display: flex;
+    width: 5%;
+}
+
+.form-input .habit-color .custom-color-2{
+    position: relative;
+    background-color: #fff;
+    border: 2px solid #fff;
+    padding: 20px;
+    display: flex;
+    width: 5%;
+}
