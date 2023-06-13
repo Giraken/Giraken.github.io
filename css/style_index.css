@@ -1,0 +1,202 @@
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-color: #F8FAB2;
+}
+
+/* Header */
+header {
+    position: relative;
+    padding: 0 2rem;
+}
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.navbar .logo a{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .links {
+    display: flex;
+    gap: 2rem;
+}
+
+.action-btn{
+    color: #000;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale 0.2 ease;
+}
+
+.action-btn:hover{
+    scale: 1.05;
+    color: #EBA236;
+}
+
+.action-btn:active{
+    scale: 0.95;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+}
+
+a:hover{
+    color: #EBA236;
+}
+
+/* Hero */
+#hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 75px;
+}
+
+#hero .grid-container{
+    display: inline-grid;
+    grid-template-columns: 950px 250px;
+    padding: 10px;
+}
+
+.greetings h1{
+    font-size: 2.5rem;
+}
+
+.greetings .track{
+   color: #EBA236;
+}
+
+/* Clock and Weather widget */
+.information{
+    background-color: #94CBFF;
+    border-radius: 20px;
+}
+
+.information p{
+    font-weight: 200;
+    font-size: 2rem;
+    color: #FFF;
+    text-align: right;
+    padding: 20px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-image: url("../assets/img/sun.png");
+    background-size: 100px;
+    background-repeat: no-repeat;
+}
+
+.information p span{
+    color: #FAFF00;
+}
+
+/* Habit */
+#habit{
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+#habit .date{
+    text-align: center;
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
+#habit .grid-container{
+    display: inline-grid;
+    grid-template-columns: 800px 400px;
+    padding: 10px;
+}
+
+.habit-container li{
+    margin: 30px;
+}
+
+.subhabit-container{
+    height: 125px;
+    background-color: #2C67DB;
+    border-radius: 20px;
+    padding: 25px;
+    grid-template-columns: 150px 200px 170px 80px 100px;
+    display: inline-grid;
+}
+
+.subhabit-container img{
+    width: 75px;
+}
+
+.subhabit-container .habit-category{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.subhabit-container .habit-category span{
+    color: #FFEF5A;
+}
+
+.subhabit-container .habit-time{
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FFF;
+    padding-top: 15px;
+}
+
+.subhabit-container .habit-checklist{
+    padding: 20px;
+}
+
+.subhabit-container .habit-checklist .checkmark{
+    width: 40px;
+    height: 40px;
+}
+
+/* .subhabit-container .habit-checklist .checkmark {
+    background-color: rgb(192, 14, 14);
+} */
+
+
+.subhabit-container .habit-comment{
+    padding: 20px;
+}
+
+.subhabit-container .habit-comment img{
+    width: 50px;
+}
+
+
+
+.note{
+    background-color: #FAE67D;
+    width: 400px;
+    border-radius: 20px;
+    padding: 20px;
+}
