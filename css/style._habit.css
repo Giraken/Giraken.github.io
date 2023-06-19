@@ -86,6 +86,7 @@ a:hover{
     background-color: #FAE67D;
     border-radius: 20px;
     padding: 50px;
+    margin-bottom: 50px;
 }
 
 #form .grid-container{
@@ -111,6 +112,11 @@ a:hover{
     margin: 30px;
 }
 
+#form .bg-color {
+    margin-top:770px;
+}
+
+/* Name */
 .form-input .habit-name{
     width: 70%;
     height: 40px;
@@ -119,6 +125,7 @@ a:hover{
     padding: 5px;
 }
 
+/* Duration */
 .form-input .habit-duration{
     padding: 10px;
 }
@@ -132,6 +139,7 @@ a:hover{
     padding: 5px;
 }
 
+/* Time */
 .form-input .habit-time{
     width: 16%;
     height: 40px;
@@ -140,43 +148,184 @@ a:hover{
     padding: 5px;
 }
 
+/* Icon */
 .form-input .habit-icon{
     background-color: #DAD182;
-    padding: 10px;
+    padding: 30px;
+    width: 85%;
+    border-radius: 20px;
 }
 
-.custom-icon-1{
-
+.form-input .habit-icon .grid-icon{
+    display: inline-grid;
+    grid-template-columns: 160px 160px 160px 160px;
 }
 
+.form-input .habit-icon label{
+    margin: 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.form-input .habit-icon input[type="radio"]{
+    position: absolute;
+    opacity: 0;
+}
+
+.form-input .habit-icon input[type="radio"] + i {
+	border-radius: 50%;
+	padding: 12px;
+	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+}
+
+.form-input .habit-icon input[type="radio"]:checked + i {
+	color: black;
+    background-color: #EBA236;
+}
+
+/* Color */
 .form-input .habit-color{
     background-color: #DAD182;
-    padding: 5px;
-    width: 90%;
+    padding: 20px;
+    width: 85%;
+    border-radius: 20px;
 }
 
-.form-input .habit-color input[type="radio"]{
+.form-input .habit-color div {
+    display: inline-block;
+    margin: 5px;
+}
+
+.form-input .habit-color input[type="radio"] {
     display: none;
 }
 
-.form-input .habit-color label{
-    margin: 10px;
+.form-input .habit-color input[type="radio"] + label {
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
 }
 
-.form-input .habit-color .custom-color-1{
-    position: relative;
-    background-color: #000;
-    border: 2px solid #000;
-    padding: 20px;
-    display: flex;
-    width: 5%;
-}
-
-.form-input .habit-color .custom-color-2{
-    position: relative;
-    background-color: #fff;
+.form-input .habit-color input[type="radio"] + label span {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 50%;
+    
     border: 2px solid #fff;
-    padding: 20px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    line-height: 60px;
+}
+
+.form-input .habit-color input[type="radio"] + label span img {
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+.form-input .habit-color input[type="radio"]#color-1 + label span {
+    background-color: #577BD7;
+}
+  
+.form-input .habit-colorinput[type="radio"]#color-1:checked + label span {
+    box-shadow: 0 0 0 2px #577BD7;
+}
+  
+.form-input .habit-color input[type="radio"]#color-2 + label span {
+    background-color: #57D76B;
+}
+  
+.form-input .habit-color input[type="radio"]#color-2:checked + label span {
+    box-shadow: 0 0 0 2px #57D76B;
+}
+  
+.form-input .habit-color input[type="radio"]#color-3 + label span {
+    background-color: #D75757;
+}
+  
+.form-input .habit-color input[type="radio"]#color-3:checked + label span {
+    box-shadow: 0 0 0 2px #D75757;
+}
+  
+.form-input .habit-color input[type="radio"]#color-4 + label span {
+    background-color: #A657D7;
+}
+  
+.form-input .habit-color input[type="radio"]#color-4:checked + label span {
+    box-shadow: 0 0 0 2px #A657D7;
+}
+  
+.form-input .habit-color input[type="radio"]#color-5 + label span {
+    background-color: #57D7B0;
+}
+  
+.form-input .habit-color input[type="radio"]#color-5:checked + label span {
+    box-shadow: 0 0 0 2px #57D7B0;
+}
+  
+.form-input .habit-color input[type="radio"]#color-6 + label span {
+    background-color: #D7BB57;
+}
+  
+.form-input .habit-color input[type="radio"]#color-6:checked + label span {
+    box-shadow: 0 0 0 2px #D7BB57;
+}
+  
+.form-input .habit-color input[type="radio"]#color-7 + label span {
+    background-color: #D78557;
+}
+  
+.form-input .habit-color input[type="radio"]#color-7:checked + label span {
+    box-shadow: 0 0 0 2px #D78557;
+}
+  
+.form-input .habit-color input[type="radio"]#color-8 + label span {
+    background-color: #D7576E;
+}
+  
+.form-input .habit-color input[type="radio"]#color-8:checked + label span {
+    box-shadow: 0 0 0 2px #D7576E;
+}
+  
+.form-input .habit-color input[type="radio"]:checked + label span img {
+    opacity: 1;
+}
+
+/* Button */
+.form-input .button{
+    margin-top: 100px;
+    width: 300px;
+    margin-left: 400px;
+}
+  
+.form-input .button div {
     display: flex;
-    width: 5%;
+    align-items: center;
+    justify-content: center;
+}
+  
+.form-input .custom-button {
+    width: 300px;
+    height: 45px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    background-color: #DAD182;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+  
+.form-input .custom-button:hover {
+    background-color: #EBA236;
+    box-shadow: 0px 15px 20px #EBA236(202, 229, 46, 0.4);
+    transform: translateY(-5px);
 }
