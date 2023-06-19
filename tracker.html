@@ -3,9 +3,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tittle -->
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="css/style_tracking.css"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style_tracker.css"/>
+
     <script src="trackerprogress.js"></script>
+
+    <!-- Fonts and Icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -44,122 +52,41 @@
             </div>
         </div>
 
-        <div id="MiddleThing">
+        <div id="note">
+            <h1>Note</h1>
             <input type="text" id="myText" value="">
-            <button onclick="myFunction()" id="Submit">Submit</button>
-            <p id="demo"></p>
+            <button onclick="myFunction()">Submit</button>
+            <div id="App"></div>
+            <script src="js/note.js"></script>
         </div>
         
         <div id="rightThing">
-            <div class="calendar">
-                <div class="month-indicator">
-                  <time datetime="2023-06" class="bulan"> Juni 2023 </time>
-                </div>
-                <div class="day-of-week">
-                  <div>Su</div>
-                  <div>Mo</div>
-                  <div>Tu</div>
-                  <div>We</div>
-                  <div>Th</div>
-                  <div>Fr</div>
-                  <div>Sa</div>
-                </div>
-                <div class="date-grid">
-                  <button>
-                    <time datetime="2023-06-01">1</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-02">2</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-03">3</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-04">4</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-05">5</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-06">6</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-07">7</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-08">8</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-09">9</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-10">10</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-11">11</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-12">12</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-13">13</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-14">14</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-15">15</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-16">16</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-17">17</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-18">18</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-19">19</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-20">20</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-21">21</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-22">22</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-23">23</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-24">24</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-25">25</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-26">26</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-27">27</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-28">28</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-28">29</time>
-                  </button>
-                  <button>
-                    <time datetime="2019-02-28">30</time>
-                  </button>
+            <div class="wrapper">
+                <header>
+                    <p class="current-date"></p>
+                    <div class="icons">
+                        <span id="prev" class="material-symbols-rounded">chevron_left</span>
+                        <span id="next" class="material-symbols-rounded">chevron_right</span>
+                    </div>
+                </header>
+                <div class="calendar">
+                    <ul class="weeks">
+                        <li>Sun</li>
+                        <li>Mon</li>
+                        <li>Tue</li>
+                        <li>Wed</li>
+                        <li>Thu</li>
+                        <li>Fri</li>
+                        <li>Sat</li>
+                    </ul>
+                    <ul class="days"></ul>
                 </div>
               </div>
         </div>
     </div>
-
+    
+    <hr>
+    
     <div id="container4">
         <div id="leftThing2">
             <div id="head">
@@ -422,6 +349,7 @@
             </div>
         </div>
     </div>
-    <!-- <hr> -->
+
+    <script src="js/calendar.js"></script>
 </body>
 </html>
