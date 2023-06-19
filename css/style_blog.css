@@ -76,12 +76,18 @@ a:hover{
 
 /* Section */
 #blog{
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 40px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background-color: #FAE67D;
+    max-width: 1200px;
+    border-radius: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .heading{
@@ -92,23 +98,21 @@ a:hover{
 }
 
 .heading span {
-    color: #f33c3c;
+    color: #EBA236;
 }
 
-.heading h3{
-    font-size: 2.4rem;
-    color: #2b2b2b;
-    font-weight: 600;
+.heading h1{
+    font-size: 2.5rem;
 }
 
 .container-top{
-    width: 1500px;
+    margin-top: 50px;
+    width: 1100px;
     display: flex;
     flex-wrap: wrap;
-    background-color: #FAE67D;
-    border-radius: 20px;
-    border: 1px solid #ffffff;
     flex-direction: row;
+    background-color: #DAD182;
+    border-radius: 10px;
 }
 
 .top-img{
@@ -119,18 +123,20 @@ a:hover{
 
 .top-img img{
     width: 100%;
-    height: 300px;
+    height: auto;
+    border-radius: 10px;
 }
 
 .top-text{
-    width: 800px;
+    width: 450px;
+    height: auto;
     padding: 30px;
     display: flex;
     flex-direction: column;
 }
 
 .top-text span{
-    color: #f33c3c;
+    color: #EBA236;
     font-size: 0.9rem;
 }
 
@@ -141,12 +147,12 @@ a:hover{
 }
 
 .top-text .text-tittle:hover{
-    color: #f33c3c;
+    color: #EBA236;
     transition: all ease 0.3s;
 }
 
 .top-text p{
-    color: #9b9b9b;
+    color: #272227;
     font-size: 0.9rem;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -161,7 +167,7 @@ a:hover{
 }
 
 .top-text a:hover{
-    color: #f33c3c;
+    color: #EBA236;
     transition: all ease 0.3s;
 }
 
@@ -175,10 +181,8 @@ a:hover{
 
 .box{
     width: 350px;
-    background-color: #FAE67D;
     border-radius: 20px;
-    border: 1px solid #ffffff;
-    margin: 5px;
+    margin: 10px;
 }
 
 .box-img{
@@ -201,7 +205,7 @@ a:hover{
 }
 
 .box-text span{
-    color: #f33c3c;
+    color: #EBA236;
     font-size: 0.9rem;
 }
 
@@ -212,12 +216,12 @@ a:hover{
 }
 
 .box-text .text-tittle:hover{
-    color: #f33c3c;
+    color: #EBA236;
     transition: all ease 0.3s;
 }
 
 .box-text p{
-    color: #9b9b9b;
+    color: #272227;
     font-size: 0.9rem;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -232,7 +236,7 @@ a:hover{
 }
 
 .box-text a:hover{
-    color: #f33c3c;
+    color: #EBA236;
     transition: all ease 0.3s;
 }
 

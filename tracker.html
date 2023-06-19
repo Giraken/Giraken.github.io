@@ -1,0 +1,427 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style_tracking.css"/>
+    <script src="trackerprogress.js"></script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="#">Habit Tracker</a></div>
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="habit.html">Habit</a></li>
+                <li><a href="tracker.html" class="active">Perfomance</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+
+            <a href="team.html" class="action-btn">Our Team</a>
+        </div>
+    </header>
+    
+    <div id="container3">
+
+        <div id="leftThing">
+            <div class="sub1">
+                <h2 id="outday">day here</h2>
+                <img src="assets/img/day.png">
+                <script src="js/day.js"></script>
+            </div>
+            <div class="childcont">
+                <div class="left">
+                    <h2 id="jam">00</h2>
+                    <img src="assets/img/jam.png">
+                    <script src="js/clock.js"></script>
+                </div>
+                <div class="right">
+                    <h2 id="menit">00</h2>
+                    <img src="assets/img/menit.png">
+                    <script src="js/munites.js"></script>
+                </div>
+            </div>
+        </div>
+
+        <div id="MiddleThing">
+            <input type="text" id="myText" value="">
+            <button onclick="myFunction()" id="Submit">Submit</button>
+            <p id="demo"></p>
+        </div>
+        
+        <div id="rightThing">
+            <div class="calendar">
+                <div class="month-indicator">
+                  <time datetime="2023-06" class="bulan"> Juni 2023 </time>
+                </div>
+                <div class="day-of-week">
+                  <div>Su</div>
+                  <div>Mo</div>
+                  <div>Tu</div>
+                  <div>We</div>
+                  <div>Th</div>
+                  <div>Fr</div>
+                  <div>Sa</div>
+                </div>
+                <div class="date-grid">
+                  <button>
+                    <time datetime="2023-06-01">1</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-02">2</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-03">3</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-04">4</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-05">5</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-06">6</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-07">7</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-08">8</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-09">9</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-10">10</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-11">11</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-12">12</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-13">13</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-14">14</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-15">15</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-16">16</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-17">17</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-18">18</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-19">19</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-20">20</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-21">21</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-22">22</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-23">23</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-24">24</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-25">25</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-26">26</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-27">27</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-28">28</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-28">29</time>
+                  </button>
+                  <button>
+                    <time datetime="2019-02-28">30</time>
+                  </button>
+                </div>
+              </div>
+        </div>
+    </div>
+
+    <div id="container4">
+        <div id="leftThing2">
+            <div id="head">
+                <h2 class="judul3">Tracking Here</h2>
+                <input type="text" id="search" value="">
+                <button onclick="   " id="btnadd">Add Habbit</button>
+            </div>
+            <div id="cardtrack">
+                <div class="card" style="background-color:  #85c946;">
+                    <div class="bagikiri">
+                        <img src="assets/img/468271.png" class="imgcard">
+                    </div>
+                    <div class="bagitengah1">
+                        <h3 class="titlecard">Mediate Time</h3>
+                        <p class="carddesc">Doing mediate activity now</p>
+                        <p class="cardtime">08.00 - 08.20</p>
+                    </div>
+                    <div class="bagitengah2">
+                        <select class="combo">  
+                            <option name="time" value="15 menit">15 menit</option>
+                            <option name="time" value="15 menit">30 menit</option>
+                            <option name="time" value="15 menit">45 menit</option>
+                            <option name="time" value="15 menit">60 menit</option>
+                            <option name="time" value="15 menit">75 menit</option>
+                            <option name="time" value="15 menit">90 menit</option>
+                            <option name="time" value="15 menit">105 menit</option>
+                            <option name="time" value="15 menit">120 menit</option>
+                        </select>
+                    </div>
+                    <div class="bagikanan">
+                        <h1 class="completion">75%</h1>
+                    </div>
+                </div>
+
+                <div class="card" style="background-color:  #46c957;">
+                    <div class="bagikiri">
+                        <img src="assets/img/468271.png" class="imgcard">
+                    </div>
+                    <div class="bagitengah1">
+                        <h3 class="titlecard">Workout Time</h3>
+                        <p class="carddesc">Doing some workout now</p>
+                        <p class="cardtime">09.00 - 09.30</p>
+                    </div>
+                    <div class="bagitengah2">
+                        <select class="combo">  
+                            <option name="time" value="15 menit">15 menit</option>
+                            <option name="time" value="15 menit">30 menit</option>
+                            <option name="time" value="15 menit">45 menit</option>
+                            <option name="time" value="15 menit">60 menit</option>
+                            <option name="time" value="15 menit">75 menit</option>
+                            <option name="time" value="15 menit">90 menit</option>
+                            <option name="time" value="15 menit">105 menit</option>
+                            <option name="time" value="15 menit">120 menit</option>
+                        </select>
+                    </div>
+                    <div class="bagikanan">
+                        <h1 class="completion">50%</h1>
+                    </div>
+                </div>
+
+                <div class="card" style="background-color:  #46c9a2;">
+                    <div class="bagikiri">
+                        <img src="assets/img/468271.png" class="imgcard">
+                    </div>
+                    <div class="bagitengah1">
+                        <h3 class="titlecard">Learning at school</h3>
+                        <p class="carddesc">Take a lecturere class early</p>
+                        <p class="cardtime">09.30 - 14.30</p>
+                    </div>
+                    <div class="bagitengah2">
+                        <select class="combo">  
+                            <option name="time" value="15 menit">15 menit</option>
+                            <option name="time" value="15 menit">30 menit</option>
+                            <option name="time" value="15 menit">45 menit</option>
+                            <option name="time" value="15 menit">60 menit</option>
+                            <option name="time" value="15 menit">75 menit</option>
+                            <option name="time" value="15 menit">90 menit</option>
+                            <option name="time" value="15 menit">105 menit</option>
+                            <option name="time" value="15 menit">120 menit</option>
+                        </select>
+                    </div>
+                    <div class="bagikanan">
+                        <h1 class="completion">5%</h1>
+                    </div>
+                </div>
+
+                <div class="card" style="background-color:  #46c0c9;">
+                    <div class="bagikiri">
+                        <img src="assets/img/468271.png" class="imgcard">
+                    </div>
+                    <div class="bagitengah1">
+                        <h3 class="titlecard">Dancing Class</h3>
+                        <p class="carddesc">Take a Dancing class now</p>
+                        <p class="cardtime">14.30 - 15.30</p>
+                    </div>
+                    <div class="bagitengah2">
+                        <select class="combo">  
+                            <option name="time" value="15 menit">15 menit</option>
+                            <option name="time" value="15 menit">30 menit</option>
+                            <option name="time" value="15 menit">45 menit</option>
+                            <option name="time" value="15 menit">60 menit</option>
+                            <option name="time" value="15 menit">75 menit</option>
+                            <option name="time" value="15 menit">90 menit</option>
+                            <option name="time" value="15 menit">105 menit</option>
+                            <option name="time" value="15 menit">120 menit</option>
+                        </select>
+                    </div>
+                    <div class="bagikanan">
+                        <h1 class="completion">25%</h1>
+                    </div>
+                </div>
+
+                <div class="card" style="background-color:  #46c0c9;">
+                    <div class="bagikiri">
+                        <img src="assets/img/468271.png" class="imgcard">
+                    </div>
+                    <div class="bagitengah1">
+                        <h3 class="titlecard">Dancing Class</h3>
+                        <p class="carddesc">Take a Dancing class now</p>
+                        <p class="cardtime">14.30 - 15.30</p>
+                    </div>
+                    <div class="bagitengah2">
+                        <select class="combo">  
+                            <option name="time" value="15 menit">15 menit</option>
+                            <option name="time" value="15 menit">30 menit</option>
+                            <option name="time" value="15 menit">45 menit</option>
+                            <option name="time" value="15 menit">60 menit</option>
+                            <option name="time" value="15 menit">75 menit</option>
+                            <option name="time" value="15 menit">90 menit</option>
+                            <option name="time" value="15 menit">105 menit</option>
+                            <option name="time" value="15 menit">120 menit</option>
+                        </select>
+                    </div>
+                    <div class="bagikanan">
+                        <h1 class="completion">25%</h1>
+                    </div>
+                </div>
+
+
+                <div class="card" style="background-color:  #468ac9;">
+                    <div class="bagikiri">
+                        <img src="assets/img/468271.png" class="imgcard">
+                    </div>
+                    <div class="bagitengah1">
+                        <h3 class="titlecard">Yoga & Relaxation</h3>
+                        <p class="carddesc">Doing yoga and take a rest</p>
+                        <p class="cardtime">15.30 - 16.00</p>
+                    </div>
+                    <div class="bagitengah2">
+                        <select class="combo">  
+                            <option name="time" value="15 menit">15 menit</option>
+                            <option name="time" value="15 menit">30 menit</option>
+                            <option name="time" value="15 menit">45 menit</option>
+                            <option name="time" value="15 menit">60 menit</option>
+                            <option name="time" value="15 menit">75 menit</option>
+                            <option name="time" value="15 menit">90 menit</option>
+                            <option name="time" value="15 menit">105 menit</option>
+                            <option name="time" value="15 menit">120 menit</option>
+                        </select>
+                    </div>
+                    <div class="bagikanan">
+                        <h1 class="completion">50%</h1>
+                    </div>
+                </div>
+
+                <div class="card" style="background-color:  #465ac9;">
+                    <div class="bagikiri">
+                        <img src="assets/img/468271.png" class="imgcard">
+                    </div>
+                    <div class="bagitengah1">
+                        <h3 class="titlecard">Cleaning Home</h3>
+                        <p class="carddesc">Cleaning time after full activities </p>
+                        <p class="cardtime">16.00 - 17.00</p>
+                    </div>
+                    <div class="bagitengah2">
+                        <select class="combo">  
+                            <option name="time" value="15 menit">15 menit</option>
+                            <option name="time" value="15 menit">30 menit</option>
+                            <option name="time" value="15 menit">45 menit</option>
+                            <option name="time" value="15 menit">60 menit</option>
+                            <option name="time" value="15 menit">75 menit</option>
+                            <option name="time" value="15 menit">90 menit</option>
+                            <option name="time" value="15 menit">105 menit</option>
+                            <option name="time" value="15 menit">120 menit</option>
+                        </select>
+                    </div>
+                    <div class="bagikanan">
+                        <h1 class="completion">25%</h1>
+                    </div>
+                </div>
+
+                <div class="card" style="background-color:  #b346c9;">
+                    <div class="bagikiri">
+                        <img src="assets/img/468271.png" class="imgcard">
+                    </div>
+                    <div class="bagitengah1">
+                        <h3 class="titlecard">Doing Homework</h3>
+                        <p class="carddesc">take homework and running exercise</p>
+                        <p class="cardtime">18.00 - 21.00</p>
+                    </div>
+                    <div class="bagitengah2">
+                        <select class="combo">  
+                            <option name="time" value="15 menit">15 menit</option>
+                            <option name="time" value="15 menit">30 menit</option>
+                            <option name="time" value="15 menit">45 menit</option>
+                            <option name="time" value="15 menit">60 menit</option>
+                            <option name="time" value="15 menit">75 menit</option>
+                            <option name="time" value="15 menit">90 menit</option>
+                            <option name="time" value="15 menit">105 menit</option>
+                            <option name="time" value="15 menit">120 menit</option>
+                        </select>
+                    </div>
+                    <div class="bagikanan">
+                        <h1 class="completion">12%</h1>
+                    </div>
+                </div>
+
+                <div class="card" style="background-color:  #c94672;">
+                    <div class="bagikiri">
+                        <img src="assets/img/468271.png" class="imgcard">
+                    </div>
+                    <div class="bagitengah1">
+                        <h3 class="titlecard">Reading time</h3>
+                        <p class="carddesc">Reading a book or novel</p>
+                        <p class="cardtime">21.00 - 22.00</p>
+                    </div>
+                    <div class="bagitengah2">
+                        <select class="combo">  
+                            <option name="time" value="15 menit">15 menit</option>
+                            <option name="time" value="15 menit">30 menit</option>
+                            <option name="time" value="15 menit">45 menit</option>
+                            <option name="time" value="15 menit">60 menit</option>
+                            <option name="time" value="15 menit">75 menit</option>
+                            <option name="time" value="15 menit">90 menit</option>
+                            <option name="time" value="15 menit">105 menit</option>
+                            <option name="time" value="15 menit">120 menit</option>
+                        </select>
+                    </div>
+                    <div class="bagikanan">
+                        <h1 class="completion">25%</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="rightThing2">
+            <div id="head2">
+                <h2 class="judul4">Habbit Progress</h2>
+            </div>
+            <div id="graph1"><br><br>
+                <canvas id="inicanvas"></canvas>
+                <script src="js/piechart.js"></script>
+            </div>
+            <div id="graph2"><br>
+                <canvas id="linechart" width="500" height="310"></canvas>
+                 <script src="js/linechart.js"></script>
+            </div>
+            <div id="graph3">
+                <canvas id="barChart" width="580" height="380"></canvas>
+                <script src="js/barchart.js"></script>
+            </div>
+        </div>
+    </div>
+    <!-- <hr> -->
+</body>
+</html>
