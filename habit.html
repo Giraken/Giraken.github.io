@@ -45,7 +45,7 @@
 
             <div class="form-input">
                 <ul>
-                    <li><input class="habit-name" type="text" id="fname" name="" required></li>
+                    <li><input class="habit-name" type="text" id="fname" name="" required maxlength="15"></li>
 
                     <li class="habit-duration">
                         <input class="custom-radio" type="radio" name="radio"><label class="time-duration" value="15M">15 Minutes</label>
@@ -276,7 +276,7 @@
 
                     <li class="button">
                         <div>
-                            <button class="custom-button" type="submit">
+                            <button class="custom-button" type="submit" onclick="addTask()">
                                 Add <a href="#"></a>
                             </button>
                         </div>
@@ -285,5 +285,7 @@
             </div>
         </div>
     </section>
+
+    <script src="js/script_habit.js"></script>
 </body>
 </html>

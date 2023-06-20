@@ -12,7 +12,6 @@ function addTask() {
       span.innerHTML = "\u00d7";
       li.appendChild(span);
       let hr = document.createElement("hr");
-      span.innerHTML = "\u00d7";
       li.appendChild(hr);
   }
 
