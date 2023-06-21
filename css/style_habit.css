@@ -128,6 +128,7 @@ a:hover{
 /* Duration */
 .form-input .habit-duration{
     padding: 10px;
+    width: 600px;
 }
 
 .form-input .custom-radio{

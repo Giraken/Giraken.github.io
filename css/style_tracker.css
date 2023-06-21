@@ -443,7 +443,7 @@ header .current-date{
 }
 
 .bagikiri{
-    width: 125px;
+    width: 200px;
 }
 
 .imgcard{
@@ -489,13 +489,57 @@ header .current-date{
     padding: 5px;
 }
 
-.bagikanan{
-    width: 50px;
-    margin: 15px;
+.bagikanan span{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    margin-top: 5px;
+    color: #474747;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.bagikanan span:hover{
+  background: rgb(184, 184, 184);
+  cursor: pointer;
 }
 
 .completion{
     margin-top: 30px;
+}
+
+.color-1 {
+  background-color: #577BD7;
+}
+
+.color-2 {
+  background-color: #57D76B;
+}
+
+.color-3 {
+  background-color: #D75757;
+}
+
+.color-4 {
+  background-color: #A657D7;
+}
+
+.color-5 {
+  background-color: #57D7B0;
+}
+
+.color-6 {
+  background-color: #D7BB57;
+}
+
+.color-7 {
+  background-color: #D78557;
+}
+
+.color-8 {
+  background-color: #D7576E;
 }
 
 .add-new{
@@ -515,6 +559,7 @@ header .current-date{
   height: 100px;
   border: 0px;
   cursor: pointer;
+  margin-bottom: 75px;
 }
 
 .add-new button span{
@@ -549,10 +594,29 @@ header .current-date{
 
 #graph1{
     width: 425px;
-    height: 310px;
-    background-color: #ECEDE3;
-    margin: 20px;
+    height: auto;
+    margin: 10px;
     border-radius: 10px;
+    text-align: center;
+}
+
+#graph1 h1{
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+#graph1 div{
+    background-color:#FAE67D;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: 160px;
+}
+
+#graph1 span{
+    font-size: 4rem;
+    font-weight: 600;
+    color: #EBA236;
 }
 
 #graph2{
@@ -569,16 +633,4 @@ header .current-date{
     background-color: #ECEDE3;
     border-radius: 10px;
     margin: 20px;
-}
-
-#inicanvas {
-    scale: 1;
-}
-
-#linechart{
-    scale: 0.92;
-}
-
-#barchart{
-    scale: 0.94;
 }

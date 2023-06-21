@@ -9,8 +9,6 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/style_tracker.css"/>
 
-    <script src="trackerprogress.js"></script>
-
     <!-- Fonts and Icon -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
@@ -64,11 +62,6 @@
             <input type="text" id="input-box" placeholder="Add your text">
             <hr>
             <button onclick="addTask()">Add</button>
-            <ul id="list-container">
-                <!-- <li class="checked">Task 1</li>
-                <li>Task 2</li>
-                <li>Task 3</li> -->
-            </ul>
             <script src="js/note.js"></script>
         </div>
         
@@ -105,32 +98,7 @@
                 <h2 class="judul3">Your Habit</h2>
                 <input type="text" id="search" value="" placeholder="Search your habit">
             </div>
-            <!-- <div id="cardtrack">
-                <div class="card" style="background-color:  #85c946;">
-                    <div class="bagikiri">
-                        <img src="assets/img/468271.png" class="imgcard">
-                    </div>
-                    <div class="bagitengah1">
-                        <h3 class="titlecard">123456789012345</h3>
-                        <p class="cardtime">08.00 AM</p>
-                    </div>
-                    <div class="bagitengah2">
-                        <select class="combo">  
-                            <option name="time" value="15 menit">15 menit</option>
-                            <option name="time" value="30 menit">30 menit</option>
-                            <option name="time" value="45 menit">45 menit</option>
-                            <option name="time" value="60 menit">60 menit</option>
-                            <option name="time" value="75 menit">75 menit</option>
-                            <option name="time" value="90 menit">90 menit</option>
-                            <option name="time" value="105 menit">105 menit</option>
-                            <option name="time" value="120 menit">120 menit</option>
-                        </select>
-                    </div>
-                    <div class="bagikanan">
-                        <h1 class="completion">75%</h1>
-                    </div>
-                </div>
-            </div> -->
+            <div class="" id="containerHabit"></div>
             <div class="add-new">
                 <p>Add new habit</p>
                 <a href="habit.html">
@@ -140,6 +108,7 @@
                         </span>
                     </button>
                 </a>
+                <script src="js/script_newhabit.js"></script>
             </div>
         </div>
         <div id="rightThing2">
@@ -147,16 +116,12 @@
                 <h2 class="judul4">Habit Progress</h2>
             </div>
             <div id="graph1"><br><br>
-                <canvas id="inicanvas"></canvas>
-                <script src="js/piechart.js"></script>
-            </div>
-            <div id="graph2"><br>
-                <canvas id="linechart" width="500" height="310"></canvas>
-                 <script src="js/linechart.js"></script>
-            </div>
-            <div id="graph3">
-                <canvas id="barChart" width="580" height="380"></canvas>
-                <script src="js/barchart.js"></script>
+                <h1>Your current streak is</h1>
+                <div>
+                    <span id="streak"></span>
+                </div>
+                <h2>habit</h2>
+                <script src="js/script_streak.js"></script>
             </div>
         </div>
     </div>
