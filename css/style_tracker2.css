@@ -148,7 +148,7 @@ a:hover{
   font-weight: bold;
   color: #ffffff;
   margin-top: 20px;
-  margin-left: 17px;
+  margin-left: 15px;
   text-shadow: 4px 4px 4px  rgb(0, 0, 0, 0.15);
 }
 
@@ -158,116 +158,76 @@ a:hover{
   font-weight: bold;
   color: #ffffff;
   margin-top: 20px;
-  margin-left: 17px;
+  margin-left: 20px;
   text-shadow: 4px 4px 4px  rgb(0, 0, 0, 0.15);
 }
 
 /* Note */
 #note{
-  max-width: 400px;
-  width: 50%;
+  width: 400px;
   background-color: #FAE67D;
   border-radius: 10px;
-  /* box-shadow: inset 0 0 10px rgb(0, 0, 0, 0.15); */
+  box-shadow: inset 0 0 10px rgb(0, 0, 0, 0.15);
   padding: 20px;
   margin-left: 20px;
-  border: none;
 }
 
-#note h1{
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: #474747;
+#myText{
+  border-style: solid;
 }
 
-#note input{
-  flex: 1;
-  border: none;
-  outline: none;
-  background: transparent;
-  padding: 5px;
-}
-
-#note hr{
-  margin-top: 5px;
-  border-top: 3px dotted #808080;
-  width: 350px;
-  height: 5px;
-  border-bottom: none;
-  border-left: none;
-  border-right: none;
-}
-
-#note button{
-  margin-top: 10px;
-  margin-left: 110px;
-  width: 150px;
-  border: none;
-  outline: none;
-  padding: 5px 5px;
-  background: #DAD182;
-  color: black;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 10px;
-}
-
-#note ul li{
-  list-style: none;
-  font-size: 17px;
-  padding: 5px;
-  user-select: none;
-  cursor: pointer;
-  position: relative;
-}
-
-#note ul li::before{
-  content: '';
-  position: absolute;
-  height: 28px;
-  width: 28px;
-  border-radius: 50%;
-  background-image: url("./assets/img/unchecked.png");
-  background-size: cover;
-  background-position: center;
-  top: 12px;
-  left: 8px;
-}
-
-#note ul li.checked{
-  color: #555;
-  text-decoration: line-through;
-}
-
-#note ul li.checked::before{
-  background-image: url("./assets/img/checked.png");
-}
-
-#note ul li span{
-  position: absolute;
-  right: 0;
-  top: 5px;
-  width: 30px;
+#Submit{
   height: 30px;
-  font-size: 20px;
-  color: #555;
-  line-height: 30px;
-  text-align: center;
-  border-radius: 50%;
+  width: 103px;
+  border-radius: 10px;
+  border-style: none;
+  background-color: #9EB801;
 }
 
-#note ul li span:hover{
-  background: #EBA236;
+#demo{
+  margin: 20px 5px 0px 20px;
+  font-size: 14px;
+  width: 412px;
+  height : 190px;
+  overflow: scroll;
+  text-align: justify;
 }
 
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.fade-appear {
+  opacity: 0.01;
+}
+
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
 
 /* Calendar */
 #rightThing {
   width: 400px;
   height : auto;
   margin-left: 20px;
+  background-color: #FDFDFD;
   border-radius: 10px;
-  box-shadow: auto 0 0 10px rgb(0, 0, 0, 0.15)
+  box-shadow: inset 0 0 10px rgb(0, 0, 0, 0.15)
 }
 
 .wrapper{
@@ -377,7 +337,7 @@ header .current-date{
   background: #f2f2f2;
 }
 
-.custom-hr {
+hr {
   margin: 50 auto;
   width: 1200px;
   height: 5px;
@@ -397,7 +357,7 @@ header .current-date{
 
 #leftThing2 {
   width: 700px;
-  height: auto;
+  height : 1070px;
   margin: 0 auto;
   border-radius: 10px;
   margin-left: 20px;
@@ -427,7 +387,7 @@ header .current-date{
 
 #cardtrack{
   width: 725px;
-  height: auto;
+  height : 1010px;
   margin-top: 26px;
   overflow:scroll;
 }
@@ -443,7 +403,7 @@ header .current-date{
 }
 
 .bagikiri{
-    width: 150px;
+    width: 125px;
 }
 
 .imgcard{
@@ -453,7 +413,8 @@ header .current-date{
 }
   
 .bagitengah1{
-    width: 300px;
+    width: 250px;
+    margin-left: 4%;
 }  
 
 .titlecard{
@@ -473,17 +434,11 @@ header .current-date{
   
 .bagitengah2{
     margin: 15px;
-    width: 150px;
-    margin-top: 30px;
+    width: 125px;
+    margin-left: 50px;
 }  
-
-.bagitengah2 p{
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #fff;
-}
   
-/* .combo{
+.combo{
     width: 100px;
     height: 40px;
     border-radius: 10px;
@@ -492,85 +447,15 @@ header .current-date{
     border-style: solid;
     border-width: 2px;
     padding: 5px;
-} */
-
-.bagikanan span{
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    font-size: 20px;
-    margin-top: 10px;
-    color: #474747;
-    line-height: 20px;
-    text-align: center;
-    border-radius: 50%;
-    margin-left: 35px;
 }
 
-.bagikanan span:hover{
-  background: rgb(184, 184, 184);
-  cursor: pointer;
+.bagikanan{
+    width: 50px;
+    margin: 15px;
 }
 
 .completion{
     margin-top: 30px;
-}
-
-.color-1 {
-  background-color: #577BD7;
-}
-
-.color-2 {
-  background-color: #57D76B;
-}
-
-.color-3 {
-  background-color: #D75757;
-}
-
-.color-4 {
-  background-color: #A657D7;
-}
-
-.color-5 {
-  background-color: #57D7B0;
-}
-
-.color-6 {
-  background-color: #D7BB57;
-}
-
-.color-7 {
-  background-color: #D78557;
-}
-
-.color-8 {
-  background-color: #D7576E;
-}
-
-.add-new{
-  margin-top: 50px;
-  text-align: center;
-}
-
-.add-new p{
-  font-size: 2rem;
-}
-
-.add-new button{
-  margin-top: 15px;
-  border-radius: 50%;
-  background-color: #DAD182;
-  width: 100px;
-  height: 100px;
-  border: 0px;
-  cursor: pointer;
-  margin-bottom: 75px;
-}
-
-.add-new button span{
-  font-weight: 700;
-  font-size: 5rem;
 }
 
 ::-webkit-scrollbar {
@@ -580,7 +465,7 @@ header .current-date{
 /*  Progress  */
 #rightThing2{
   width: 400px;
-  height: auto;
+  height : 1057px;
   margin: 0px 100px 0px 20px;
   border-radius: 10px;
   margin-left: 25px;
@@ -600,29 +485,10 @@ header .current-date{
 
 #graph1{
     width: 425px;
-    height: auto;
-    margin: 10px;
+    height: 310px;
+    background-color: #ECEDE3;
+    margin: 20px;
     border-radius: 10px;
-    text-align: center;
-}
-
-#graph1 h1{
-  font-size: 1.5rem;
-  font-weight: 500;
-}
-
-#graph1 div{
-    background-color:#FAE67D;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    margin-left: 160px;
-}
-
-#graph1 span{
-    font-size: 4rem;
-    font-weight: 600;
-    color: #EBA236;
 }
 
 #graph2{
@@ -639,4 +505,16 @@ header .current-date{
     background-color: #ECEDE3;
     border-radius: 10px;
     margin: 20px;
+}
+
+#inicanvas {
+    scale: 1;
+}
+
+#linechart{
+    scale: 0.92;
+}
+
+#barchart{
+    scale: 0.94;
 }

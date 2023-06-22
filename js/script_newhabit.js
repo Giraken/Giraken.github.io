@@ -14,10 +14,7 @@ function showTask() {
                     <p class="cardtime">`+habit.time+`</p>
                 </div>
                 <div class="bagitengah2">
-                    <select class="combo" disabled>  
-                        <p name="time" value="15 menit">`+habit.duration+`</p>
-                        <option name="time" value="15 menit">`+habit.duration+` </option>
-                    </select>
+                    <p name="time" value="15 menit"> Duration : <br> `+habit.duration+`</p>
                 </div>
                 <div class="bagikanan">
                     <span onclick="removeTask(`+habit.id+`)">x</span>
@@ -26,7 +23,7 @@ function showTask() {
         </div>`;
         container.appendChild(html);
     });
-}
+}  
 
 function removeTask(id) {
     var habits = JSON.parse(localStorage.getItem("myValue"));

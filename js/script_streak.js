@@ -1,2 +1,2 @@
-const countStreak = document.querySelector('#cardtrack').length;
-console.log(countStreak);
+let numb = document.getElementById("containerHabit").childElementCount;
+document.getElementById("streak").innerHTML = numb;
