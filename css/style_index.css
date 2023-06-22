@@ -15,7 +15,6 @@ body {
 /* Header */
 header {
     position: relative;
-    padding: 0 2rem;
 }
 
 .active{
@@ -25,7 +24,7 @@ header {
 .navbar {
     width: 100%;
     height: 60px;
-    max-width: 1500px;
+    max-width: 1440px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -148,4 +147,108 @@ a:hover{
 /* Image */
 .bg-img img{
     width: 600px;
+}
+
+.wrapper{
+    text-align: center;
+    margin-top: 30px;
+}
+
+@media (max-width : 1440px) {
+    .navbar {
+        margin: 0 auto;
+        width: 100%;
+        height: 60px;
+        max-width: 1440px;
+      }
+    
+    #hero .grid-container{
+        grid-template-columns: 600px auto;
+        margin-left : 80px;
+        margin-top: 30px;
+    }
+
+    .greetings{
+        width: 650px;
+    }
+
+    .greetings p{
+        width: 500px;
+    }
+
+    .greetings h1{
+        font-size: 3rem;
+        position: relative;
+    }
+
+    .custom-btn {
+        margin-top: 50px;
+    }
+    .custom-btn button {
+        width: 220px;
+        height: 50px;
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
+
+    .bg-img img{
+        width: 450px;
+        margin-left: 10px;
+        margin-top: 60px;
+    }
+
+    .wrapper{
+        text-align: center;
+        margin-top: 60px;
+    }
+}
+
+@media (max-width : 1300px) {
+    .navbar {
+        margin: 0 auto;
+        width: 100%;
+        height: 60px;
+        max-width: 1024px;
+      }
+    
+    #hero .grid-container{
+        grid-template-columns: 400px auto;
+        margin-left : 50px;
+        margin-top: 30px;
+    }
+
+    .greetings{
+        width: 550px;
+    }
+
+    .greetings h1{
+        font-size: 2rem;
+        position: relative;
+    }
+
+    .greetings p{
+        width: 400px;
+        margin-left: 20px;
+        font-size: 14px;
+    }
+
+    .custom-btn {
+        margin-top: 50px;
+    }
+    .custom-btn button {
+        width: 220px;
+        height: 50px;
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
+
+    .bg-img img{
+        width: 400px;
+        margin-left: 130px;
+    }
+
+    .wrapper{
+        text-align: center;
+        margin-top: 80px;
+    }
 }

@@ -15,7 +15,6 @@ body {
 /* Header */
 header {
     position: relative;
-    padding: 0 2rem;
 }
 
 .active{
@@ -25,7 +24,7 @@ header {
 .navbar {
     width: 100%;
     height: 60px;
-    max-width: 1500px;
+    max-width: 1440px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -609,6 +608,7 @@ header .current-date{
 #graph1 h1{
   font-size: 1.5rem;
   font-weight: 500;
+  margin-top: -30px;
 }
 
 #graph1 div{
@@ -639,4 +639,226 @@ header .current-date{
     background-color: #ECEDE3;
     border-radius: 10px;
     margin: 20px;
+}
+
+@media (max-width : 1440px) { 
+  .navbar {
+    margin: 0 auto;
+    width: 100%;
+    height: 60px;
+    max-width: 1440px;
+  }
+  
+  #container3{
+    max-width: 1340px;
+    height : 350px;
+    margin-top: 75px;
+
+  }
+  #note{
+    scale : 1;
+    position: relative;
+    margin-left: 30px;
+    margin-right: 10px;
+  }
+
+  #rightThing{
+    scale : 1;
+  }
+
+  #leftThing {
+    scale : 1;
+    margin-left: 80px;
+  }
+
+  #note ul li{
+    font-size: 18px;
+
+  }
+  .custom-hr {
+    margin: 50 auto;
+    width: 1200px;
+    height: 5px;
+  }
+
+  #container4 {
+    max-width: 1440px;
+    margin-top: 4px;
+  }
+
+  #leftThing2 {
+    width: 700px;
+    height: auto;
+    border-radius: 10px;
+    margin-left: 120px;
+    margin-right: 10px;
+  }
+
+  #head{
+    width: 700px;
+    height : 50px;
+  }
+
+  .judul3{
+    font-size: 1.4rem;
+    margin-top: 24px;
+  }
+
+  #search{
+    width: 380px;
+    height: 40px;
+  }
+
+  .add-new p{
+    font-size: 1rem;
+  }
+  
+  .add-new button{
+    width: 80px;
+    height: 80px;
+  }
+
+  #rightThing2{
+    width: 450px;
+    height: auto;
+  }
+
+  #head2{
+    width: 425px;
+    height : 50px;
+  }
+      
+  .judul4{
+    margin-top: 24px;
+    font-size: 1.4rem;
+  }
+
+
+  #graph1{
+    width: 425px;
+  }
+
+  #graph1 h1{
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: -30px;
+  }
+
+}
+
+@media (max-width : 1300px) { 
+  .navbar {
+    margin: 0 auto;
+    width: 100%;
+    height: 60px;
+    max-width: 1024px;
+  }
+  
+  #container3{
+    max-width: 1024px;
+    height : 250px;
+    margin-top: 30px;
+
+  }
+  #note{
+    scale : 0.8;
+    position: relative;
+    margin-left: -45px;
+  }
+
+  #rightThing{
+    scale : 0.65;
+    margin-top: -28px;
+    margin-left: -100px;
+  }
+
+  #leftThing {
+    scale : 0.80;
+    margin-left: 45px;
+  }
+
+  #note ul li{
+    font-size: 14px;
+
+  }
+  .custom-hr {
+    margin: 20 auto;
+    width: 860px;
+    height: 5px;
+  }
+
+  #container4 {
+    max-width: 860px;
+  }
+
+  #leftThing2 {
+    width: 540px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+
+  #head{
+    width: 540px;
+    height : 50px;
+  }
+
+  .judul3{
+    font-size: 1.2rem;
+    margin-top: 24px;
+  }
+
+  #search{
+    width: 330px;
+    height: 40px;
+    margin-left: -20px;
+    margin-right: 2%;
+  }
+
+  .add-new p{
+    font-size: 1rem;
+  }
+  
+  .add-new button{
+    width: 80px;
+    height: 80px;
+  }
+
+  #rightThing2{
+    width: 320px;
+    height: auto;
+  }
+
+  #head2{
+    width: 320px;
+    height : 50px;
+  }
+      
+  .judul4{
+    margin-top: 24px;
+    font-size: 1.2rem;
+  }
+
+  #graph1{
+    width: 280px;
+    height: auto;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  #graph1 h1{
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-left: 20px;
+  margin-top: -40px;
+  }
+
+  #graph1 div{
+
+    margin-left: 100px;
+  }
+  #graph1 h2{
+    margin-left: 20px;
+  }
 }
