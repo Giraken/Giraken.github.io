@@ -100,6 +100,7 @@ a:hover{
 
 .question li{
     margin: 30px;
+    margin-bottom : 45px;
 }
 
 .question label{
@@ -109,6 +110,7 @@ a:hover{
 
 .form-input li{
     margin: 30px;
+
 }
 
 #form .bg-color {

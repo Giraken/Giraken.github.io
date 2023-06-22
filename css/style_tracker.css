@@ -416,7 +416,7 @@ header .current-date{
 }
 
 #search{
-  width: 250px;
+  width: 400px;
   height: 45px;
   margin-top: 20px;
   border-radius: 10px;
@@ -815,6 +815,63 @@ header .current-date{
     margin-right: 2%;
   }
 
+  #cardtrack{
+  width: 540px;
+  height: auto;
+  margin-top: 26px;
+  overflow:scroll;
+  }
+
+  .card {
+    height: 120px;
+    width: 540px;
+  }
+
+  .bagikiri{
+    width: 100px;
+  }
+
+  .imgcard{
+    width: 60%;
+    margin-top :25px;
+    margin-left : 10px;
+  }
+  
+  .bagitengah1{
+    width: 220px;
+  }  
+
+  .titlecard{
+    font-size: 1.4rem;
+    margin-left: 30px;
+  }
+
+.cardtime{
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-left: 30px;
+}
+
+.bagitengah2{
+    width: 120px;
+}  
+
+.bagitengah2 p{
+  font-size: 1.2rem;
+}
+
+.bagikanan span{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    margin-top: 10px;
+    color: #474747;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    margin-left: 35px;
+}
   .add-new p{
     font-size: 1rem;
   }
