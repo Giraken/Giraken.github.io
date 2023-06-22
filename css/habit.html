@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
+    <title>Habit Tracker</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style_habit.css">
+
+    <!-- Icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="#">Habit Tracker</a></div>
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="habit.html" class="active">Habit</a></li>
+                <li><a href="tracker.html">Perfomance</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+
+            <a href="team.html" class="action-btn">Our Team</a>
+        </div>
+    </header>
+
+    <section id="form">
+        <h1>Track new habit</h1>
+        <div class="grid-container">
+            <div class="question">
+                <ul>
+                    <li><label>Activity name </label></li>
+                    <li><label>Duration of habit </label></li>
+                    <li><label>Activity time </label></li>
+                    <li><label>Choose icon </label></li>
+                    <li class="bg-color"><label>Choose background color </label></li>
+                </ul>
+            </div>
+
+            <div class="form-input">
+                <ul>
+                    <li><input class="habit-name" type="text" id="activity" name="" required maxlength="15"></li>
+
+                    <li class="habit-duration">
+                        <input class="custom-radio" type="radio" name="duration" value="15 Minutes"><label class="time-duration">15 Minutes</label>
+                        <input class="custom-radio" type="radio" name="duration" value="30 Minutes"><label class="time-duration">30 Minutes</label>
+                        <input class="custom-radio" type="radio" name="duration" value="45 Minutes"><label class="time-duration">45 Minutes</label>
+                        <input class="custom-radio" type="radio" name="duration" value="60 Minutes"><label class="time-duration">60 Minutes</label>
+                        <input class="custom-radio" type="radio" name="duration" value="75 Minutes"><label class="time-duration">75 Minutes</label>
+                        <input class="custom-radio" type="radio" name="duration" value="90 Minutes"><label class="time-duration">90 Minutes</label>
+                        <input class="custom-radio" type="radio" name="duration" value="105 Minutes"><label class="time-duration">105 Minutes</label>
+                        <input class="custom-radio" type="radio" name="duration" value="120 Minutes"><label class="time-duration">120 Minutes</label>
+                    </li>
+
+                    <li><input class="habit-time" type="time" id="time" name="" max="23.59" min="00.00" required></li>
+
+                    <li class="habit-icon">
+                        <div class="grid-icon">
+                            <label for="sprint">
+                                <input class="custom-icon" type="radio" name="icon" id="icon" value="sprint" checked>
+                                <i class="material-symbols-outlined" style="font-size: 60px;">
+                                    sprint
+                                </i>
+                            </label>
+                            
+                            <label for="pool">
+                                <input class="custom-icon" type="radio" name="icon" id="pool" value="pool">
+                                <i class="material-symbols-outlined" style="font-size: 60px;">
+                                    pool
+                                </i>
+                            </label>
+    
+                            <label for="sports_gymnastics">
+                                <input class="custom-icon" type="radio" name="icon" id="sports_gymnastics" value="sports_gymnastics">
+                                <i class="material-symbols-outlined" style="font-size: 60px;">
+                                    sports_gymnastics
+                                </i>
+                            </label>
+
+                            <label for="self_improvement">
+                                <input class="custom-icon" type="radio" name="icon" id="self_improvement" value="self_improvement">
+                                <i class="material-symbols-outlined" style="font-size: 60px;">
+                                    self_improvement
+                                </i>
+                            </label>
+
+                            <label for="hiking">
+                                <input class="custom-icon" type="radio" name="icon" id="hiking" value="hiking">
+                                <i class="material-symbols-outlined" style="font-size: 60px;">
+                                    hiking
+                                </i>
+                            </label>
+
+                            <label for="directions_run">
+                                <input class="custom-icon" type="radio" name="icon" id="directions_run" value="directions_run">
+                                <i class="material-symbols-outlined" style="font-size: 60px;">
+                                    directions_run
+                                </i>
+                            </label>
+                            
+                            <label for="mindfulness">
+                                <input class="custom-icon" type="radio" name="icon" id="mindfulness" value="mindfulness">
+                                <i class="material-symbols-outlined" style="font-size: 60px;">
+                                    mindfulness
+                                </i>
+                            </label>
+                            
+                            <label for="psychology">
+                                <input class="custom-icon" type="radio" name="icon" id="psychology" value="psychology">
+                                <i class="material-symbols-outlined" style="font-size: 60px;">
+                                    psychology
+                                </i>
+                            </label>
+    
+                            <label for="fitness_center">
+                                <input class="custom-icon" type="radio" name="icon" id="fitness_center" value="fitness_center">
+                                <i class="material-symbols-outlined" style="font-size: 60px;">
+                                    fitness_center
+                                </i>
+                            </label>
+
+                            <label for="ecg_heart">
+                                <input class="custom-icon" type="radio" name="icon" id="ecg_heart" value="ecg_heart">
+                                <i class="material-symbols-outlined" style="font-size: 60px;">
+                                    ecg_heart
+                                </i>
+                            </label>
+    
+                            <label for="prescriptions">
+                                <input class="custom-icon" type="radio" name="icon" id="prescriptions" value="prescriptions">
+                                <i class="material-symbols-outlined" style="font-size: 60px;">
+                                    prescriptions
+                                </i>
+                            </label>
+
+                            <label for="pedal_bike">
+                                <input class="custom-icon" type="radio" name="icon" id="pedal_bike" value="pedal_bike">
+                                <i class="material-symbols-outlined" style="font-size: 60px;">
+                                    pedal_bike
+                                </i>
+                            </label>
+    
+                            <label for="book">
+                                <input class="custom-icon" type="radio" name="icon" id="book" value="book">
+                                <i class="material-symbols-outlined" style="font-size: 60px;">
+                                    book
+                                </i>
+                            </label>
+    
+                            <label for="edit_note">
+                                <input class="custom-icon" type="radio" name="icon" id="edit_note" value="edit_note">
+                                <i class="material-symbols-outlined" style="font-size: 60px;">
+                                    edit_note
+                                </i>
+                            </label>
+    
+                            <label for="emoji_objects">
+                                <input class="custom-icon" type="radio" name="icon" id="emoji_objects" value="emoji_objects">
+                                <i class="material-symbols-outlined" style="font-size: 60px;">
+                                    emoji_objects
+                                </i>
+                            </label>
+    
+                            <label for="potted_plant">
+                                <input class="custom-icon" type="radio" name="icon" id="potted_plant" value="potted_plant">
+                                <i class="material-symbols-outlined" style="font-size: 60px;">
+                                    potted_plant
+                                </i>
+                            </label>
+    
+                            <label for="palette">
+                                <input class="custom-icon" type="radio" name="icon" id="palette" value="palette">
+                                <i class="material-symbols-outlined" style="font-size: 60px;">
+                                    palette
+                                </i>
+                            </label>
+    
+                            <label for="handyman">
+                                <input class="custom-icon" type="radio" name="icon" id="handyman" value="handyman">
+                                <i class="material-symbols-outlined" style="font-size: 60px;">
+                                    handyman
+                                </i>
+                            </label>
+    
+                            <label for="sports_soccer">
+                                <input class="custom-icon" type="radio" name="icon" id="sports_soccer" value="sports_soccer">
+                                <i class="material-symbols-outlined" style="font-size: 60px;">
+                                    sports_soccer
+                                </i>
+                            </label>
+    
+                            <label for="trophy">
+                                <input class="custom-icon" type="radio" name="icon" id="trophy" value="trophy">
+                                <i class="material-symbols-outlined" style="font-size: 60px;">
+                                    trophy
+                                </i>
+                            </label>
+                        </div>
+                    </li>
+
+                    <li class="habit-color">
+                        <div>
+                            <input type="radio" id="color-1" name="color" value="color-1" checked>
+                            <label for="color-1">
+                              <span>
+                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                              </span>
+                            </label>
+                        </div>
+                          
+                        <div>
+                            <input type="radio" id="color-2" name="color" value="color-2">
+                            <label for="color-2">
+                              <span>
+                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                              </span>
+                            </label>
+                        </div>
+                          
+                        <div>
+                            <input type="radio" id="color-3" name="color" value="color-3">
+                            <label for="color-3">
+                              <span>
+                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                              </span>
+                            </label>
+                        </div>
+                        
+                        <div>
+                            <input type="radio" id="color-4" name="color" value="color-4">
+                            <label for="color-4">
+                              <span>
+                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                              </span>
+                            </label>
+                        </div>
+                  
+                        <div>
+                            <input type="radio" id="color-5" name="color" value="color-5">
+                            <label for="color-5">
+                              <span>
+                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                              </span>
+                            </label>
+                        </div>
+                  
+                          <div>
+                            <input type="radio" id="color-6" name="color" value="color-6">
+                            <label for="color-6">
+                              <span>
+                                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                              </span>
+                            </label>
+                          </div>
+                  
+                          <div>
+                            <input type="radio" id="color-7" name="color" value="color-7">
+                            <label for="color-7">
+                              <span>
+                                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                              </span>
+                            </label>
+                          </div>
+                  
+                          <div>
+                            <input type="radio" id="color-8" name="color" value="color-8">
+                            <label for="color-8">
+                              <span>
+                                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                              </span>
+                            </label>
+                          </div>
+                    </li>
+
+                    <li class="button">
+                        <div>
+                            <button class="custom-button" type="submit" onclick="submitValue()">
+                                Add <a href="#"></a>
+                            </button>
+                        </div>
+                    </li>
+                </ul> 
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script_addhabit.js"></script>
+</body>
+</html>
