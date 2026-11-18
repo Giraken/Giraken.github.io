@@ -77,6 +77,8 @@ body {
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-underline-offset: .2em; }
 p, ul, ol, dl, dd, figure, blockquote, h1, h2, h3, h4 { margin: 0; }
+p { text-wrap: pretty; }
+.role, .outcome-big, .thanks, .footer-title, .c-quote p { text-wrap: balance; }
 ul, ol { padding: 0; list-style: none; }
 button { font: inherit; color: inherit; cursor: pointer; }
 [hidden] { display: none !important; }
@@ -123,6 +125,7 @@ h1, h2 {
   font-weight: 500;
   line-height: 1.02;
   letter-spacing: -.025em;
+  text-wrap: balance;
 }
 h2 { font-size: clamp(38px, 5.4vw, 66px); }
 h3 { font-size: 21px; font-weight: 600; line-height: 1.25; }
@@ -945,6 +948,7 @@ h3 { font-size: 21px; font-weight: 600; line-height: 1.25; }
 .statement p { max-width: 40em; margin: 18px auto 0; font-size: clamp(18px, 2vw, 21px); line-height: 1.6; }
 
 .goals { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px 48px; }
+@media (min-width: 761px) { .goals-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .goals li { position: relative; padding-left: 26px; font-size: 18px; line-height: 1.55; }
 .goals li::before {
   content: ""; position: absolute; left: 2px; top: .55em; width: 9px; height: 9px;
@@ -1547,6 +1551,9 @@ h3 { font-size: 21px; font-weight: 600; line-height: 1.25; }
   border-radius: 50%; opacity: 0;
 }
 .cursor-on .cursor-dot, .cursor-on .cursor-ring { opacity: 1; }
+/* While the dot and ring show, the system pointer hides so the two don't overlap.
+   Touch screens, reduced motion and the moment before the mouse first moves keep the normal pointer. */
+.cursor-on, .cursor-on * { cursor: none !important; }
 .cursor-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; background: #fff; mix-blend-mode: difference; }
 .cursor-ring {
   display: grid; place-items: center;

@@ -24,7 +24,7 @@ If you'd rather keep it on Google Drive, set it to "Anyone with the link can vie
 
 ## Highlights in the hero
 
-The three numbers under your name (`18+` projects managed, `10+` clients handled, `2+` years of experience) are in the `<ul class="stats">` block. Change them whenever your totals grow.
+The three numbers under your name (`18+` projects managed, `10+` clients worked with, `2+` years coordinating projects) are in the `<ul class="stats">` block. Change them whenever your totals grow.
 
 How 18+ is counted: 10 Sekawan sites (glambox.id and web.glambox.id count as two), 7 freelance sites, and the Habit Tracker.
 
@@ -54,7 +54,7 @@ The page moves in a few ways, all in `script.js` (part 8 onwards) and section 15
 - **Ribbon.** It keeps sliding; scrolling pushes it faster, or backwards when you scroll up.
 - **Quote.** The words in the quote band (before Best projects) light up as you scroll past. Change the sentence in the `<!-- ============ QUOTE ============ -->` block.
 - **Best projects gallery.** Scrolling down moves the cards sideways. Each card is an `<article class="gcard">` inside `gallery-track`; copy one to add a project. `is-highlight` makes the wide first card.
-- **Mouse effects (computers only).** A ring follows the cursor and grows over links. Over a project card it says "Open". Footer rows and round buttons fill with champagne from the bottom.
+- **Mouse effects (computers only).** A small dot and a ring replace the normal mouse pointer; the ring grows over links. Over a project card it says "Open". Footer rows and round buttons fill with champagne from the bottom.
 - **Preview cards.** Hovering the dates side of a role in Work experience shows a card that follows the mouse. They live in the `<template id="pv-sekawan">`, `pv-revou` and `pv-freelance` blocks right after the timeline. Edit them, or put a photo inside instead: `<img src="images/your-photo.webp" alt="">`.
 - **GIFARI in the footer.** Change the word in `<p class="wordmark">`; it resizes itself to the page width.
 
