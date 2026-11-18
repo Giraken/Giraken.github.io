@@ -132,8 +132,7 @@
   });
 
 
-  /* 5. Project filters */
-  var onFilter = []; // the gallery listens so it can re-measure
+  /* 5. Project filters. A group (the card grid, "More work") hides when none of its cards match. */
   var filterButtons = Array.prototype.slice.call(document.querySelectorAll('[data-filter]'));
   filterButtons.forEach(function (button) {
     button.addEventListener('click', function () {
@@ -143,7 +142,9 @@
         var cats = item.getAttribute('data-cat').split(' ');
         item.hidden = !(filter === 'all' || cats.indexOf(filter) > -1);
       });
-      onFilter.forEach(function (fn) { fn(); });
+      each('[data-group]', function (group) {
+        group.hidden = !group.querySelector('[data-cat]:not([hidden])');
+      });
     });
   });
 
@@ -218,7 +219,9 @@
   if (wordmark) {
     fitWordmark();
     window.addEventListener('resize', fitWordmark);
+    window.addEventListener('load', fitWordmark);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitWordmark);
+    if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', fitWordmark);
     beforeHome.push(fitWordmark);
     afterRoute.push(fitWordmark);
   }
@@ -298,12 +301,12 @@
     });
     mark('.portrait', 'photo');
     mark([
-      '.section-lede', '.about-text .prose > p', '.folder', '.tools', '.certs-note',
+      '.section-lede', '.about-text .prose > p', '.folder', '.certs-note',
       '.vol-org', '.vol-meta', '.vol-desc', '.vol-text > .btn', '.vol-panel',
-      '.footer-lede', '.cv-row', '.projects-tools',
+      '.footer-lede', '.cv-row', '.filters',
       '.case-tags', '.case-lede', '.cursor-tag', '.case-visual', '.case-facts', '.c-sec', '.case-end',
-      '.timeline > .job', '.bento > .tile', '.certs > .cert', '.steps > .step', '.links-big > li',
-      '.gallery-track > .gcard', '.c-projects > li'
+      '.timeline > .job', '.featured', '.project-grid > .project', '.more-title',
+      '.skill', '.skill-example', '.flow > li', '.course-grid > .cert', '.links-big > li', '.c-projects > li'
     ].join(', '), 'up');
     mark('.wordmark', 'chars');
 
@@ -499,92 +502,6 @@
     }
 
 
-    /* M7. Best projects: scrolling down moves the cards sideways */
-    var gallery = document.querySelector('.projects');
-    var pin = gallery && gallery.querySelector('.gallery-pin');
-    var track = gallery && gallery.querySelector('.gallery-track');
-    if (pin && track) {
-      var countNow = gallery.querySelector('.gallery-count b');
-      var bar = gallery.querySelector('.gallery-bar');
-      var countAll = gallery.querySelector('.gallery-count');
-      var travel = 0, on = false, x = 0;
-      var galleryTop = function () { return gallery.getBoundingClientRect().top + window.scrollY; };
-      var cards = function () {
-        return Array.prototype.slice.call(track.querySelectorAll('.gcard')).filter(function (c) { return !c.hidden; });
-      };
-      var pad = function () { return parseFloat(getComputedStyle(track).paddingLeft) || 0; };
-      var two = function (n) { return (n < 10 ? '0' : '') + n; };
-
-      var applyGallery = function () {
-        if (!on) return;
-        var p = travel ? clamp(-gallery.getBoundingClientRect().top / travel, 0, 1) : 0;
-        x = p * travel;
-        track.style.transform = 'translate3d(' + (-x).toFixed(1) + 'px, 0, 0)';
-        if (bar) bar.style.setProperty('--p', p.toFixed(4));
-        var list = cards();
-        if (countNow && list.length) countNow.textContent = two(Math.round(p * (list.length - 1)) + 1);
-      };
-
-      var measureGallery = function () {
-        var fits = window.innerHeight >= 620;
-        if (!gallery.offsetParent) return; // a case study is open; measure when home comes back
-        on = fits;
-        gallery.classList.toggle('is-gallery', on);
-        if (!on) { gallery.style.height = ''; track.style.transform = ''; return; }
-        pin.scrollLeft = 0;
-        var list = cards(), last = list[list.length - 1];
-        travel = last ? Math.max(0, Math.round(last.offsetLeft + last.offsetWidth + pad() - pin.clientWidth)) : 0;
-        gallery.style.height = pin.offsetHeight + travel + 'px';
-        if (countAll) countAll.lastChild.nodeValue = ' / ' + two(list.length);
-        applyGallery();
-      };
-
-      var queuedMeasure = false;
-      var remeasure = function () {
-        if (queuedMeasure) return;
-        queuedMeasure = true;
-        requestAnimationFrame(function () { queuedMeasure = false; measureGallery(); });
-      };
-      measureGallery();
-      var queuedApply = false;
-      window.addEventListener('scroll', function () {
-        if (queuedApply) return;
-        queuedApply = true;
-        requestAnimationFrame(function () { queuedApply = false; applyGallery(); });
-      }, { passive: true });
-      window.addEventListener('load', remeasure);
-      window.addEventListener('resize', remeasure);
-      if (document.fonts && document.fonts.ready) document.fonts.ready.then(remeasure);
-      if ('ResizeObserver' in window) new ResizeObserver(remeasure).observe(track);
-      beforeHome.push(measureGallery);
-
-      // Scroll to a card: used for keyboard focus and when coming back from a case study
-      var showCard = function (card) {
-        if (!on || !card) return;
-        var left = card.offsetLeft - pad();
-        var room = pin.clientWidth - 2 * pad();
-        if (left >= x && left + card.offsetWidth <= x + room + 1) return;
-        jumpTo(galleryTop() + clamp(left, 0, travel));
-        applyGallery();
-      };
-      track.addEventListener('focusin', function (e) {
-        pin.scrollLeft = 0;
-        showCard(e.target.closest('.gcard'));
-      });
-      afterRoute.push(function (id, fromCase) {
-        if (id !== 'projects' || !fromCase) return;
-        var link = track.querySelector('a[href="#' + fromCase + '"]');
-        if (link) { jumpTo(galleryTop()); applyGallery(); showCard(link.closest('.gcard')); }
-      });
-      // After filtering, start again from the first card
-      onFilter.push(function () {
-        var wasInside = on && gallery.getBoundingClientRect().top < 0;
-        measureGallery();
-        if (wasInside) { jumpTo(galleryTop()); applyGallery(); }
-      });
-    }
-
-
     /* M8. Mouse effects, on computers only: a ring that follows the cursor,
        and preview cards over the work experience roles */
     if (!finePointer) return;
@@ -611,9 +528,9 @@
     document.addEventListener('pointerover', function (e) {
       var t = e.target.closest ? e.target : e.target.parentElement;
       if (!t) return;
-      var card = t.closest('.gcard');
+      var card = t.closest('.project');
       var control = t.closest('a, button, [role="tab"], summary, label');
-      var openCard = card && !(control && control.closest('.p-actions, .p-body > .btn'));
+      var openCard = card && !(control && control.closest('.project-actions'));
       ring.classList.toggle('is-open', !!openCard);
       dot.classList.toggle('is-open', !!openCard);
       ring.classList.toggle('is-link', !openCard && !!control);

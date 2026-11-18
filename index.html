@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gifari Asmara | Junior Project Manager &amp; IT Project Coordinator</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d1b2a'/%3E%3Cpath d='M32 13 51 32 32 51 13 32Z' fill='%23d4c4a8'/%3E%3C/svg%3E">
-  <meta name="description" content="Gira’s portfolio: a junior project manager from Malang who turns what clients ask for into plans a team can follow. Case studies, client websites and how I run a project.">
+  <meta name="description" content="Portfolio of Gifari Asmara, an Informatics Engineering graduate with experience in project coordination, team leadership, digital project delivery, and stakeholder communication.">
   <meta property="og:title" content="Gifari Asmara | Junior Project Manager &amp; IT Project Coordinator">
-  <meta property="og:description" content="Case studies, client websites and how I run a project, from Malang, Indonesia.">
+  <meta property="og:description" content="Portfolio of Gifari Asmara, an Informatics Engineering graduate with experience in project coordination, team leadership, digital project delivery, and stakeholder communication.">
+  <meta property="og:url" content="https://giraken.github.io/">
   <meta property="og:type" content="website">
+  <link rel="canonical" href="https://giraken.github.io/">
+  <meta name="theme-color" content="#0d1b2a">
   <script>
     /* Motion setup. It runs before the page draws, so nothing flashes.
        "motion" turns the animations on (skipped when the visitor asks for reduced motion).
@@ -25,9 +28,8 @@
       setTimeout(function () { if (!window.giraMotion) { root.classList.remove('motion'); root.classList.remove('intro-on'); } }, 4000);
     })();
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+  <link rel="preload" href="fonts/sora-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -49,6 +51,7 @@
 <!-- Icon set. Use an icon anywhere with: <svg class="i"><use href="#i-name"/></svg> -->
 <svg class="sprite" aria-hidden="true" focusable="false">
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-next" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
   <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></symbol>
   <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M6.5 10.5 12 16l5.5-5.5M5 20h14"/></symbol>
@@ -99,7 +102,7 @@
       <li><a href="#courses">Courses</a></li>
     </ul>
     <!-- CV: put your PDF next to index.html as cv.pdf, or replace every "cv.pdf" with a Google Drive link -->
-    <a class="btn btn-champagne nav-cv" href="cv.pdf" data-cv>Download CV</a>
+    <a class="btn btn-champagne nav-cv" href="cv.pdf" target="_blank" rel="noopener" data-cv>Download CV</a>
   </nav>
 </header>
 
@@ -120,23 +123,21 @@
         <p class="role">Junior project manager &amp; IT project coordinator</p>
         <p class="lede">I turn what clients ask for into plans a team can follow, then keep everyone on the same page until it ships.</p>
         <p class="meta-line"><svg class="i"><use href="#i-pin"/></svg>Based in Malang, East Java. Happy to work anywhere in Indonesia.</p>
-        <div class="duo">
-          <a class="duo-on" href="#projects">Explore my work</a>
-          <a href="cv.pdf" data-cv>Download my CV</a>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#projects">View my work</a>
+          <a class="btn btn-secondary" href="cv.pdf" target="_blank" rel="noopener" data-cv><svg class="i"><use href="#i-download"/></svg>Download CV</a>
         </div>
         <ul class="socials" aria-label="Profiles">
-          <li><a href="https://www.linkedin.com/in/gifari-asmara/">LinkedIn</a></li>
-          <li><a href="https://github.com/Giraken">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/gifari-asmara/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/Giraken" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="mailto:gifari.asmara17@gmail.com">gifari.asmara17@gmail.com</a></li>
         </ul>
       </div>
 
-      <!-- Portrait. Swap images/gifari.webp for another square image if you like. -->
-      <figure class="avatar">
-        <div class="arch">
-          <img src="images/gifari.webp" alt="Illustrated portrait of Gifari Asmara with his signature" width="500" height="500">
-        </div>
-        <figcaption class="avatar-status"><span class="dot-live" aria-hidden="true"></span>Open to work</figcaption>
+      <!-- Portrait. images/gifari-photo.webp is 4:5 (1000 x 1250); swap it for another photo of that shape. -->
+      <figure class="portrait-card">
+        <img src="images/gifari-photo.webp" fetchpriority="high" alt="Gifari Asmara in a black T-shirt, sitting outdoors and looking to the side" width="1000" height="1250">
+        <figcaption class="status-chip"><span class="dot-live" aria-hidden="true"></span>Open to work</figcaption>
       </figure>
     </div>
 
@@ -238,13 +239,17 @@
             <li>Kept one Notion tracker as the single source of truth: schedule, owner, status and handoff for every project.</li>
             <li>Sent each client a progress report every week, and agreed with them what came next.</li>
           </ul>
-          <figure class="roster">
+          <ul class="xp-metrics" aria-label="In numbers">
+            <li><b>10+</b><span>client sites at once</span></li>
+            <li><b>12</b><span>people in four groups</span></li>
+            <li><b>Weekly</b><span>sprints and client reports</span></li>
+          </ul>
+          <!-- Team make-up: each <i> is one group, --n is its head count -->
+          <figure class="team-bar">
             <figcaption>The team I coordinated</figcaption>
-            <ul>
-              <li><span class="r-name">Design</span><span class="r-dots" aria-hidden="true"><i></i><i></i></span><span class="r-n">2</span></li>
-              <li><span class="r-name">Development</span><span class="r-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="r-n">3</span></li>
-              <li><span class="r-name">SEO and content</span><span class="r-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="r-n">5</span></li>
-              <li><span class="r-name">Deployment</span><span class="r-dots" aria-hidden="true"><i></i><i></i></span><span class="r-n">2</span></li>
+            <div class="team-segs" aria-hidden="true"><i style="--n:2"></i><i style="--n:3"></i><i style="--n:5"></i><i style="--n:2"></i></div>
+            <ul class="team-legend">
+              <li>Design <b>2</b></li><li>Development <b>3</b></li><li>SEO and content <b>5</b></li><li>Deployment <b>2</b></li>
             </ul>
           </figure>
           <a class="job-more" href="#exp-sekawan">See the projects I managed<svg class="i"><use href="#i-arrow"/></svg></a>
@@ -264,7 +269,12 @@
             <li>Led a 10-person team that built and launched a habit tracker web app in four weeks.</li>
             <li>Dug into retail sales data with an 11-person team and built a Looker Studio dashboard.</li>
             <li>Wrote personas, a customer journey map and a PRD for the VIU app, and planned a Facebook Ads campaign for Fore Coffee.</li>
-            <li>Finished four tracks: Data Analytics, Software Engineering, Product Management and Digital Marketing.</li>
+            <li>Finished one track of four courses: Data Analytics, Software Engineering, Product Management and Digital Marketing.</li>
+          </ul>
+          <ul class="xp-metrics" aria-label="In numbers">
+            <li><b>10</b><span>people on the team I led</span></li>
+            <li><b>4 weeks</b><span>from brief to live app</span></li>
+            <li><b>4</b><span>courses in one track</span></li>
           </ul>
           <a class="job-more" href="#exp-revou">See the projects<svg class="i"><use href="#i-arrow"/></svg></a>
         </div>
@@ -285,9 +295,10 @@
             <li>Turned non-technical requests into tasks a developer could pick up, and kept both sides talking.</li>
             <li>Sent progress updates every one to two weeks while the sites were built.</li>
           </ul>
-          <p class="chips-label">Selected projects</p>
-          <ul class="chips">
-            <li>Gambit Rojo</li><li>AS Law Firm</li><li>SISEDU</li><li>Caveera</li><li>Sieka</li><li>Orsan Spray</li><li>Photography portfolio</li>
+          <ul class="xp-metrics" aria-label="In numbers">
+            <li><b>7</b><span>websites in this portfolio</span></li>
+            <li><b>2+ years</b><span>of client work</span></li>
+            <li><b>1–2 weeks</b><span>between progress updates</span></li>
           </ul>
           <a class="job-more" href="#exp-freelance">See the projects<svg class="i"><use href="#i-arrow"/></svg></a>
         </div>
@@ -306,17 +317,17 @@
           <li><span>Kosme Health</span><b>Company website</b></li>
           <li><span>Wahana Visi Indonesia</span><b>Maintenance</b></li>
         </ul>
-        <p class="pv-more">and 5 more projects</p>
+        <p class="pv-more">and 6 more sites</p>
       </div>
     </template>
     <template id="pv-revou">
       <div class="pv-card">
-        <p class="pv-title">4 certificates, 4 projects</p>
+        <p class="pv-title">4 courses, 4 projects</p>
         <div class="sheets">
-          <div class="sheet-doc"><span class="doc-kind">Certificate</span><span class="doc-name">Data Analytics</span></div>
-          <div class="sheet-doc"><span class="doc-kind">Certificate</span><span class="doc-name">Software Engineering</span></div>
-          <div class="sheet-doc"><span class="doc-kind">Certificate</span><span class="doc-name">Product Management</span></div>
-          <div class="sheet-doc"><span class="doc-kind">Certificate</span><span class="doc-name">Digital Marketing</span></div>
+          <div class="sheet-doc"><span class="doc-kind">Course</span><span class="doc-name">Data Analytics</span></div>
+          <div class="sheet-doc"><span class="doc-kind">Course</span><span class="doc-name">Software Engineering</span></div>
+          <div class="sheet-doc"><span class="doc-kind">Course</span><span class="doc-name">Product Management</span></div>
+          <div class="sheet-doc"><span class="doc-kind">Course</span><span class="doc-name">Digital Marketing</span></div>
         </div>
       </div>
     </template>
@@ -344,36 +355,29 @@
   </div>
 </section>
 
-<!-- ============ 4. BEST PROJECTS ============ -->
-<!-- A sideways gallery: scrolling down moves the cards to the left.
-     Without JavaScript, or with reduced motion turned on, the cards show as a normal grid.
-     data-cat on each card must match a data-filter button: delivery, data or product.
-     Each card links to its case study further down the file (href="#habit-tracker" and so on). -->
+<!-- ============ 4. SELECTED PROJECTS ============ -->
+<!-- data-cat on each project must match a data-filter button: delivery, data or product.
+     Each project links to its case study further down the file. -->
 <section class="band paper projects" id="projects" aria-labelledby="proj-title">
-  <div class="gallery-pin">
-    <div class="wrap projects-head">
+  <div class="wrap">
+    <div class="projects-head">
       <div class="section-head">
         <h2 id="proj-title">Selected projects</h2>
-        <p class="section-lede">A few projects I'm proud of. Open any card for the whole story.</p>
+        <p class="section-lede">A few projects I'm proud of. Open any one for the whole story.</p>
       </div>
-      <div class="projects-tools">
-        <div class="filters" role="group" aria-label="Filter projects">
+      <div class="filters" role="group" aria-label="Filter projects">
           <button type="button" data-filter="all" aria-pressed="true">All</button>
           <button type="button" data-filter="delivery" aria-pressed="false">Project management</button>
           <button type="button" data-filter="data" aria-pressed="false">Data analytics</button>
           <button type="button" data-filter="product" aria-pressed="false">Product and marketing</button>
         </div>
-        <p class="gallery-hint" aria-hidden="true">Keep scrolling to move sideways<svg class="i"><use href="#i-back"/></svg></p>
-      </div>
     </div>
 
-    <div class="gallery-track">
-
-      <!-- Highlight project: the wide card -->
-      <article class="gcard is-highlight" data-cat="delivery" aria-labelledby="p-gambit">
-        <figure class="cover">
-          <a class="cover-link" href="#gambit-rojo" tabindex="-1" aria-hidden="true"></a>
-          <figcaption class="cover-title">The site map</figcaption>
+    <!-- Featured project -->
+    <article class="project featured" data-cat="delivery" aria-labelledby="p-gambit">
+      <div class="project-visual browser" aria-hidden="true">
+        <span class="browser-bar"><i></i><i></i><i></i><span>gambit-rojo.netlify.app</span></span>
+        <div class="browser-body">
           <div class="sitemap" aria-hidden="true">
             <span class="sm-node sm-root">Home</span>
             <ul class="sm-row">
@@ -385,22 +389,27 @@
             </ul>
           </div>
           <p class="sr-only">Seven pages: Home, About us, Services, Insight with an article page, Career, and Start a project.</p>
-        </figure>
-        <div class="p-body">
-          <ul class="p-meta"><li>Highlight</li><li>Freelance</li><li>2023</li><li>7 pages</li></ul>
-          <h3 id="p-gambit"><a class="card-link" href="#gambit-rojo">Gambit Rojo</a></h3>
-          <p class="p-desc">A seven-page website for a branding agency in South Jakarta. I took it from the first brief to launch day: scope and price, developer tasks, and an update every one to two weeks.</p>
-          <ul class="p-tags" aria-label="Built with"><li>Tailwind CSS</li><li>Flowbite</li><li>GSAP</li></ul>
-          <div class="p-actions">
-            <a class="btn btn-ink" href="#gambit-rojo">Read the case study<svg class="i"><use href="#i-arrow"/></svg></a>
-            <a class="p-ext" href="https://gambit-rojo.netlify.app/">Visit the site<svg class="i"><use href="#i-arrow"/></svg></a>
-          </div>
         </div>
-      </article>
+      </div>
+      <div class="project-body">
+        <ul class="project-tags"><li class="tag-featured">Featured</li><li>Project management</li><li>2023</li></ul>
+        <h3 id="p-gambit"><a class="card-link" href="#gambit-rojo">Gambit Rojo</a></h3>
+        <p class="project-desc">A seven-page website for a branding agency in South Jakarta, taken from the first brief to launch day.</p>
+        <dl class="project-facts">
+          <div><dt>Role</dt><dd>Web project coordinator</dd></div>
+          <div><dt>Outcome</dt><dd>Seven pages, live</dd></div>
+          <div><dt>Status</dt><dd><span class="status status-done">Completed</span></dd></div>
+        </dl>
+        <div class="project-actions">
+          <a class="btn btn-primary" href="#gambit-rojo">Read case study</a>
+          <a class="link-arrow ext" href="https://gambit-rojo.netlify.app/" target="_blank" rel="noopener">Visit the site<svg class="i i-ext"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </article>
 
-      <article class="gcard" data-cat="delivery" aria-labelledby="p-habit">
-        <div class="cover">
-          <a class="cover-link" href="#habit-tracker" tabindex="-1" aria-hidden="true"></a>
+    <div class="project-grid" data-group>
+      <article class="project" data-cat="delivery" aria-labelledby="p-habit">
+        <div class="project-visual" aria-hidden="true">
           <table class="plan">
             <caption>The four-week plan</caption>
             <thead>
@@ -419,39 +428,21 @@
           </table>
           <p class="cover-note"><span class="diamond" aria-hidden="true"></span>Milestones: site live, final deck submitted</p>
         </div>
-        <div class="p-body">
-          <ul class="p-meta"><li>Team lead</li><li>June 2023</li><li>10 people</li><li>4 weeks</li></ul>
+        <div class="project-body">
+          <ul class="project-tags"><li>Project management</li><li>2023</li></ul>
           <h3 id="p-habit"><a class="card-link" href="#habit-tracker">Habit Tracker</a></h3>
-          <p class="p-desc">Ten people, four weeks, one habit tracker. I led the team at RevoU Tech Academy from the first brief to a live site on GitHub Pages.</p>
-          <ul class="p-tags" aria-label="Built with"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>GitHub Pages</li></ul>
-          <a class="btn btn-ink" href="#habit-tracker">Read the case study<svg class="i"><use href="#i-arrow"/></svg></a>
+          <p class="project-desc">Ten people, four weeks, one habit tracker, live on GitHub Pages.</p>
+          <dl class="project-facts">
+            <div><dt>Role</dt><dd>Team lead</dd></div>
+            <div><dt>Outcome</dt><dd>Shipped in four weeks</dd></div>
+          </dl>
+          <span class="read-more" aria-hidden="true">Read case study<svg class="i"><use href="#i-next"/></svg></span>
         </div>
       </article>
 
-      <article class="gcard" data-cat="data" aria-labelledby="p-capstone">
-        <figure class="cover">
-          <a class="cover-link" href="#data-capstone" tabindex="-1" aria-hidden="true"></a>
-          <figcaption class="cover-title">Gross sales, with 2009 set to 100</figcaption>
-          <div class="salesbars">
-            <div class="sb" style="--v:100"><span class="sb-note">Start</span><span class="sb-bar"></span></div>
-            <div class="sb sb-down" style="--v:88.87"><span class="sb-note">−11.13%</span><span class="sb-bar"></span></div>
-            <div class="sb sb-goal" style="--v:102.2"><span class="sb-note">+15%</span><span class="sb-bar"></span></div>
-          </div>
-          <div class="sb-labels"><span>2009</span><span>2012</span><span>Goal, one year on</span></div>
-        </figure>
-        <div class="p-body">
-          <ul class="p-meta"><li>Data analytics</li><li>March 2023</li><li>11 people</li></ul>
-          <h3 id="p-capstone"><a class="card-link" href="#data-capstone">Data analytics capstone</a></h3>
-          <p class="p-desc">A retail company's sales fell 11.13% in three years. Our team of 11 cleaned the data, built a dashboard and found four ways to aim for 15% growth.</p>
-          <ul class="p-tags" aria-label="Tools"><li>Looker Studio</li><li>Data cleaning</li><li>Dashboards</li></ul>
-          <a class="btn btn-ink" href="#data-capstone">Read the case study<svg class="i"><use href="#i-arrow"/></svg></a>
-        </div>
-      </article>
-
-      <article class="gcard" data-cat="data" aria-labelledby="p-thesis">
-        <figure class="cover">
-          <a class="cover-link" href="#segmentation" tabindex="-1" aria-hidden="true"></a>
-          <figcaption class="cover-title">Three clustering methods compared</figcaption>
+      <article class="project" data-cat="data" aria-labelledby="p-thesis">
+        <div class="project-visual" aria-hidden="true">
+          <p class="cover-title">Three clustering methods compared</p>
           <table class="metrics">
             <thead>
               <tr><th scope="col">Method</th><th scope="col">Silhouette <small>higher is better</small></th><th scope="col">Davies–Bouldin <small>lower is better</small></th></tr>
@@ -462,178 +453,133 @@
               <tr class="pick"><th scope="row">HDBSCAN <span class="pick-tag">Chosen</span></th><td><span class="m" style="--v:.68"><i></i>0.68</span></td><td><span class="m" style="--v:.25"><i></i>0.25</span></td></tr>
             </tbody>
           </table>
-        </figure>
-        <div class="p-body">
-          <ul class="p-meta"><li>Thesis</li><li>Python</li><li>4,338 customers</li></ul>
-          <h3 id="p-thesis"><a class="card-link" href="#segmentation">Customer segmentation with RFM</a></h3>
-          <p class="p-desc">My thesis. I grouped 4,338 retail customers by how recently, how often and how much they buy, tested three clustering methods, and found five segments.</p>
-          <ul class="p-tags" aria-label="Methods"><li>Python</li><li>RFM</li><li>HDBSCAN</li><li>SOM</li><li>Spectral clustering</li></ul>
-          <a class="btn btn-ink" href="#segmentation">Read the case study<svg class="i"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="project-body">
+          <ul class="project-tags"><li>Data analytics</li><li>Thesis</li></ul>
+          <h3 id="p-thesis"><a class="card-link" href="#segmentation">Customer segmentation</a></h3>
+          <p class="project-desc">4,338 retail customers, three clustering methods, five segments.</p>
+          <dl class="project-facts">
+            <div><dt>Role</dt><dd>Researcher and author</dd></div>
+            <div><dt>Outcome</dt><dd>Five customer segments</dd></div>
+          </dl>
+          <span class="read-more" aria-hidden="true">Read case study<svg class="i"><use href="#i-next"/></svg></span>
         </div>
       </article>
 
-      <!-- Smaller projects: the whole card opens the case study -->
-      <article class="gcard mini" data-cat="delivery" aria-labelledby="m-sites">
-        <div class="mini-card">
-          <h3 id="m-sites"><a class="mini-link" href="#client-websites">Client websites</a></h3>
-          <p>The seven client websites I coordinated as a freelancer, and how I ran each one.</p>
-          <ul class="mini-meta"><li>Freelance</li><li>2021–2024</li></ul>
+      <article class="project" data-cat="data" aria-labelledby="p-capstone">
+        <div class="project-visual" aria-hidden="true">
+          <p class="cover-title">Gross sales, with 2009 set to 100</p>
+          <div class="salesbars">
+            <div class="sb" style="--v:100"><span class="sb-note">Start</span><span class="sb-bar"></span></div>
+            <div class="sb sb-down" style="--v:88.87"><span class="sb-note">−11.13%</span><span class="sb-bar"></span></div>
+            <div class="sb sb-goal" style="--v:102.2"><span class="sb-note">+15%</span><span class="sb-bar"></span></div>
+          </div>
+          <div class="sb-labels"><span>2009</span><span>2012</span><span>Goal, one year on</span></div>
         </div>
-        <span class="corner-btn" aria-hidden="true"><svg class="i"><use href="#i-arrow"/></svg></span>
-      </article>
-
-      <article class="gcard mini" data-cat="product" aria-labelledby="m-viu">
-        <div class="mini-card">
-          <h3 id="m-viu"><a class="mini-link" href="#viu-requirements">VIU app requirements</a></h3>
-          <p>Who uses the VIU app, how they move through it, and what it should do, written up as a PRD.</p>
-          <ul class="mini-meta"><li>Product management</li><li>RevoU, 2023</li></ul>
+        <div class="project-body">
+          <ul class="project-tags"><li>Data analytics</li><li>2023</li></ul>
+          <h3 id="p-capstone"><a class="card-link" href="#data-capstone">Data analytics capstone</a></h3>
+          <p class="project-desc">A retail company's sales fell 11.13% in three years. Our team of 11 built a dashboard and found four ways to aim for 15% growth.</p>
+          <dl class="project-facts">
+            <div><dt>Role</dt><dd>Team member</dd></div>
+            <div><dt>Outcome</dt><dd>Dashboard and 4 recommendations</dd></div>
+          </dl>
+          <span class="read-more" aria-hidden="true">Read case study<svg class="i"><use href="#i-next"/></svg></span>
         </div>
-        <span class="corner-btn" aria-hidden="true"><svg class="i"><use href="#i-arrow"/></svg></span>
       </article>
-
-      <article class="gcard mini" data-cat="product" aria-labelledby="m-fore">
-        <div class="mini-card">
-          <h3 id="m-fore"><a class="mini-link" href="#fore-coffee">Fore Coffee ads plan</a></h3>
-          <p>Audience, competitors and content ideas, turned into a Facebook Ads plan for Fore Coffee.</p>
-          <ul class="mini-meta"><li>Digital marketing</li><li>RevoU, 2023</li></ul>
-        </div>
-        <span class="corner-btn" aria-hidden="true"><svg class="i"><use href="#i-arrow"/></svg></span>
-      </article>
-
     </div>
 
-    <div class="wrap gallery-foot" aria-hidden="true">
-      <span class="gallery-count"><b>01</b> / 07</span>
-      <span class="gallery-bar"><i></i></span>
+    <div class="more-work" data-group>
+      <h3 class="more-title">More work</h3>
+      <div class="project-grid compact">
+        <article class="project compact" data-cat="delivery" aria-labelledby="m-sites">
+          <ul class="project-tags"><li>Project management</li><li>2021–2024</li></ul>
+          <h4 id="m-sites"><a class="card-link" href="#client-websites">Client websites</a></h4>
+          <p class="project-desc">The seven client websites I coordinated as a freelancer, and how I ran each one.</p>
+          <p class="project-role">Web project coordinator</p>
+        </article>
+        <article class="project compact" data-cat="product" aria-labelledby="m-viu">
+          <ul class="project-tags"><li>Product and marketing</li><li>2023</li></ul>
+          <h4 id="m-viu"><a class="card-link" href="#viu-requirements">VIU app requirements</a></h4>
+          <p class="project-desc">Who uses the VIU app, how they move through it, and what it should do, written up as a PRD.</p>
+          <p class="project-role">Personas, a journey map and a PRD</p>
+        </article>
+        <article class="project compact" data-cat="product" aria-labelledby="m-fore">
+          <ul class="project-tags"><li>Product and marketing</li><li>2023</li></ul>
+          <h4 id="m-fore"><a class="card-link" href="#fore-coffee">Fore Coffee ads plan</a></h4>
+          <p class="project-desc">Audience, competitors and content ideas, turned into a Facebook Ads plan for Fore Coffee.</p>
+          <p class="project-role">A Facebook Ads campaign plan</p>
+        </article>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 5. SKILLS FOR PROJECT MANAGEMENT ============ -->
+<!-- ============ 5. SKILLS ============ -->
 <section class="band skills" id="skills" aria-labelledby="skills-title">
   <div class="wrap">
     <div class="section-head">
       <h2 id="skills-title">What I bring to a project</h2>
       <p class="section-lede">No skill bars or percentages. Each one comes with where I actually used it.</p>
     </div>
-
-    <div class="bento">
-      <article class="tile t-scrum">
-        <div class="loop" aria-hidden="true">
-          <span class="loop-ring"></span>
-          <span class="loop-arrow"></span>
-          <span class="loop-step s1">Plan</span>
-          <span class="loop-step s2">Build</span>
-          <span class="loop-step s3">Check in</span>
-          <span class="loop-step s4">Review</span>
-          <span class="loop-center">1 week</span>
-        </div>
-        <div>
-          <h3>Scrum sprints</h3>
-          <p>Weekly sprints for a 10–12 person team at Sekawan, with each new sprint's priorities agreed with the client. With my Habit Tracker team, short check-ins every day.</p>
-        </div>
+    <div class="skill-grid">
+      <article class="skill">
+        <span class="skill-ico" aria-hidden="true"><svg class="i"><use href="#i-board"/></svg></span>
+        <h3>Project management</h3>
+        <ul class="skill-list"><li>Project planning</li><li>Timeline management</li><li>Scope coordination</li><li>Risk and issue tracking</li><li>Progress reporting</li></ul>
+        <p class="proof"><b>Where I used it.</b> Weekly Scrum sprints, weekly client reports and one Notion tracker for 10+ client sites at Sekawan.</p>
       </article>
-
-      <article class="tile t-track">
-        <div class="sheet" aria-hidden="true">
-          <div class="sheet-row sheet-head"><span>Schedule</span><span>Owner</span><span>Status</span><span>Handoff</span></div>
-          <div class="sheet-row"><i></i><i></i><b class="st-a"></b><i></i></div>
-          <div class="sheet-row"><i></i><i></i><b class="st-b"></b><i></i></div>
-          <div class="sheet-row"><i></i><i></i><b class="st-a"></b><i></i></div>
-        </div>
-        <h3>Project tracking</h3>
-        <p>One Notion tracker for 10+ projects at once: schedule, owner, status and handoff for each.</p>
+      <article class="skill">
+        <span class="skill-ico" aria-hidden="true"><svg class="i"><use href="#i-people"/></svg></span>
+        <h3>Team and stakeholder management</h3>
+        <ul class="skill-list"><li>Client communication</li><li>Coordination across teams</li><li>Team leadership</li><li>Requirement gathering</li></ul>
+        <p class="proof"><b>Where I used it.</b> Led a 10-person team to a live web app in four weeks, and turned freelance clients' requests into developer tasks.</p>
       </article>
-
-      <article class="tile t-status">
-        <div class="report" aria-hidden="true">
-          <span class="report-h">Done this week</span><i></i><i class="short"></i>
-          <span class="report-h">Next sprint</span><i></i>
-        </div>
-        <h3>Status reports</h3>
-        <p>Every week, each client heard what got done and what we'd agreed for the next sprint.</p>
+      <article class="skill">
+        <span class="skill-ico" aria-hidden="true"><svg class="i"><use href="#i-code"/></svg></span>
+        <h3>Technical understanding</h3>
+        <ul class="skill-list"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>GitHub</li><li>Figma</li></ul>
+        <p class="proof"><b>Where I used it.</b> An Informatics Engineering degree, and a Habit Tracker my team built with HTML, CSS and JavaScript and put on GitHub Pages.</p>
       </article>
-
-      <article class="tile t-tasks">
-        <div class="translate">
-          <p class="eg">For example</p>
-          <p class="ask">“Can the homepage look more professional?”</p>
-          <ul class="todo">
-            <li>Rewrite the headline and intro</li>
-            <li>Apply the brand fonts and colours</li>
-            <li>Compress images so the page loads fast</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Requests into developer tasks</h3>
-          <p>Clients describe what they want in their own words. I turn that into tasks a developer can build without guessing.</p>
-        </div>
-      </article>
-
-      <article class="tile t-team">
-        <div class="people" aria-hidden="true"><i class="me"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-        <h3>Team leadership</h3>
-        <p>Led 10 people to a live site in four weeks: tasks by skill, one shared board, short daily check-ins.</p>
-      </article>
-
-      <article class="tile t-comms">
-        <h3>Stakeholder communication</h3>
-        <p>Clients, designers and developers get the same facts, in words each of them uses.</p>
-      </article>
-
-      <article class="tile t-risk">
-        <h3>Risk and issue logs</h3>
-        <p>I write down what could slip, who owns the fix and what we decided, so nothing depends on memory.</p>
-      </article>
-
-      <article class="tile t-data">
-        <h3>Data for decisions</h3>
-        <p>Python, RFM and clustering for my thesis, and a Looker Studio dashboard for the RevoU capstone.</p>
+      <article class="skill">
+        <span class="skill-ico" aria-hidden="true"><svg class="i"><use href="#i-chart"/></svg></span>
+        <h3>Data and productivity tools</h3>
+        <ul class="skill-list"><li>Notion</li><li>Google Sheets</li><li>Microsoft Excel</li><li>Looker Studio</li><li>Python</li></ul>
+        <p class="proof"><b>Where I used it.</b> Python for my thesis on customer segmentation, and a Looker Studio dashboard for the RevoU capstone.</p>
       </article>
     </div>
 
-    <div class="tools">
-      <p class="tools-label">Tools I work with</p>
-      <ul>
-        <li>Notion</li><li>Google Sheets</li><li>Excel</li><li>Looker Studio</li><li>GitHub</li><li>Figma</li><li>Python</li><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Discord</li><li>WhatsApp</li>
-      </ul>
-    </div>
+    <!-- A real example of turning a request into tasks -->
+    <article class="skill-example">
+      <div>
+        <h3>From a client's words to developer tasks</h3>
+        <p>Clients describe what they want in their own words. I turn that into tasks a developer can build without guessing.</p>
+      </div>
+      <div class="translate">
+        <p class="ask">“Can the homepage look more professional?”</p>
+        <ul class="todo">
+          <li>Rewrite the headline and intro</li>
+          <li>Apply the brand fonts and colours</li>
+          <li>Compress images so the page loads fast</li>
+        </ul>
+      </div>
+    </article>
   </div>
 </section>
 
 <!-- ============ 6. HOW I RUN A PROJECT ============ -->
-<section class="band paper process" id="process" aria-labelledby="process-title">
+<section class="band paper workflow" id="process" aria-labelledby="process-title">
   <div class="wrap">
     <div class="section-head">
       <h2 id="process-title">How I run a project</h2>
       <p class="section-lede">The same five steps I've used with clients and teams, from the first chat to launch day.</p>
     </div>
-    <ol class="steps">
-      <li class="step" style="--i:1">
-        <span class="step-n" aria-hidden="true">1</span>
-        <div class="step-text"><h3>Brief</h3><p>I find out what the client wants and why, in their own words.</p></div>
-        <span class="step-track" aria-hidden="true"></span>
-      </li>
-      <li class="step" style="--i:2">
-        <span class="step-n" aria-hidden="true">2</span>
-        <div class="step-text"><h3>Scope and plan</h3><p>We agree on what gets built, by when and for how much, before work starts.</p></div>
-        <span class="step-track" aria-hidden="true"></span>
-      </li>
-      <li class="step" style="--i:3">
-        <span class="step-n" aria-hidden="true">3</span>
-        <div class="step-text"><h3>Tasks</h3><p>I break the work into tasks a developer can pick up, each with an owner and a deadline.</p></div>
-        <span class="step-track" aria-hidden="true"></span>
-      </li>
-      <li class="step" style="--i:4">
-        <span class="step-n" aria-hidden="true">4</span>
-        <div class="step-text"><h3>Build and track</h3><p>While the team builds, I track progress, flag what might slip and send updates every one to two weeks.</p></div>
-        <span class="step-track" aria-hidden="true"></span>
-      </li>
-      <li class="step" style="--i:5">
-        <span class="step-n" aria-hidden="true">5</span>
-        <div class="step-text"><h3>Deliver and review</h3><p>We launch, check the result against what we agreed, and note what to do better next time.</p></div>
-        <span class="step-track" aria-hidden="true"></span>
-      </li>
+    <ol class="flow">
+      <li><span class="flow-no">01</span><h3>Brief</h3><p>I find out what the client wants and why, in their own words.</p></li>
+      <li><span class="flow-no">02</span><h3>Scope and planning</h3><p>We agree on what gets built, by when and for how much, before work starts.</p></li>
+      <li><span class="flow-no">03</span><h3>Task breakdown</h3><p>I break the work into tasks a developer can pick up, each with an owner and a deadline.</p></li>
+      <li><span class="flow-no">04</span><h3>Execution and monitoring</h3><p>While the team builds, I track progress, flag what might slip and send updates every one to two weeks.</p></li>
+      <li><span class="flow-no">05</span><h3>Review and delivery</h3><p>We launch, check the result against what we agreed, and note what to do better next time.</p></li>
     </ol>
   </div>
 </section>
@@ -642,44 +588,46 @@
 <section class="band courses" id="courses" aria-labelledby="courses-title">
   <div class="wrap">
     <div class="section-head">
-      <h2 id="courses-title">Still learning</h2>
-      <p class="section-lede">Courses I've finished outside university, and the ones I'm working on now.</p>
+      <h2 id="courses-title">Courses and certificates</h2>
+      <p class="section-lede">What I've studied outside university, and what I'm learning right now.</p>
     </div>
-    <ul class="certs">
-      <li class="cert">
+    <ul class="course-grid">
+      <li class="cert cert-main">
         <span class="cert-seal" aria-hidden="true"><svg class="i"><use href="#i-award"/></svg></span>
         <p class="cert-issuer">RevoU Tech Academy</p>
-        <h3>Data Analytics</h3>
-        <p class="cert-meta">Certificate of completion, 2023</p>
+        <h3>MSIB Batch 4 (Kampus Merdeka)</h3>
+        <p class="cert-note">One certificate for a track of four courses:</p>
+        <ul class="cert-chips"><li>Data Analytics</li><li>Software Engineering</li><li>Product Management</li><li>Digital Marketing</li></ul>
+        <p class="cert-meta">Certificate of completion, February to June 2023</p>
       </li>
-      <li class="cert">
-        <span class="cert-seal" aria-hidden="true"><svg class="i"><use href="#i-award"/></svg></span>
-        <p class="cert-issuer">RevoU Tech Academy</p>
-        <h3>Software Engineering</h3>
-        <p class="cert-meta">Certificate of completion, 2023</p>
-      </li>
-      <li class="cert">
-        <span class="cert-seal" aria-hidden="true"><svg class="i"><use href="#i-award"/></svg></span>
-        <p class="cert-issuer">RevoU Tech Academy</p>
-        <h3>Product Management</h3>
-        <p class="cert-meta">Certificate of completion, 2023</p>
-      </li>
-      <li class="cert">
-        <span class="cert-seal" aria-hidden="true"><svg class="i"><use href="#i-award"/></svg></span>
-        <p class="cert-issuer">RevoU Tech Academy</p>
-        <h3>Digital Marketing</h3>
-        <p class="cert-meta">Certificate of completion, 2023</p>
+      <!-- Courses in progress. When you pass one, change its seal to #i-award, remove "cert-next"
+           and replace "Currently learning" with the month and year you finished. -->
+      <li class="cert cert-next">
+        <span class="cert-seal" aria-hidden="true"><svg class="i"><use href="#i-clock"/></svg></span>
+        <p class="cert-issuer">Udemy</p>
+        <h3>AI for Project Management</h3>
+        <p class="cert-meta">Currently learning</p>
       </li>
       <li class="cert cert-next">
         <span class="cert-seal" aria-hidden="true"><svg class="i"><use href="#i-clock"/></svg></span>
         <p class="cert-issuer">Udemy</p>
-        <h3>Project management courses</h3>
-        <p class="cert-meta">In progress. The certificates go here once I pass.</p>
+        <h3>Certified AI Engineering Masterclass: From Zero to AI Hero</h3>
+        <p class="cert-meta">Currently learning</p>
       </li>
-      <!-- Add a certificate: copy one <li class="cert"> above, change the issuer, title and year.
-           When the Udemy ones are done, delete the "in progress" card. -->
+      <li class="cert cert-next">
+        <span class="cert-seal" aria-hidden="true"><svg class="i"><use href="#i-clock"/></svg></span>
+        <p class="cert-issuer">Udemy</p>
+        <h3>The Ultimate Trading &amp; Wealth Mastery Program</h3>
+        <p class="cert-meta">Currently learning</p>
+      </li>
+      <li class="cert cert-next">
+        <span class="cert-seal" aria-hidden="true"><svg class="i"><use href="#i-clock"/></svg></span>
+        <p class="cert-issuer">Udemy</p>
+        <h3>AWS Certified AI Business Strategist (AIB-C01) Exam Prep</h3>
+        <p class="cert-meta">Currently learning</p>
+      </li>
     </ul>
-    <p class="certs-note">The four RevoU certificates come from MSIB Batch 4 (Kampus Merdeka), February to June 2023.</p>
+    <p class="certs-note">Each Udemy certificate goes up here once I pass the course.</p>
   </div>
 </section>
 
@@ -747,7 +695,7 @@
         <div><dt>Year</dt><dd>2023</dd></div>
         <div><dt>My role</dt><dd>Web project coordinator</dd></div>
         <div><dt>Built with</dt><dd>Tailwind CSS, Flowbite, GSAP</dd></div>
-        <div><dt>Live site</dt><dd><a href="https://gambit-rojo.netlify.app/">gambit-rojo.netlify.app</a></dd></div>
+        <div><dt>Live site</dt><dd><a href="https://gambit-rojo.netlify.app/" target="_blank" rel="noopener">gambit-rojo.netlify.app</a></dd></div>
       </dl>
     </div>
   </header>
@@ -801,7 +749,7 @@
       <div class="outcome">
         <p class="outcome-big">Seven pages, live and ready for new clients.</p>
         <p>Home, About us, Services, Insight with its article pages, Career, and a Start a project form.</p>
-        <a class="btn btn-ink" href="https://gambit-rojo.netlify.app/">Visit the site<svg class="i"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ink" href="https://gambit-rojo.netlify.app/" target="_blank" rel="noopener">Visit the site<svg class="i"><use href="#i-arrow"/></svg></a>
       </div>
     </section>
   </div>
@@ -1199,13 +1147,13 @@
     <section class="c-sec">
       <h2 class="c-h">Selected projects</h2>
       <ul class="c-links">
-        <li><a href="https://gambit-rojo.netlify.app/">Gambit Rojo</a></li>
-        <li><a href="https://aslawfirm.netlify.app/">AS Law Firm (unfinished)</a></li>
-        <li><a href="https://sisedu.netlify.app/">SISEDU</a></li>
-        <li><a href="https://caveera.netlify.app/">Caveera</a></li>
-        <li><a href="https://siekadetergen.netlify.app/">Sieka</a></li>
-        <li><a href="https://orsanspray-prototype.netlify.app/">Orsan Spray (prototype)</a></li>
-        <li><a href="https://photpgraph-portfolio.netlify.app/">Photography portfolio</a></li>
+        <li><a href="https://gambit-rojo.netlify.app/" target="_blank" rel="noopener">Gambit Rojo</a></li>
+        <li><a href="https://aslawfirm.netlify.app/" target="_blank" rel="noopener">Aslawfirm</a></li>
+        <li><a href="https://sisedu.netlify.app/" target="_blank" rel="noopener">SISEDU</a></li>
+        <li><a href="https://caveera.netlify.app/" target="_blank" rel="noopener">Caveera</a></li>
+        <li><a href="https://siekadetergen.netlify.app/" target="_blank" rel="noopener">Sieka</a></li>
+        <li><a href="https://orsanspray-prototype.netlify.app/" target="_blank" rel="noopener">Orsan Spray</a></li>
+        <li><a href="https://photpgraph-portfolio.netlify.app/" target="_blank" rel="noopener">Photography portfolio</a></li>
       </ul>
     </section>
 
@@ -1447,55 +1395,61 @@
       <ul class="c-projects">
         <li class="c-project">
           <span class="c-project-tag">Company website</span>
-          <h3><a class="stretch" href="https://indonesiamapanperkasa.com/">Indonesia Mapan Perkasa</a></h3>
+          <h3><a class="stretch" href="https://indonesiamapanperkasa.com/" target="_blank" rel="noopener">Indonesia Mapan Perkasa</a></h3>
           <p>A company that recruits and places Indonesian workers in jobs overseas.</p>
           <span class="c-project-more" aria-hidden="true">indonesiamapanperkasa.com<svg class="i"><use href="#i-arrow"/></svg></span>
         </li>
         <li class="c-project">
           <span class="c-project-tag">Company website</span>
-          <h3><a class="stretch" href="https://vallianz.co.id/">Vallianz Offshore Maritim</a></h3>
+          <h3><a class="stretch" href="https://vallianz.co.id/" target="_blank" rel="noopener">Vallianz Offshore Maritim</a></h3>
           <p>Offshore support vessels, vessel chartering and project management for the marine industry.</p>
           <span class="c-project-more" aria-hidden="true">vallianz.co.id<svg class="i"><use href="#i-arrow"/></svg></span>
         </li>
         <li class="c-project">
           <span class="c-project-tag">Company website</span>
-          <h3><a class="stretch" href="https://ptkebonagung.com/">PT Kebon Agung</a></h3>
+          <h3><a class="stretch" href="https://ptkebonagung.com/" target="_blank" rel="noopener">PT Kebon Agung</a></h3>
           <p>A sugar producer, along with sugarcane by-products such as molasses and bagasse.</p>
           <span class="c-project-more" aria-hidden="true">ptkebonagung.com<svg class="i"><use href="#i-arrow"/></svg></span>
         </li>
         <li class="c-project">
-          <span class="c-project-tag">Online store, 2 sites</span>
-          <h3><a class="stretch" href="https://glambox.id/">Glambox</a></h3>
+          <span class="c-project-tag">Online store</span>
+          <h3><a class="stretch" href="https://glambox.id/" target="_blank" rel="noopener">Glambox</a></h3>
           <p>A beauty retailer selling skincare, makeup, hair care and fragrance online and in its Jakarta store.</p>
-          <span class="c-project-more"><span aria-hidden="true">glambox.id</span><a class="c-project-alt" href="https://web.glambox.id/">web.glambox.id</a><svg class="i"><use href="#i-arrow"/></svg></span>
+          <span class="c-project-more" aria-hidden="true">glambox.id<svg class="i"><use href="#i-arrow"/></svg></span>
+        </li>
+        <li class="c-project">
+          <span class="c-project-tag">Community website</span>
+          <h3><a class="stretch" href="https://web.glambox.id/" target="_blank" rel="noopener">Glambox community site</a></h3>
+          <p>Glambox's community website, a separate site from its online store.</p>
+          <span class="c-project-more" aria-hidden="true">web.glambox.id<svg class="i"><use href="#i-arrow"/></svg></span>
         </li>
         <li class="c-project">
           <span class="c-project-tag">Company website</span>
-          <h3><a class="stretch" href="https://kosmehealth.com/">Kosme Health</a></h3>
+          <h3><a class="stretch" href="https://kosmehealth.com/" target="_blank" rel="noopener">Kosme Health</a></h3>
           <p>A contract manufacturer of herbal products, extracts and essential oils.</p>
           <span class="c-project-more" aria-hidden="true">kosmehealth.com<svg class="i"><use href="#i-arrow"/></svg></span>
         </li>
         <li class="c-project">
           <span class="c-project-tag">Company website</span>
-          <h3><a class="stretch" href="https://lokanima.com/">Lokanima</a></h3>
+          <h3><a class="stretch" href="https://lokanima.com/" target="_blank" rel="noopener">Lokanima</a></h3>
           <p>A film and animation studio: animation, film production, sound and VFX.</p>
           <span class="c-project-more" aria-hidden="true">lokanima.com<svg class="i"><use href="#i-arrow"/></svg></span>
         </li>
         <li class="c-project">
           <span class="c-project-tag">Company website</span>
-          <h3><a class="stretch" href="https://emeraldvisakonsultan.com/">Emerald Visa Konsultan</a></h3>
+          <h3><a class="stretch" href="https://emeraldvisakonsultan.com/" target="_blank" rel="noopener">Emerald Visa Konsultan</a></h3>
           <p>A visa agency handling work and business visas and permits.</p>
           <span class="c-project-more" aria-hidden="true">emeraldvisakonsultan.com<svg class="i"><use href="#i-arrow"/></svg></span>
         </li>
         <li class="c-project">
           <span class="c-project-tag">Maintenance</span>
-          <h3><a class="stretch" href="https://wahanavisi.org/">Wahana Visi Indonesia</a></h3>
+          <h3><a class="stretch" href="https://wahanavisi.org/" target="_blank" rel="noopener">Wahana Visi Indonesia</a></h3>
           <p>A humanitarian organization working for children across Indonesia. I managed the website's maintenance.</p>
           <span class="c-project-more" aria-hidden="true">wahanavisi.org<svg class="i"><use href="#i-arrow"/></svg></span>
         </li>
         <li class="c-project">
           <span class="c-project-tag">Company website</span>
-          <h3><a class="stretch" href="https://j99corp.com/">J99 Corp</a></h3>
+          <h3><a class="stretch" href="https://j99corp.com/" target="_blank" rel="noopener">J99 Corp</a></h3>
           <p>A holding company with business units in beauty, transport, manufacturing, fashion and food.</p>
           <span class="c-project-more" aria-hidden="true">j99corp.com<svg class="i"><use href="#i-arrow"/></svg></span>
         </li>
@@ -1519,14 +1473,14 @@
         <a class="case-back" href="#experience"><svg class="i"><use href="#i-back"/></svg>All experience</a>
         <ul class="case-tags"><li>Work experience</li><li>MSIB Batch 4 (Kampus Merdeka)</li><li>Feb 2023 – Jun 2023</li></ul>
         <h1 class="case-title" id="exp-revou-title" tabindex="-1">RevoU Tech Academy</h1>
-        <p class="case-lede">Five months of independent study that earned me four certificates, and ended with a 10-person team I led to a live web app in four weeks.</p>
+        <p class="case-lede">Five months of independent study: four courses in one track, and a 10-person team I led to a live web app in four weeks.</p>
         <p class="cursor-tag"><svg class="cursor" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3l16 7.5-7 1.8-2.6 6.7z"/></svg><span>Gira, participant and team lead</span></p>
       </div>
       <div class="cover case-visual sheets" aria-hidden="true">
-        <div class="sheet-doc"><span class="doc-kind">Certificate</span><span class="doc-name">Data Analytics</span></div>
-        <div class="sheet-doc"><span class="doc-kind">Certificate</span><span class="doc-name">Software Engineering</span></div>
-        <div class="sheet-doc"><span class="doc-kind">Certificate</span><span class="doc-name">Product Management</span></div>
-        <div class="sheet-doc"><span class="doc-kind">Certificate</span><span class="doc-name">Digital Marketing</span></div>
+        <div class="sheet-doc"><span class="doc-kind">Course</span><span class="doc-name">Data Analytics</span></div>
+        <div class="sheet-doc"><span class="doc-kind">Course</span><span class="doc-name">Software Engineering</span></div>
+        <div class="sheet-doc"><span class="doc-kind">Course</span><span class="doc-name">Product Management</span></div>
+        <div class="sheet-doc"><span class="doc-kind">Course</span><span class="doc-name">Digital Marketing</span></div>
       </div>
     </div>
     <div class="wrap">
@@ -1534,7 +1488,7 @@
         <div><dt>Role</dt><dd>Participant and team lead</dd></div>
         <div><dt>When</dt><dd>Feb 2023 – Jun 2023</dd></div>
         <div><dt>Program</dt><dd>MSIB Batch 4</dd></div>
-        <div><dt>Certificates</dt><dd>4</dd></div>
+        <div><dt>Certificate</dt><dd>1, covering 4 courses</dd></div>
         <div><dt>Team led</dt><dd>10 people</dd></div>
       </dl>
     </div>
@@ -1553,7 +1507,7 @@
     <section class="c-sec">
       <h2 class="c-h">The numbers</h2>
       <dl class="c-stats">
-        <div><dt>4</dt><dd>Certificates earned</dd></div>
+        <div><dt>4</dt><dd>Courses in one track</dd></div>
         <div><dt>4</dt><dd>Projects delivered</dd></div>
         <div><dt>10</dt><dd>People on the team I led</dd></div>
         <div><dt>4 weeks</dt><dd>From brief to live site</dd></div>
@@ -1654,38 +1608,38 @@
           <span class="c-project-more" aria-hidden="true">Read the case study<svg class="i"><use href="#i-arrow"/></svg></span>
         </li>
         <li class="c-project">
-          <span class="c-project-tag">Unfinished client project</span>
-          <h3><a class="stretch" href="https://aslawfirm.netlify.app/">AS Law Firm</a></h3>
-          <p>A company profile for a law firm, from legal advice to family law. The project wasn't finished, so what you'll see is the work in progress.</p>
+          <span class="c-project-tag">Company profile</span>
+          <h3><a class="stretch" href="https://aslawfirm.netlify.app/" target="_blank" rel="noopener">Aslawfirm</a></h3>
+          <p>A company profile for a law firm, from legal advice to family law.</p>
           <span class="c-project-more" aria-hidden="true">aslawfirm.netlify.app<svg class="i"><use href="#i-arrow"/></svg></span>
         </li>
         <li class="c-project">
           <span class="c-project-tag">Educational product site</span>
-          <h3><a class="stretch" href="https://sisedu.netlify.app/">SISEDU</a></h3>
+          <h3><a class="stretch" href="https://sisedu.netlify.app/" target="_blank" rel="noopener">SISEDU</a></h3>
           <p>A brand and product site for a sex education book for children aged 5 to 8.</p>
           <span class="c-project-more" aria-hidden="true">sisedu.netlify.app<svg class="i"><use href="#i-arrow"/></svg></span>
         </li>
         <li class="c-project">
           <span class="c-project-tag">Skincare landing page</span>
-          <h3><a class="stretch" href="https://caveera.netlify.app/">Caveera</a></h3>
+          <h3><a class="stretch" href="https://caveera.netlify.app/" target="_blank" rel="noopener">Caveera</a></h3>
           <p>A one-page site for a skincare lotion made with purslane and aloe vera.</p>
           <span class="c-project-more" aria-hidden="true">caveera.netlify.app<svg class="i"><use href="#i-arrow"/></svg></span>
         </li>
         <li class="c-project">
           <span class="c-project-tag">Brand website</span>
-          <h3><a class="stretch" href="https://siekadetergen.netlify.app/">Sieka</a></h3>
+          <h3><a class="stretch" href="https://siekadetergen.netlify.app/" target="_blank" rel="noopener">Sieka</a></h3>
           <p>A company and product site for a detergent brand based in Malang.</p>
           <span class="c-project-more" aria-hidden="true">siekadetergen.netlify.app<svg class="i"><use href="#i-arrow"/></svg></span>
         </li>
         <li class="c-project">
-          <span class="c-project-tag">Prototype</span>
-          <h3><a class="stretch" href="https://orsanspray-prototype.netlify.app/">Orsan Spray</a></h3>
-          <p>A landing page prototype for a spray that reduces cigarette smoke. It stayed a prototype and never launched.</p>
+          <span class="c-project-tag">Product landing page</span>
+          <h3><a class="stretch" href="https://orsanspray-prototype.netlify.app/" target="_blank" rel="noopener">Orsan Spray</a></h3>
+          <p>A landing page for a spray that reduces cigarette smoke.</p>
           <span class="c-project-more" aria-hidden="true">orsanspray-prototype.netlify.app<svg class="i"><use href="#i-arrow"/></svg></span>
         </li>
         <li class="c-project">
           <span class="c-project-tag">Portfolio</span>
-          <h3><a class="stretch" href="https://photpgraph-portfolio.netlify.app/">Photography portfolio</a></h3>
+          <h3><a class="stretch" href="https://photpgraph-portfolio.netlify.app/" target="_blank" rel="noopener">Photography portfolio</a></h3>
           <p>A portfolio site for a photographer's photo and video work.</p>
           <span class="c-project-more" aria-hidden="true">photpgraph-portfolio.netlify.app<svg class="i"><use href="#i-arrow"/></svg></span>
         </li>
@@ -1791,13 +1745,13 @@
 
     <ul class="links-big">
       <li>
-        <a href="https://www.linkedin.com/in/gifari-asmara/">
+        <a href="https://www.linkedin.com/in/gifari-asmara/" target="_blank" rel="noopener">
           <span class="lb-name">LinkedIn</span><span class="lb-url">linkedin.com/in/gifari-asmara</span>
           <svg class="i lb-arrow"><use href="#i-arrow"/></svg>
         </a>
       </li>
       <li>
-        <a href="https://github.com/Giraken">
+        <a href="https://github.com/Giraken" target="_blank" rel="noopener">
           <span class="lb-name">GitHub</span><span class="lb-url">github.com/Giraken</span>
           <svg class="i lb-arrow"><use href="#i-arrow"/></svg>
         </a>
@@ -1811,7 +1765,7 @@
     </ul>
 
     <div class="cv-row">
-      <a class="btn btn-champagne btn-big" href="cv.pdf" data-cv><svg class="i"><use href="#i-download"/></svg>Download my CV</a>
+      <a class="btn btn-champagne btn-big" href="cv.pdf" target="_blank" rel="noopener" data-cv><svg class="i"><use href="#i-download"/></svg>Download my CV</a>
       <p>PDF, project management version</p>
     </div>
 
