@@ -6,7 +6,22 @@
   <title>Gifari Asmara Portfolio</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d1b2a'/%3E%3Cpath d='M32 13 51 32 32 51 13 32Z' fill='%23d4c4a8'/%3E%3C/svg%3E">
   <meta name="description" content="Gifari Asmara (Gira), junior project manager from Malang. Work experience, case studies and project management skills.">
-  <script>document.documentElement.classList.add('js');</script>
+  <script>
+    /* Motion setup. It runs before the page draws, so nothing flashes.
+       "motion" turns the animations on (skipped when the visitor asks for reduced motion).
+       "intro-on" shows the loading screen: once per visit, and not when a link opens a section directly.
+       If script.js hasn't started after 4 seconds, everything shows without animation. */
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      root.classList.add('motion');
+      var seen = false;
+      try { seen = sessionStorage.getItem('gira-intro') === 'seen'; } catch (e) {}
+      if (!location.hash && !seen) root.classList.add('intro-on');
+      setTimeout(function () { if (!window.giraMotion) { root.classList.remove('motion'); root.classList.remove('intro-on'); } }, 4000);
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
@@ -14,6 +29,19 @@
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Loading screen (first visit only). Click or press any key to skip it. -->
+<div class="intro" aria-hidden="true">
+  <div class="intro-inner">
+    <p class="intro-word" data-split="chars">Gira</p>
+    <div class="intro-meter">
+      <span>Gifari Asmara</span>
+      <span class="intro-count">000</span>
+      <span class="intro-line"><i></i></span>
+    </div>
+  </div>
+  <div class="intro-cols"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div>
 
 <!-- Icon set. Use an icon anywhere with: <svg class="i"><use href="#i-name"/></svg> -->
 <svg class="sprite" aria-hidden="true" focusable="false">
@@ -85,7 +113,7 @@
     <div class="hero-grid">
       <div class="hero-intro">
         <p class="hello">Halo! I'm Gira <span aria-hidden="true">👋</span></p>
-        <h1 class="name" id="hero-name"><span>Gifari</span> <span>Asmara</span></h1>
+        <h1 class="name" id="hero-name" data-split="chars"><span class="line">Gifari</span> <span class="line">Asmara</span></h1>
         <p class="role">Junior project manager</p>
         <p class="lede">I turn client requests into clear tasks, run weekly sprints, and keep one tracker the whole team can trust.</p>
         <p class="meta-line"><svg class="i"><use href="#i-pin"/></svg>Malang, East Java. Open to placement anywhere in Indonesia.</p>
@@ -192,7 +220,7 @@
     </div>
 
     <ol class="timeline">
-      <li class="job">
+      <li class="job" data-preview="pv-sekawan">
         <div class="job-when">
           <p class="job-dates">Feb 2024 – Aug 2024</p>
           <p class="job-org"><a href="#exp-sekawan">PT Sekawan Media Informatika</a></p>
@@ -220,7 +248,7 @@
         </div>
       </li>
 
-      <li class="job">
+      <li class="job" data-preview="pv-revou">
         <div class="job-when">
           <p class="job-dates">Feb 2023 – Jun 2023</p>
           <p class="job-org"><a href="#exp-revou">RevoU Tech Academy</a></p>
@@ -239,7 +267,7 @@
         </div>
       </li>
 
-      <li class="job">
+      <li class="job" data-preview="pv-freelance">
         <div class="job-when">
           <p class="job-dates">Sep 2021 – Jan 2024</p>
           <p class="job-org"><a href="#exp-freelance">Freelance</a></p>
@@ -262,31 +290,83 @@
       </li>
 
     </ol>
+
+    <!-- Preview cards that follow the mouse over each role (computers only).
+         Edit the text freely, or replace a card with a photo: <img src="images/your-photo.webp" alt=""> -->
+    <template id="pv-sekawan">
+      <div class="pv-card pv-tracker">
+        <p class="pv-title">10 client sites in one tracker</p>
+        <ul>
+          <li><span>Glambox</span><b>Online store</b></li>
+          <li><span>Vallianz Offshore Maritim</span><b>Company website</b></li>
+          <li><span>Kosme Health</span><b>Company website</b></li>
+          <li><span>Wahana Visi Indonesia</span><b>Maintenance</b></li>
+        </ul>
+        <p class="pv-more">and 5 more projects</p>
+      </div>
+    </template>
+    <template id="pv-revou">
+      <div class="pv-card">
+        <p class="pv-title">4 certificates, 4 projects</p>
+        <div class="sheets">
+          <div class="sheet-doc"><span class="doc-kind">Certificate</span><span class="doc-name">Data Analytics</span></div>
+          <div class="sheet-doc"><span class="doc-kind">Certificate</span><span class="doc-name">Software Engineering</span></div>
+          <div class="sheet-doc"><span class="doc-kind">Certificate</span><span class="doc-name">Product Management</span></div>
+          <div class="sheet-doc"><span class="doc-kind">Certificate</span><span class="doc-name">Digital Marketing</span></div>
+        </div>
+      </div>
+    </template>
+    <template id="pv-freelance">
+      <div class="pv-card">
+        <p class="pv-title">7 client websites</p>
+        <div class="frames">
+          <div class="frame"><span class="frame-bar"><i></i><i></i><i></i></span><span class="frame-name">Gambit Rojo</span><span class="frame-lines"><i></i><i></i><i class="short"></i></span></div>
+          <div class="frame"><span class="frame-bar"><i></i><i></i><i></i></span><span class="frame-name">Aslawfirm</span><span class="frame-lines"><i></i><i></i><i class="short"></i></span></div>
+          <div class="frame"><span class="frame-bar"><i></i><i></i><i></i></span><span class="frame-name">Sieka</span><span class="frame-lines"><i></i><i></i><i class="short"></i></span></div>
+        </div>
+      </div>
+    </template>
+  </div>
+</section>
+
+<!-- ============ QUOTE ============ -->
+<!-- The words light up one by one as you scroll. Change the sentence freely. -->
+<section class="band quote-band" aria-label="How I work">
+  <div class="wrap">
+    <figure class="quote">
+      <blockquote><p class="quote-text" data-split="words">I keep projects, people and deadlines on one page.</p></blockquote>
+      <figcaption class="quote-by" data-split="chars">Gira, on how I work</figcaption>
+    </figure>
   </div>
 </section>
 
 <!-- ============ 4. BEST PROJECTS ============ -->
-<!-- data-cat on each project must match a data-filter button: delivery, data or product.
-     Each project links to its case study further down the file (href="#habit-tracker" and so on). -->
+<!-- A sideways gallery: scrolling down moves the cards to the left.
+     Without JavaScript, or with reduced motion turned on, the cards show as a normal grid.
+     data-cat on each card must match a data-filter button: delivery, data or product.
+     Each card links to its case study further down the file (href="#habit-tracker" and so on). -->
 <section class="band paper projects" id="projects" aria-labelledby="proj-title">
-  <div class="wrap">
-    <div class="projects-head">
+  <div class="gallery-pin">
+    <div class="wrap projects-head">
       <div class="section-head">
         <h2 id="proj-title">Best projects</h2>
         <p class="section-lede">Open any project for the full case study.</p>
       </div>
-      <div class="filters" role="group" aria-label="Filter projects">
-        <button type="button" data-filter="all" aria-pressed="true">All</button>
-        <button type="button" data-filter="delivery" aria-pressed="false">Project delivery</button>
-        <button type="button" data-filter="data" aria-pressed="false">Data</button>
-        <button type="button" data-filter="product" aria-pressed="false">Product and marketing</button>
+      <div class="projects-tools">
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button type="button" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" data-filter="delivery" aria-pressed="false">Project delivery</button>
+          <button type="button" data-filter="data" aria-pressed="false">Data</button>
+          <button type="button" data-filter="product" aria-pressed="false">Product and marketing</button>
+        </div>
+        <p class="gallery-hint" aria-hidden="true">Keep scrolling to move sideways<svg class="i"><use href="#i-back"/></svg></p>
       </div>
     </div>
 
-    <div class="project-list">
+    <div class="gallery-track">
 
-      <!-- Highlight project -->
-      <article class="feature" data-cat="delivery" aria-labelledby="p-gambit">
+      <!-- Highlight project: the wide card -->
+      <article class="gcard is-highlight" data-cat="delivery" aria-labelledby="p-gambit">
         <figure class="cover">
           <a class="cover-link" href="#gambit-rojo" tabindex="-1" aria-hidden="true"></a>
           <figcaption class="cover-title">The site map</figcaption>
@@ -304,7 +384,7 @@
         </figure>
         <div class="p-body">
           <ul class="p-meta"><li>Highlight</li><li>Freelance</li><li>2023</li><li>7 pages</li></ul>
-          <h3 id="p-gambit"><a href="#gambit-rojo">Gambit Rojo</a></h3>
+          <h3 id="p-gambit"><a class="card-link" href="#gambit-rojo">Gambit Rojo</a></h3>
           <p class="p-desc">A seven-page website for a branding agency in South Jakarta. I coordinated it from the first brief to launch: scope and price, developer tasks, and an update every 1–2 weeks.</p>
           <ul class="p-tags" aria-label="Built with"><li>Tailwind CSS</li><li>Flowbite</li><li>GSAP</li></ul>
           <div class="p-actions">
@@ -314,7 +394,7 @@
         </div>
       </article>
 
-      <article class="feature flip" data-cat="delivery" aria-labelledby="p-habit">
+      <article class="gcard" data-cat="delivery" aria-labelledby="p-habit">
         <div class="cover">
           <a class="cover-link" href="#habit-tracker" tabindex="-1" aria-hidden="true"></a>
           <table class="plan">
@@ -337,14 +417,14 @@
         </div>
         <div class="p-body">
           <ul class="p-meta"><li>Team lead</li><li>June 2023</li><li>10 people</li><li>4 weeks</li></ul>
-          <h3 id="p-habit"><a href="#habit-tracker">Habit Tracker</a></h3>
+          <h3 id="p-habit"><a class="card-link" href="#habit-tracker">Habit Tracker</a></h3>
           <p class="p-desc">A habit-tracking web app built at RevoU Tech Academy. I led a team of 10 from the first brief to a live site on GitHub Pages in four weeks.</p>
           <ul class="p-tags" aria-label="Built with"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>GitHub Pages</li></ul>
           <a class="btn btn-ink" href="#habit-tracker">Read the case study<svg class="i"><use href="#i-arrow"/></svg></a>
         </div>
       </article>
 
-      <article class="feature" data-cat="data" aria-labelledby="p-capstone">
+      <article class="gcard" data-cat="data" aria-labelledby="p-capstone">
         <figure class="cover">
           <a class="cover-link" href="#data-capstone" tabindex="-1" aria-hidden="true"></a>
           <figcaption class="cover-title">Gross sales, with 2009 set to 100</figcaption>
@@ -357,14 +437,14 @@
         </figure>
         <div class="p-body">
           <ul class="p-meta"><li>Data analytics</li><li>March 2023</li><li>11 people</li></ul>
-          <h3 id="p-capstone"><a href="#data-capstone">Data analytics capstone</a></h3>
+          <h3 id="p-capstone"><a class="card-link" href="#data-capstone">Data analytics capstone</a></h3>
           <p class="p-desc">Our retail case company's gross sales fell 11.13% from 2009 to 2012. The goal was to grow them 15% in one year, so we cleaned the data, built a dashboard and turned it into four recommendations.</p>
           <ul class="p-tags" aria-label="Tools"><li>Looker Studio</li><li>Data cleaning</li><li>Dashboards</li></ul>
           <a class="btn btn-ink" href="#data-capstone">Read the case study<svg class="i"><use href="#i-arrow"/></svg></a>
         </div>
       </article>
 
-      <article class="feature flip" data-cat="data" aria-labelledby="p-thesis">
+      <article class="gcard" data-cat="data" aria-labelledby="p-thesis">
         <figure class="cover">
           <a class="cover-link" href="#segmentation" tabindex="-1" aria-hidden="true"></a>
           <figcaption class="cover-title">Three clustering methods compared</figcaption>
@@ -381,7 +461,7 @@
         </figure>
         <div class="p-body">
           <ul class="p-meta"><li>Thesis</li><li>Python</li><li>4,338 customers</li></ul>
-          <h3 id="p-thesis"><a href="#segmentation">Customer segmentation with RFM</a></h3>
+          <h3 id="p-thesis"><a class="card-link" href="#segmentation">Customer segmentation with RFM</a></h3>
           <p class="p-desc">I grouped 4,338 retail customers by how recently, how often and how much they buy, compared three clustering methods, and chose HDBSCAN. It found five segments.</p>
           <ul class="p-tags" aria-label="Methods"><li>Python</li><li>RFM</li><li>HDBSCAN</li><li>SOM</li><li>Spectral clustering</li></ul>
           <a class="btn btn-ink" href="#segmentation">Read the case study<svg class="i"><use href="#i-arrow"/></svg></a>
@@ -389,34 +469,38 @@
       </article>
 
       <!-- Smaller projects: the whole card opens the case study -->
-      <div class="mini-grid">
-        <article class="mini" data-cat="delivery" aria-labelledby="m-sites">
-          <div class="mini-card">
-            <h3 id="m-sites"><a class="mini-link" href="#client-websites">Client websites</a></h3>
-            <p>Seven client websites I coordinated as a freelancer, from the first brief to launch.</p>
-            <ul class="mini-meta"><li>Freelance</li><li>2021–2024</li></ul>
-          </div>
-          <span class="corner-btn" aria-hidden="true"><svg class="i"><use href="#i-arrow"/></svg></span>
-        </article>
+      <article class="gcard mini" data-cat="delivery" aria-labelledby="m-sites">
+        <div class="mini-card">
+          <h3 id="m-sites"><a class="mini-link" href="#client-websites">Client websites</a></h3>
+          <p>Seven client websites I coordinated as a freelancer, from the first brief to launch.</p>
+          <ul class="mini-meta"><li>Freelance</li><li>2021–2024</li></ul>
+        </div>
+        <span class="corner-btn" aria-hidden="true"><svg class="i"><use href="#i-arrow"/></svg></span>
+      </article>
 
-        <article class="mini" data-cat="product" aria-labelledby="m-viu">
-          <div class="mini-card">
-            <h3 id="m-viu"><a class="mini-link" href="#viu-requirements">VIU app requirements</a></h3>
-            <p>Personas, a customer journey map and a product requirements document for the VIU app.</p>
-            <ul class="mini-meta"><li>Product management</li><li>RevoU, 2023</li></ul>
-          </div>
-          <span class="corner-btn" aria-hidden="true"><svg class="i"><use href="#i-arrow"/></svg></span>
-        </article>
+      <article class="gcard mini" data-cat="product" aria-labelledby="m-viu">
+        <div class="mini-card">
+          <h3 id="m-viu"><a class="mini-link" href="#viu-requirements">VIU app requirements</a></h3>
+          <p>Personas, a customer journey map and a product requirements document for the VIU app.</p>
+          <ul class="mini-meta"><li>Product management</li><li>RevoU, 2023</li></ul>
+        </div>
+        <span class="corner-btn" aria-hidden="true"><svg class="i"><use href="#i-arrow"/></svg></span>
+      </article>
 
-        <article class="mini" data-cat="product" aria-labelledby="m-fore">
-          <div class="mini-card">
-            <h3 id="m-fore"><a class="mini-link" href="#fore-coffee">Fore Coffee ads plan</a></h3>
-            <p>A digital marketing plan for Fore Coffee, ending in a Facebook Ads plan.</p>
-            <ul class="mini-meta"><li>Digital marketing</li><li>RevoU, 2023</li></ul>
-          </div>
-          <span class="corner-btn" aria-hidden="true"><svg class="i"><use href="#i-arrow"/></svg></span>
-        </article>
-      </div>
+      <article class="gcard mini" data-cat="product" aria-labelledby="m-fore">
+        <div class="mini-card">
+          <h3 id="m-fore"><a class="mini-link" href="#fore-coffee">Fore Coffee ads plan</a></h3>
+          <p>A digital marketing plan for Fore Coffee, ending in a Facebook Ads plan.</p>
+          <ul class="mini-meta"><li>Digital marketing</li><li>RevoU, 2023</li></ul>
+        </div>
+        <span class="corner-btn" aria-hidden="true"><svg class="i"><use href="#i-arrow"/></svg></span>
+      </article>
+
+    </div>
+
+    <div class="wrap gallery-foot" aria-hidden="true">
+      <span class="gallery-count"><b>01</b> / 07</span>
+      <span class="gallery-bar"><i></i></span>
     </div>
   </div>
 </section>
@@ -1668,6 +1752,8 @@
       <a class="btn btn-champagne btn-big" href="cv.pdf" data-cv><svg class="i"><use href="#i-download"/></svg>Download my CV</a>
       <p>PDF, project management version</p>
     </div>
+
+    <p class="wordmark" aria-hidden="true" data-split="chars">GIFARI</p>
 
     <div class="footer-bottom">
       <p>© 2026 Gifari Asmara Dwikandy Lieswari. Made in Malang.</p>

@@ -3,9 +3,16 @@
 (function () {
   'use strict';
 
+  window.giraMotion = true; // tells the safety net in <head> that this file is running
   var root = document.documentElement;
   root.classList.add('js');
+  var motion = root.classList.contains('motion');
   var each = function (selector, fn) { Array.prototype.forEach.call(document.querySelectorAll(selector), fn); };
+  var clamp = function (v, a, b) { return Math.min(b, Math.max(a, v)); };
+
+  // Other parts of this file can ask to hear when a page switch happens
+  var beforeHome = []; // the home page is about to show again: measure what needs measuring
+  var afterRoute = []; // a page switch just finished
 
 
   /* 1. Case study pages
@@ -41,6 +48,7 @@
       document.title = (heading ? heading.textContent : 'Case study') + ' | Gifari Asmara';
       jumpTo(0);
       if (heading) heading.focus({ preventScroll: true });
+      afterRoute.forEach(function (fn) { fn(id, ''); });
       return;
     }
 
@@ -49,15 +57,16 @@
     root.classList.remove('case-open');
     openCase = null;
     document.title = homeTitle;
+    beforeHome.forEach(function (fn) { fn(); });
     var anchor = id && document.getElementById(id);
     if (anchor) {
       if (wasOpen) jumpToElement(anchor);
     } else if (wasOpen) {
       jumpTo(homeScroll);
     }
+    afterRoute.forEach(function (fn) { fn(id, wasOpen ? wasOpen.id : ''); });
   }
   window.addEventListener('hashchange', route);
-  route();
 
   // "Back to top" inside a case study stays on that case study
   each('.to-top', function (link) {
@@ -124,6 +133,7 @@
 
 
   /* 5. Project filters */
+  var onFilter = []; // the gallery listens so it can re-measure
   var filterButtons = Array.prototype.slice.call(document.querySelectorAll('[data-filter]'));
   filterButtons.forEach(function (button) {
     button.addEventListener('click', function () {
@@ -133,9 +143,7 @@
         var cats = item.getAttribute('data-cat').split(' ');
         item.hidden = !(filter === 'all' || cats.indexOf(filter) > -1);
       });
-      each('.mini-grid', function (grid) {
-        grid.hidden = !grid.querySelector('[data-cat]:not([hidden])');
-      });
+      onFilter.forEach(function (fn) { fn(); });
     });
   });
 
@@ -197,4 +205,460 @@
       if (!response.ok || type.indexOf('pdf') === -1) cvMissing();
     }, cvMissing);
   }
+  /* 8. Giant name in the footer: sized to fill the page width */
+  var wordmark = document.querySelector('.wordmark');
+  function fitWordmark() {
+    if (!wordmark || !wordmark.offsetParent) return;
+    wordmark.style.fontSize = '100px';
+    var range = document.createRange();
+    range.selectNodeContents(wordmark);
+    var textWidth = range.getBoundingClientRect().width;
+    if (textWidth) wordmark.style.fontSize = (100 * wordmark.clientWidth / textWidth * 0.995).toFixed(2) + 'px';
+  }
+  if (wordmark) {
+    fitWordmark();
+    window.addEventListener('resize', fitWordmark);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitWordmark);
+    beforeHome.push(fitWordmark);
+    afterRoute.push(fitWordmark);
+  }
+
+
+  /* =====================================================================
+     MOTION
+     Only runs when the <head> script added "motion" to <html>:
+     not for visitors who turned on reduced motion.
+     ===================================================================== */
+  if (motion) (function () {
+    var hero = document.querySelector('.hero');
+    var vh = window.innerHeight;
+    var finePointer = window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches;
+    function make(tag, cls) { var el = document.createElement(tag); el.className = cls; return el; }
+    function onScroll(fn) {
+      var queued = false;
+      function run() { queued = false; fn(); }
+      window.addEventListener('scroll', function () { if (!queued) { queued = true; requestAnimationFrame(run); } }, { passive: true });
+      window.addEventListener('resize', function () { vh = window.innerHeight; if (!queued) { queued = true; requestAnimationFrame(run); } });
+      fn();
+    }
+
+
+    /* M1. Split text into letters (they rise out of a mask) or words (they light up).
+       Screen readers get the original text once; the split copy is hidden from them. */
+    function split(el, mode) {
+      var full = el.textContent.replace(/\s+/g, ' ').trim();
+      var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+      var nodes = [], n = 0;
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach(function (node) {
+        if (!node.nodeValue.trim()) return;
+        var holder = document.createElement('span');
+        if (mode !== 'words') holder.setAttribute('aria-hidden', 'true');
+        node.nodeValue.split(/(\s+)/).forEach(function (part) {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { holder.appendChild(document.createTextNode(' ')); return; }
+          if (mode === 'words') {
+            var word = make('span', 'qw');
+            word.textContent = part;
+            holder.appendChild(word);
+            return;
+          }
+          var box = make('span', mode === 'type' ? 'tw' : 'w');
+          Array.from(part).forEach(function (letter) {
+            var ch = make('span', mode === 'type' ? 'tc' : 'ch');
+            ch.style.setProperty('--i', n++);
+            ch.textContent = letter;
+            box.appendChild(ch);
+          });
+          holder.appendChild(box);
+        });
+        node.parentNode.replaceChild(holder, node);
+      });
+      if (mode !== 'words' && !el.closest('[aria-hidden="true"]')) {
+        var sr = make('span', 'sr-only');
+        sr.textContent = full;
+        el.insertBefore(sr, el.firstChild);
+      }
+      el.classList.add('is-split');
+    }
+    each('[data-split]', function (el) { split(el, el.getAttribute('data-split')); });
+
+
+    /* M2. Reveal on scroll: things fade up, headings rise out of a mask.
+       Items that arrive together come in one after another. */
+    function mark(selector, type) {
+      each(selector, function (el) { if (!el.hasAttribute('data-reveal')) el.setAttribute('data-reveal', type); });
+    }
+    each('.view-home > section h2, .footer-title, .case-title, .c-h', function (h) {
+      var mask = make('span', 'mask'), inner = make('span', 'mask-in');
+      while (h.firstChild) inner.appendChild(h.firstChild);
+      mask.appendChild(inner);
+      h.appendChild(mask);
+      h.setAttribute('data-reveal', 'mask');
+    });
+    mark('.portrait', 'photo');
+    mark([
+      '.section-lede', '.about-text .prose > p', '.folder', '.tools', '.certs-note',
+      '.vol-org', '.vol-meta', '.vol-desc', '.vol-text > .btn', '.vol-panel',
+      '.footer-lede', '.cv-row', '.projects-tools',
+      '.case-tags', '.case-lede', '.cursor-tag', '.case-visual', '.case-facts', '.c-sec', '.case-end',
+      '.timeline > .job', '.bento > .tile', '.certs > .cert', '.steps > .step', '.links-big > li',
+      '.gallery-track > .gcard', '.c-projects > li'
+    ].join(', '), 'up');
+    mark('.wordmark', 'chars');
+
+    var revealed = function (el) { el.classList.add('is-in'); };
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        var arriving = entries.filter(function (e) { return e.isIntersecting; }).map(function (e) { return e.target; });
+        arriving.sort(function (a, b) { return a.compareDocumentPosition(b) & 4 ? -1 : 1; });
+        arriving.forEach(function (el, k) {
+          el.style.setProperty('--d', Math.min(k, 6) * 90 + 'ms');
+          revealed(el);
+          io.unobserve(el);
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+      each('[data-reveal]', function (el) { io.observe(el); });
+    } else {
+      each('[data-reveal]', revealed);
+    }
+
+
+    /* M3. Hero: the loading screen first (once per visit), then the name rises */
+    var stats = Array.prototype.slice.call(document.querySelectorAll('.stats strong'));
+    var heroRunning = true; // a count that starts with the hero waits for it to finish
+    function countUp() {
+      heroRunning = hero && hero.getBoundingClientRect().bottom > 0 && document.querySelector('.stats').getBoundingClientRect().top < window.innerHeight * 0.9 && performance.now() < heroStart + 1500;
+      stats.forEach(function (el, k) {
+        var m = el.textContent.match(/^(\d+)(.*)$/);
+        if (!m) return;
+        var target = +m[1], rest = m[2], start = null;
+        el.textContent = '0' + rest;
+        function step(now) {
+          if (start === null) start = now + (heroRunning ? 950 : 150) + k * 120;
+          var t = clamp((now - start) / 1300, 0, 1);
+          el.textContent = Math.round((1 - Math.pow(1 - t, 3)) * target) + rest;
+          if (t < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }
+    var heroStart = 0;
+    function heroIn() {
+      if (!hero || hero.classList.contains('is-in')) return;
+      heroStart = performance.now();
+      hero.classList.add('is-in');
+      var strip = document.querySelector('.stats');
+      if (!strip || !('IntersectionObserver' in window)) { countUp(); return; }
+      var watch = new IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting) return;
+        watch.disconnect();
+        countUp();
+      }, { threshold: 0.5 });
+      watch.observe(strip);
+    }
+
+    var intro = document.querySelector('.intro');
+    if (root.classList.contains('intro-on') && intro && typeof intro.animate === 'function') {
+      runIntro();
+    } else {
+      root.classList.remove('intro-on');
+      if (intro) intro.remove();
+      requestAnimationFrame(heroIn);
+    }
+
+    function runIntro() {
+      var word = intro.querySelector('.intro-word');
+      var count = intro.querySelector('.intro-count');
+      var line = intro.querySelector('.intro-line');
+      var inner = intro.querySelector('.intro-inner');
+      var cols = Array.prototype.slice.call(intro.querySelectorAll('.intro-cols i'));
+      var ease = 'cubic-bezier(.76, 0, .24, 1)';
+      var leaving = false, fontsReady = !(document.fonts && document.fonts.ready);
+      if (!fontsReady) document.fonts.ready.then(function () { fontsReady = true; });
+      setTimeout(function () { fontsReady = true; }, 2500);
+
+      requestAnimationFrame(function () { word.classList.add('is-in'); });
+      var start = null;
+      function tick(now) {
+        if (leaving) return;
+        if (start === null) start = now;
+        var t = clamp((now - start) / 1150, 0, 1);
+        var value = Math.round((1 - Math.pow(1 - t, 3)) * 100);
+        if (value === 100 && !fontsReady) value = 99;
+        count.textContent = ('00' + value).slice(-3);
+        line.style.setProperty('--p', value / 100);
+        if (value === 100) { setTimeout(leave, 200); return; }
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+
+      // A click or a key skips the wait
+      var skipEvents = ['pointerdown', 'keydown', 'wheel', 'touchstart'];
+      function skip() { leave(true); }
+      skipEvents.forEach(function (type) { window.addEventListener(type, skip, { passive: true }); });
+
+      function leave(fast) {
+        if (leaving) return;
+        leaving = true;
+        var k = fast ? 0.6 : 1; // a skip plays the wipe faster
+        skipEvents.forEach(function (type) { window.removeEventListener(type, skip); });
+        try { sessionStorage.setItem('gira-intro', 'seen'); } catch (err) {}
+        inner.animate([{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateY(-14px)' }],
+          { duration: 260 * k, easing: 'ease-in', fill: 'forwards' });
+        // Champagne columns rise from the bottom, left first...
+        var covering = cols.map(function (col, i) {
+          return col.animate([{ transform: 'scaleY(0)' }, { transform: 'scaleY(1)' }],
+            { duration: 460 * k, delay: (140 + i * 45) * k, easing: ease, fill: 'forwards' });
+        });
+        covering[covering.length - 1].finished.then(function () {
+          intro.style.background = 'transparent';
+          inner.style.visibility = 'hidden';
+          // ...then leave through the top, and the page underneath comes in
+          var opening = cols.map(function (col, i) {
+            col.style.transformOrigin = '50% 0';
+            return col.animate([{ transform: 'scaleY(1)' }, { transform: 'scaleY(0)' }],
+              { duration: 560 * k, delay: i * 45 * k, easing: ease, fill: 'forwards' });
+          });
+          setTimeout(heroIn, 120);
+          opening[opening.length - 1].finished.then(function () {
+            root.classList.remove('intro-on');
+            intro.remove();
+          });
+        });
+      }
+    }
+
+
+    /* M4. Ribbon: keeps sliding, and scrolling pushes it faster (or back) */
+    var ribbon = document.querySelector('.ribbon');
+    var ribbonTrack = ribbon && ribbon.querySelector('.ribbon-track');
+    if (ribbonTrack) {
+      ribbonTrack.style.animation = 'none';
+      var rx = 0, half = 1, vel = 0, hovering = false, onScreen = true, lastT = null, lastY = window.scrollY, ribbonRaf = 0;
+      var measureRibbon = function () { half = ribbonTrack.scrollWidth / 2 || 1; };
+      measureRibbon();
+      window.addEventListener('resize', measureRibbon);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureRibbon);
+      ribbon.addEventListener('pointerenter', function () { hovering = true; });
+      ribbon.addEventListener('pointerleave', function () { hovering = false; });
+      var ribbonFrame = function (now) {
+        ribbonRaf = 0;
+        if (!onScreen) return;
+        var dt = lastT === null ? 0 : Math.min(0.05, (now - lastT) / 1000);
+        lastT = now;
+        var y = window.scrollY, scrollSpeed = dt ? (y - lastY) / dt : 0;
+        lastY = y;
+        var target = (hovering ? 0 : 38) + clamp(scrollSpeed * 0.35, -900, 900);
+        vel += (target - vel) * 0.08;
+        rx -= vel * dt;
+        if (rx <= -half) rx += half;
+        if (rx > 0) rx -= half;
+        ribbonTrack.style.transform = 'translate3d(' + rx.toFixed(2) + 'px, 0, 0)';
+        ribbonRaf = requestAnimationFrame(ribbonFrame);
+      };
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          onScreen = entries[0].isIntersecting;
+          if (onScreen && !ribbonRaf) { lastT = null; lastY = window.scrollY; ribbonRaf = requestAnimationFrame(ribbonFrame); }
+        }).observe(ribbon);
+      } else {
+        ribbonRaf = requestAnimationFrame(ribbonFrame);
+      }
+    }
+
+
+    /* M5. Quote: words light up as the band scrolls past; then the signature types itself */
+    var band = document.querySelector('.quote-band');
+    if (band) {
+      var words = Array.prototype.slice.call(band.querySelectorAll('.qw'));
+      var by = band.querySelector('.quote-by');
+      onScroll(function () {
+        if (!band.offsetParent) return;
+        var r = band.getBoundingClientRect();
+        var p = clamp((vh * 0.85 - r.top) / (vh * 0.4 + r.height / 2), 0, 1);
+        var lit = Math.floor(p * (words.length + 0.999));
+        words.forEach(function (w, k) { w.classList.toggle('on', k < lit); });
+        band.style.setProperty('--q', p.toFixed(3));
+        if (p >= 1 && by) by.classList.add('is-in');
+      });
+    }
+
+
+    /* M6. Work experience: the timeline line draws down as you read */
+    var jobs = Array.prototype.slice.call(document.querySelectorAll('.job'));
+    if (jobs.length) {
+      onScroll(function () {
+        jobs.forEach(function (job) {
+          var r = job.getBoundingClientRect();
+          if (!r.height) return;
+          var line = job.querySelector('.job-line');
+          if (line) line.style.setProperty('--draw', clamp((vh * 0.78 - r.top) / r.height, 0, 1).toFixed(3));
+        });
+      });
+    }
+
+
+    /* M7. Best projects: scrolling down moves the cards sideways */
+    var gallery = document.querySelector('.projects');
+    var pin = gallery && gallery.querySelector('.gallery-pin');
+    var track = gallery && gallery.querySelector('.gallery-track');
+    if (pin && track) {
+      var countNow = gallery.querySelector('.gallery-count b');
+      var bar = gallery.querySelector('.gallery-bar');
+      var countAll = gallery.querySelector('.gallery-count');
+      var travel = 0, on = false, x = 0;
+      var galleryTop = function () { return gallery.getBoundingClientRect().top + window.scrollY; };
+      var cards = function () {
+        return Array.prototype.slice.call(track.querySelectorAll('.gcard')).filter(function (c) { return !c.hidden; });
+      };
+      var pad = function () { return parseFloat(getComputedStyle(track).paddingLeft) || 0; };
+      var two = function (n) { return (n < 10 ? '0' : '') + n; };
+
+      var applyGallery = function () {
+        if (!on) return;
+        var p = travel ? clamp(-gallery.getBoundingClientRect().top / travel, 0, 1) : 0;
+        x = p * travel;
+        track.style.transform = 'translate3d(' + (-x).toFixed(1) + 'px, 0, 0)';
+        if (bar) bar.style.setProperty('--p', p.toFixed(4));
+        var list = cards();
+        if (countNow && list.length) countNow.textContent = two(Math.round(p * (list.length - 1)) + 1);
+      };
+
+      var measureGallery = function () {
+        var fits = window.innerHeight >= 620;
+        if (!gallery.offsetParent) return; // a case study is open; measure when home comes back
+        on = fits;
+        gallery.classList.toggle('is-gallery', on);
+        if (!on) { gallery.style.height = ''; track.style.transform = ''; return; }
+        pin.scrollLeft = 0;
+        var list = cards(), last = list[list.length - 1];
+        travel = last ? Math.max(0, Math.round(last.offsetLeft + last.offsetWidth + pad() - pin.clientWidth)) : 0;
+        gallery.style.height = pin.offsetHeight + travel + 'px';
+        if (countAll) countAll.lastChild.nodeValue = ' / ' + two(list.length);
+        applyGallery();
+      };
+
+      var queuedMeasure = false;
+      var remeasure = function () {
+        if (queuedMeasure) return;
+        queuedMeasure = true;
+        requestAnimationFrame(function () { queuedMeasure = false; measureGallery(); });
+      };
+      measureGallery();
+      var queuedApply = false;
+      window.addEventListener('scroll', function () {
+        if (queuedApply) return;
+        queuedApply = true;
+        requestAnimationFrame(function () { queuedApply = false; applyGallery(); });
+      }, { passive: true });
+      window.addEventListener('load', remeasure);
+      window.addEventListener('resize', remeasure);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(remeasure);
+      if ('ResizeObserver' in window) new ResizeObserver(remeasure).observe(track);
+      beforeHome.push(measureGallery);
+
+      // Scroll to a card: used for keyboard focus and when coming back from a case study
+      var showCard = function (card) {
+        if (!on || !card) return;
+        var left = card.offsetLeft - pad();
+        var room = pin.clientWidth - 2 * pad();
+        if (left >= x && left + card.offsetWidth <= x + room + 1) return;
+        jumpTo(galleryTop() + clamp(left, 0, travel));
+        applyGallery();
+      };
+      track.addEventListener('focusin', function (e) {
+        pin.scrollLeft = 0;
+        showCard(e.target.closest('.gcard'));
+      });
+      afterRoute.push(function (id, fromCase) {
+        if (id !== 'projects' || !fromCase) return;
+        var link = track.querySelector('a[href="#' + fromCase + '"]');
+        if (link) { jumpTo(galleryTop()); applyGallery(); showCard(link.closest('.gcard')); }
+      });
+      // After filtering, start again from the first card
+      onFilter.push(function () {
+        var wasInside = on && gallery.getBoundingClientRect().top < 0;
+        measureGallery();
+        if (wasInside) { jumpTo(galleryTop()); applyGallery(); }
+      });
+    }
+
+
+    /* M8. Mouse effects, on computers only: a ring that follows the cursor,
+       and preview cards over the work experience roles */
+    if (!finePointer) return;
+
+    var dot = make('div', 'cursor-dot'), ring = make('div', 'cursor-ring');
+    dot.setAttribute('aria-hidden', 'true');
+    ring.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(dot);
+    document.body.appendChild(ring);
+    var mx = -100, my = -100, ringX = -100, ringY = -100, ringRaf = 0;
+    var ringFrame = function () {
+      ringX += (mx - ringX) * 0.2;
+      ringY += (my - ringY) * 0.2;
+      ring.style.transform = 'translate3d(' + ringX.toFixed(1) + 'px, ' + ringY.toFixed(1) + 'px, 0)';
+      ringRaf = Math.abs(mx - ringX) + Math.abs(my - ringY) > 0.2 ? requestAnimationFrame(ringFrame) : 0;
+    };
+    document.addEventListener('pointermove', function (e) {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      mx = e.clientX; my = e.clientY;
+      if (!root.classList.contains('cursor-on')) { ringX = mx; ringY = my; root.classList.add('cursor-on'); }
+      dot.style.transform = 'translate3d(' + mx + 'px, ' + my + 'px, 0)';
+      if (!ringRaf) ringRaf = requestAnimationFrame(ringFrame);
+    }, { passive: true });
+    document.addEventListener('pointerover', function (e) {
+      var t = e.target.closest ? e.target : e.target.parentElement;
+      if (!t) return;
+      var card = t.closest('.gcard');
+      var control = t.closest('a, button, [role="tab"], summary, label');
+      var openCard = card && !(control && control.closest('.p-actions, .p-body > .btn'));
+      ring.classList.toggle('is-open', !!openCard);
+      dot.classList.toggle('is-open', !!openCard);
+      ring.classList.toggle('is-link', !openCard && !!control);
+      ring.textContent = openCard ? 'Open' : '';
+    });
+    document.documentElement.addEventListener('mouseleave', function () { dot.classList.add('is-away'); ring.classList.add('is-away'); });
+    document.documentElement.addEventListener('mouseenter', function () { dot.classList.remove('is-away'); ring.classList.remove('is-away'); });
+
+    // Preview cards
+    var preview = make('div', 'preview');
+    preview.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(preview);
+    var px = 0, py = 0, tx = 0, ty = 0, showing = null, previewRaf = 0;
+    var previewFrame = function () {
+      px += (tx - px) * 0.14;
+      py += (ty - py) * 0.14;
+      var w = preview.offsetWidth, h = preview.offsetHeight;
+      var left = clamp(px + 30, 12, window.innerWidth - w - 12);
+      var topY = clamp(py - h / 2, 84, window.innerHeight - h - 12);
+      var tilt = clamp((tx - px) * 0.12, -7, 7);
+      preview.style.transform = 'translate3d(' + left.toFixed(1) + 'px, ' + topY.toFixed(1) + 'px, 0) rotate(' + tilt.toFixed(2) + 'deg)';
+      previewRaf = showing || Math.abs(tx - px) + Math.abs(ty - py) > 0.3 ? requestAnimationFrame(previewFrame) : 0;
+    };
+    var hidePreview = function () { showing = null; preview.classList.remove('is-on'); };
+    each('.job[data-preview]', function (job) {
+      var template = document.getElementById(job.getAttribute('data-preview'));
+      var zone = job.querySelector('.job-when');
+      if (!template || !zone || !template.content) return;
+      zone.addEventListener('pointerenter', function (e) {
+        if (e.pointerType && e.pointerType !== 'mouse') return;
+        if (showing !== template) {
+          preview.innerHTML = '';
+          preview.appendChild(template.content.cloneNode(true));
+        }
+        tx = e.clientX; ty = e.clientY;
+        if (!preview.classList.contains('is-on')) { px = tx; py = ty; }
+        showing = template;
+        preview.classList.add('is-on');
+        if (!previewRaf) previewRaf = requestAnimationFrame(previewFrame);
+      });
+      zone.addEventListener('pointermove', function (e) { tx = e.clientX; ty = e.clientY; });
+      zone.addEventListener('pointerleave', hidePreview);
+    });
+    window.addEventListener('hashchange', hidePreview);
+  })();
+
+  route();
 })();

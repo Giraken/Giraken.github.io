@@ -5,7 +5,7 @@ Plain HTML, CSS and a little JavaScript. No build step: open `index.html` in a b
 ```
 index.html   all the text: the home page first, then one case study per project
 style.css    colours, fonts and layout (tokens at the top)
-script.js    small extras: case study pages, tabs, filters, copy email, CV check
+script.js    extras: case study pages, tabs, filters, copy email, CV check, and the animations
 cv.pdf       your CV, linked from the top bar, the hero and the footer
 images/      your two photos
 ```
@@ -44,6 +44,24 @@ The dashed "Certifications in progress" card is the placeholder for your Udemy c
 ## Volunteering
 
 Volunteering has its own section (`id="volunteering"`) after Courses, and its own page (`#exp-volunteer`) with the details.
+
+## Animations
+
+The page moves in a few ways, all in `script.js` (part 8 onwards) and section 15 of `style.css`:
+
+- **Loading screen.** "Gira" with a 0–100 counter, then a champagne wipe, and your name rises letter by letter. It shows once per visit, skips itself when a link opens a section or case study directly, and a click or any key cuts it short.
+- **Scroll reveals.** Headings rise out of a mask, text and cards fade up, the timeline draws down, and the About photo turns from grey to colour.
+- **Ribbon.** It keeps sliding; scrolling pushes it faster, or backwards when you scroll up.
+- **Quote.** The words in the quote band (before Best projects) light up as you scroll past. Change the sentence in the `<!-- ============ QUOTE ============ -->` block.
+- **Best projects gallery.** Scrolling down moves the cards sideways. Each card is an `<article class="gcard">` inside `gallery-track`; copy one to add a project. `is-highlight` makes the wide first card.
+- **Mouse effects (computers only).** A ring follows the cursor and grows over links. Over a project card it says "Open". Footer rows and round buttons fill with champagne from the bottom.
+- **Preview cards.** Hovering the dates side of a role in Work experience shows a card that follows the mouse. They live in the `<template id="pv-sekawan">`, `pv-revou` and `pv-freelance` blocks right after the timeline. Edit them, or put a photo inside instead: `<img src="images/your-photo.webp" alt="">`.
+- **GIFARI in the footer.** Change the word in `<p class="wordmark">`; it resizes itself to the page width.
+
+Visitors whose device asks for reduced motion get none of this: everything simply shows, and Best projects becomes a grid.
+
+To turn the loading screen off, delete the line `if (!location.hash && !seen) root.classList.add('intro-on');` in the `<head>` of `index.html`.
+To turn every animation off, delete `root.classList.add('motion');` on the line above it.
 
 ## How the case study pages work
 
