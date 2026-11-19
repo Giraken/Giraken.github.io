@@ -8,7 +8,7 @@ style.css    colours, fonts and layout (tokens at the top)
 script.js    extras: case study pages, tabs, filters, copy email, CV check, and the animations
 cv.pdf       your CV, linked from the top bar, the hero and the footer
 images/      your photos
-fonts/       Sora, Manrope, Instrument Serif and Archivo (self-hosted, with their licences)
+fonts/       Sora, Manrope and Instrument Serif (self-hosted, with their licences)
 404.html     the page GitHub shows for an address that doesn't exist
 ```
 
@@ -16,7 +16,7 @@ fonts/       Sora, Manrope, Instrument Serif and Archivo (self-hosted, with thei
 
 | File | Where it shows |
 | --- | --- |
-| `images/gifari-photo.webp` | Hero, in the photo card with the "Open to work" label. 4:5 (1000 × 1250); use the same shape for a new photo. |
+| `images/gifari-photo.webp` | Hero, framed as "Plate I" with the "Open to work" label. 4:5 (1000 × 1250); use the same shape for a new photo. |
 | `images/about.webp` | About section. A cut-out (transparent background); the head rises above the frame on purpose. If the file is missing, your initials "GA" show instead. |
 | `images/gifari.webp` | The illustrated portrait used before. Not shown at the moment. |
 
@@ -39,8 +39,13 @@ How 18+ is counted: 10 Sekawan sites (the Glambox online store and community sit
 
 ## Work experience
 
-Each role in the timeline has its points, three key numbers (`<ul class="xp-metrics">`) and a "See the projects" button.
-The bar under Sekawan (`<figure class="team-bar">`) shows the team make-up: each `<i style="--n:2">` is one group, and `--n` is its head count.
+Each role hangs as an exhibit (`<li class="exhibit">`): on one side a framed paper plate with a redrawn copy of the document the job ran on, on the other its label: the company, your role and dates, your points and a "See the projects" button. The plate's caption ("Plate III · …, redrawn") sits under the frame.
+
+- **Plate III, Sekawan:** the client tracker (`<table class="ledger">`), one row per site, and the team bar under it (`<div class="team-bar">`): each `<i style="--n:2">` is one group, and `--n` is its head count.
+- **Plate IV, RevoU:** the four-course track (`<table class="ledger ledger-3 ledger-track">`): course, project, and what it produced.
+- **Plate V, Freelance:** the client register, one row per site with its address.
+
+The plates use only facts from the role pages below. When you add or remove a project there, change its row in the plate too. The captions say "redrawn" on purpose: these are copies set in the site's type, not screenshots.
 
 Each role also opens its own page, built like a case study: `#exp-sekawan`, `#exp-revou` and `#exp-freelance`.
 To show more projects under a role, copy one `<li class="c-project">` in its "Projects I managed" list and change the tag, name, text and link.
@@ -48,7 +53,6 @@ To show more projects under a role, copy one `<li class="c-project">` in its "Pr
 - **Sekawan.** The note above the cards (`<p class="disclaimer">`) says the websites belong to Sekawan and its clients and that your part was managing delivery. Keep it whenever you add Sekawan projects.
 - **Freelance.** Gambit Rojo is the highlight card (`class="c-project is-highlight"`): it spans the full row and opens its own case study. Move `is-highlight` to another card to change the highlight.
 
-Hovering the dates side of a role (computers only) shows a preview card. They live in the `<template id="pv-sekawan">`, `pv-revou` and `pv-freelance` blocks right after the timeline.
 
 ## Projects
 
@@ -71,11 +75,12 @@ Volunteering has its own section (`id="volunteering"`) after Courses, and its ow
 The page moves in a few ways, all in the MOTION part of `script.js` and section 15 of `style.css`:
 
 - **Loading screen.** "Gira" with a 0–100 counter, then a champagne wipe, and your name rises letter by letter. It shows once per visit, skips itself when a link opens a section or case study directly, and a click or any key cuts it short.
-- **Hero.** The photo card wipes up from the bottom and the "Open to work" label pops in; the numbers count up.
-- **Scroll reveals.** Headings rise out of a mask, text and cards fade up, the timeline draws down, the About photo turns from grey to colour, and the bars in the project visuals grow.
-- **Ribbon.** It keeps sliding; scrolling pushes it faster, or backwards when you scroll up.
+- **Hero.** The photo unveils from the bottom, then its thin champagne frame settles out around it; the numbers count up.
+- **Plates.** Every framed picture (project visuals, the work-experience documents, the About photo, the client-words panel, volunteering, case-study visuals) has its frame settle out the same way when it scrolls into view, then the picture is uncovered. In the work-experience documents, the rows then fill in one by one.
+- **Scroll reveals.** Headings rise out of a mask, text and cards fade up,  the About photo turns from grey to colour, and the bars in the project visuals grow.
+- **Ribbon.** A straight band of italic phrases under the hero. It keeps sliding; scrolling pushes it faster, or backwards when you scroll up.
 - **Quote.** The words in the quote band light up as you scroll past. Change the sentence in the `<!-- ============ QUOTE ============ -->` block.
-- **Mouse effects (computers only).** A small dot and a ring replace the normal mouse pointer; the ring grows over links. Over a project card it says "Open". Footer rows and round buttons fill with champagne from the bottom.
+- **Mouse effects (computers only).** A small dot and a ring replace the normal mouse pointer; the ring grows over links. Over a project card it says "Open". Footer rows and outlined buttons fill with champagne from the bottom.
 - **GIFARI in the footer.** Change the word in `<p class="wordmark">`; it resizes itself to the page width.
 
 Visitors whose device asks for reduced motion get none of this: everything simply shows.
@@ -107,6 +112,12 @@ Building blocks you can reuse inside a case study:
 
 Icons live in the `<svg class="sprite">` block at the top of `index.html`. Use one with `<svg class="i"><use href="#i-chart"/></svg>`.
 
+## The look: a private gallery
+
+The site is laid out like a small gallery. Pictures hang as framed "plates": a 1px champagne line held off the picture by a gap (`--frame`, `--frame-paper` and `--mat` at the top of `style.css`). Corners are square everywhere.
+Each project is a plate with a wall label under it: the title, then its category and year (the `project-tags` list sits under the heading on purpose).
+The captions under the two photos ("Plate I", "Plate II") are in `<figcaption class="plate-cap">`; change their text freely.
+
 ## Change colours
 
 Open `style.css`. The first block (`:root`) holds every colour. Palette "Holst":
@@ -127,10 +138,9 @@ Change a value once and it changes everywhere.
 - **Sora** for headings and display text (`--font-head`).
 - **Manrope** for reading text, buttons and labels (`--font`).
 - **Instrument Serif** (italic) for the quote band only (`--font-display`).
-- **Archivo** for the footer only (`--font-footer`), kept from the original design.
 
 The font files are in `fonts/` and load from the `@font-face` rules at the top of `style.css`, so the site doesn't depend on Google Fonts.
-All four are under the SIL Open Font License (see `fonts/LICENSE-*.txt`).
+All three are under the SIL Open Font License (see `fonts/LICENSE-*.txt`).
 
 ## Edit the text
 

@@ -14,6 +14,14 @@
   var beforeHome = []; // the home page is about to show again: measure what needs measuring
   var afterRoute = []; // a page switch just finished
 
+  // Phones: the section bar at the bottom waits until the visitor has scrolled past the first screen
+  (function () {
+    var queued = false;
+    function check() { queued = false; root.classList.toggle('past-hero', window.scrollY > window.innerHeight * 0.6); }
+    window.addEventListener('scroll', function () { if (!queued) { queued = true; requestAnimationFrame(check); } }, { passive: true });
+    check();
+  })();
+
 
   /* 1. Case study pages
      The address decides what shows: index.html#habit-tracker opens that case study,
@@ -305,10 +313,13 @@
       '.vol-org', '.vol-meta', '.vol-desc', '.vol-text > .btn', '.vol-panel',
       '.footer-lede', '.cv-row', '.filters',
       '.case-tags', '.case-lede', '.cursor-tag', '.case-visual', '.case-facts', '.c-sec', '.case-end',
-      '.timeline > .job', '.featured', '.project-grid > .project', '.more-title',
+      '.exhibit-head', '.exhibit-body', '.featured', '.project-grid > .project', '.more-title',
       '.skill', '.skill-example', '.flow > li', '.course-grid > .cert', '.links-big > li', '.c-projects > li'
     ].join(', '), 'up');
     mark('.wordmark', 'chars');
+
+    /* Plates: the frame settles out to its mat once the plate is on screen */
+    each('.project-visual, .portrait-frame, .vol-panel, .skill-example, .case-visual, .exhibit-plate', function (el) { el.setAttribute('data-plate', ''); });
 
     var revealed = function (el) { el.classList.add('is-in'); };
     if ('IntersectionObserver' in window) {
@@ -322,8 +333,17 @@
         });
       }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
       each('[data-reveal]', function (el) { io.observe(el); });
+      var hang = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.classList.add('is-hung');
+          hang.unobserve(e.target);
+        });
+      }, { rootMargin: '0px 0px -12% 0px', threshold: 0.2 });
+      each('[data-plate]', function (el) { hang.observe(el); });
     } else {
       each('[data-reveal]', revealed);
+      each('[data-plate]', function (el) { el.classList.add('is-hung'); });
     }
 
 

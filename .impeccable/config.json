@@ -1,0 +1,23 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "instrument serif",
+        "createdAt": "2026-11-19T05:41:20.491Z",
+        "reason": "user confirmed 2026-11-19: keep palette + fonts (Sora/Manrope/Instrument Serif/Archivo) in the redesign"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-19T06:09:19.348Z",
+        "reason": "incumbent ribbon the owner built and documents in README; redesign keeps its behaviour as a straight frieze"
+      }
+    ]
+  }
+}

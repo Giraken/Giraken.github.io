@@ -115,38 +115,49 @@
 
 <!-- ============ 1. HERO: short description ============ -->
 <section class="hero" id="top" aria-labelledby="hero-name">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div class="hero-intro">
-        <p class="hello">Halo! I'm Gira <span aria-hidden="true">👋</span></p>
-        <h1 class="name" id="hero-name" data-split="chars"><span class="line">Gifari</span> <span class="line">Asmara</span></h1>
-        <p class="role">Junior project manager &amp; IT project coordinator</p>
-        <p class="lede">I turn what clients ask for into plans a team can follow, then keep everyone on the same page until it ships.</p>
-        <p class="meta-line"><svg class="i"><use href="#i-pin"/></svg>Based in Malang, East Java. Happy to work anywhere in Indonesia.</p>
-        <div class="hero-ctas">
-          <a class="btn btn-primary" href="#projects">View my work</a>
-          <a class="btn btn-secondary" href="cv.pdf" target="_blank" rel="noopener" data-cv><svg class="i"><use href="#i-download"/></svg>Download CV</a>
-        </div>
-        <ul class="socials" aria-label="Profiles">
-          <li><a href="https://www.linkedin.com/in/gifari-asmara/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://github.com/Giraken" target="_blank" rel="noopener">GitHub</a></li>
-          <li><a href="mailto:gifari.asmara17@gmail.com">gifari.asmara17@gmail.com</a></li>
-        </ul>
+  <div class="hero-grid">
+    <div class="hero-intro">
+      <h1 class="name" id="hero-name" data-split="chars"><span class="line">Gifari</span> <span class="line">Asmara</span></h1>
+      <p class="role">Junior project manager &amp; IT project coordinator</p>
+      <p class="lede">I turn what clients ask for into plans a team can follow, then keep everyone on the same page until it ships.</p>
+      <p class="meta-line"><svg class="i"><use href="#i-pin"/></svg>Based in Malang, East Java. Happy to work anywhere in Indonesia.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#projects">View my work</a>
+        <a class="btn btn-secondary" href="cv.pdf" target="_blank" rel="noopener" data-cv><svg class="i"><use href="#i-download"/></svg>Download CV</a>
       </div>
+      <ul class="socials" aria-label="Profiles">
+        <li><a href="https://www.linkedin.com/in/gifari-asmara/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/Giraken" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="mailto:gifari.asmara17@gmail.com">gifari.asmara17@gmail.com</a></li>
+      </ul>
 
-      <!-- Portrait. images/gifari-photo.webp is 4:5 (1000 x 1250); swap it for another photo of that shape. -->
-      <figure class="portrait-card">
-        <img src="images/gifari-photo.webp" fetchpriority="high" alt="Gifari Asmara in a black T-shirt, sitting outdoors and looking to the side" width="1000" height="1250">
-        <figcaption class="status-chip"><span class="dot-live" aria-hidden="true"></span>Open to work</figcaption>
-      </figure>
+      <!-- Wall label for Plate I: the greeting, your highlights, and the projects hung further down.
+           Change the numbers in <ul class="stats"> if your totals grow. -->
+      <div class="wall-label">
+        <div class="wl-main">
+          <p class="plate-cap"><span class="plate-no">Plate I</span><span class="hello">Halo! I'm Gira <span aria-hidden="true">👋</span></span></p>
+          <ul class="stats" aria-label="Highlights">
+            <li><strong>18+</strong><span>Projects managed</span></li>
+            <li><strong>10+</strong><span>Clients worked with</span></li>
+            <li><strong>2+</strong><span>Years coordinating projects</span></li>
+          </ul>
+        </div>
+        <nav class="hang-index" aria-label="Featured projects">
+          <ol>
+            <li><a href="#gambit-rojo"><span class="plate-no">VI</span>Gambit Rojo</a></li>
+            <li><a href="#habit-tracker"><span class="plate-no">VII</span>Habit Tracker</a></li>
+            <li><a href="#segmentation"><span class="plate-no">VIII</span>Customer segmentation</a></li>
+            <li><a href="#data-capstone"><span class="plate-no">IX</span>Data analytics capstone</a></li>
+          </ol>
+        </nav>
+      </div>
     </div>
 
-    <!-- Highlights. Change the numbers here if your totals grow. -->
-    <ul class="stats" aria-label="Highlights">
-      <li><strong>18+</strong><span>Projects managed</span></li>
-      <li><strong>10+</strong><span>Clients worked with</span></li>
-      <li><strong>2+</strong><span>Years coordinating projects</span></li>
-    </ul>
+    <!-- Plate I: the portrait, full height. images/gifari-photo.webp is 4:5 (1000 x 1250); swap it for another photo of that shape. -->
+    <figure class="portrait-card">
+      <img src="images/gifari-photo.webp" fetchpriority="high" alt="Gifari Asmara in a black T-shirt, sitting outdoors and looking to the side" width="1000" height="1250">
+      <span class="status-chip"><span class="dot-live" aria-hidden="true"></span>Open to work</span>
+    </figure>
   </div>
 </section>
 
@@ -169,6 +180,7 @@
         <!-- Cut-out photo with a transparent background. The head rises above the frame on purpose. -->
         <img class="cutout" data-photo src="images/about.webp" alt="Gifari Asmara in a white T-shirt, arms crossed" width="472" height="590">
       </div>
+      <figcaption class="plate-cap"><span class="plate-no">Plate II</span>Gifari Asmara Dwikandy Lieswari</figcaption>
     </figure>
 
     <div class="about-text">
@@ -215,7 +227,9 @@
 </section>
 
 <!-- ============ 3. WORK EXPERIENCE ============ -->
-<!-- Each role opens its own detail page further down (href="#exp-sekawan" and so on). -->
+<!-- Each role hangs as an exhibit: a redrawn copy of the document I ran that job with (the plate),
+     and its label beside it. Each role also opens its own detail page further down (href="#exp-sekawan" and so on).
+     The plates use only facts from the detail pages; when a list changes there, change it here too. -->
 <section class="band experience" id="experience" aria-labelledby="exp-title">
   <div class="wrap">
     <div class="section-head">
@@ -223,124 +237,118 @@
       <p class="section-lede">Three places that taught me how projects really run, newest first. Open a role to see the work behind it.</p>
     </div>
 
-    <ol class="timeline">
-      <li class="job" data-preview="pv-sekawan">
-        <div class="job-when">
-          <p class="job-dates">Feb 2024 – Aug 2024</p>
-          <p class="job-org"><a href="#exp-sekawan">PT Sekawan Media Informatika</a></p>
-          <p class="job-place">Malang, on-site</p>
+    <ol class="exhibits">
+      <li class="exhibit">
+        <div class="exhibit-head">
+          <h3 class="job-org"><a href="#exp-sekawan">PT Sekawan Media Informatika</a></h3>
+          <p class="exhibit-line"><span>Project Manager Intern</span><span>Feb 2024 – Aug 2024</span><span>Malang, on-site</span></p>
         </div>
-        <div class="job-line" aria-hidden="true"></div>
-        <div class="job-what">
-          <h3>Project Manager Intern</h3>
+        <figure class="exhibit-fig">
+          <div class="exhibit-plate">
+            <div class="doc-head"><span class="doc-title">Client sites</span><span class="doc-meta">One tracker · 10 sites</span></div>
+            <table class="ledger">
+            <thead><tr><th scope="col">No.</th><th scope="col">Site</th><th scope="col">Kind</th></tr></thead>
+            <tbody>
+              <tr><td>01</td><th scope="row">Indonesia Mapan Perkasa</th><td>Company website</td></tr>
+              <tr><td>02</td><th scope="row">Vallianz Offshore Maritim</th><td>Company website</td></tr>
+              <tr><td>03</td><th scope="row">PT Kebon Agung</th><td>Company website</td></tr>
+              <tr><td>04</td><th scope="row">Glambox</th><td>Online store</td></tr>
+              <tr><td>05</td><th scope="row">Glambox community site</th><td>Community website</td></tr>
+              <tr><td>06</td><th scope="row">Kosme Health</th><td>Company website</td></tr>
+              <tr><td>07</td><th scope="row">Lokanima</th><td>Company website</td></tr>
+              <tr><td>08</td><th scope="row">Emerald Visa Konsultan</th><td>Company website</td></tr>
+              <tr><td>09</td><th scope="row">Wahana Visi Indonesia</th><td>Maintenance</td></tr>
+              <tr><td>10</td><th scope="row">J99 Corp</th><td>Company website</td></tr>
+            </tbody>
+          </table>
+            <!-- Team make-up: each <i> is one group, --n is its head count -->
+            <div class="team-bar">
+              <p class="tb-title">The team I coordinated</p>
+              <div class="team-segs" aria-hidden="true"><i style="--n:2"></i><i style="--n:3"></i><i style="--n:5"></i><i style="--n:2"></i></div>
+              <ul class="team-legend">
+                <li>Design <b>2</b></li><li>Development <b>3</b></li><li>SEO and content <b>5</b></li><li>Deployment <b>2</b></li>
+              </ul>
+            </div>
+          </div>
+          <figcaption class="plate-cap"><span class="plate-no">Plate III</span>The client tracker, redrawn</figcaption>
+        </figure>
+        <div class="exhibit-body">
           <ul class="dashes">
             <li>Kept 10+ client websites moving at the same time, across design, development, SEO and content, and deployment.</li>
             <li>Ran weekly Scrum sprints for a 10–12 person team in four groups.</li>
             <li>Kept one Notion tracker as the single source of truth: schedule, owner, status and handoff for every project.</li>
             <li>Sent each client a progress report every week, and agreed with them what came next.</li>
           </ul>
-          <ul class="xp-metrics" aria-label="In numbers">
-            <li><b>10+</b><span>client sites at once</span></li>
-            <li><b>12</b><span>people in four groups</span></li>
-            <li><b>Weekly</b><span>sprints and client reports</span></li>
-          </ul>
-          <!-- Team make-up: each <i> is one group, --n is its head count -->
-          <figure class="team-bar">
-            <figcaption>The team I coordinated</figcaption>
-            <div class="team-segs" aria-hidden="true"><i style="--n:2"></i><i style="--n:3"></i><i style="--n:5"></i><i style="--n:2"></i></div>
-            <ul class="team-legend">
-              <li>Design <b>2</b></li><li>Development <b>3</b></li><li>SEO and content <b>5</b></li><li>Deployment <b>2</b></li>
-            </ul>
-          </figure>
           <a class="job-more" href="#exp-sekawan">See the projects I managed<svg class="i"><use href="#i-arrow"/></svg></a>
         </div>
       </li>
 
-      <li class="job" data-preview="pv-revou">
-        <div class="job-when">
-          <p class="job-dates">Feb 2023 – Jun 2023</p>
-          <p class="job-org"><a href="#exp-revou">RevoU Tech Academy</a></p>
-          <p class="job-place">MSIB Batch 4 (Kampus Merdeka)</p>
+      <li class="exhibit">
+        <div class="exhibit-head">
+          <h3 class="job-org"><a href="#exp-revou">RevoU Tech Academy</a></h3>
+          <p class="exhibit-line"><span>Participant and team lead</span><span>Feb 2023 – Jun 2023</span><span>MSIB Batch 4 (Kampus Merdeka)</span></p>
         </div>
-        <div class="job-line" aria-hidden="true"></div>
-        <div class="job-what">
-          <h3>Participant and team lead</h3>
+        <figure class="exhibit-fig">
+          <div class="exhibit-plate">
+            <div class="doc-head"><span class="doc-title">One track, four courses</span><span class="doc-meta">Feb – Jun 2023 · 1 certificate</span></div>
+            <table class="ledger ledger-3 ledger-track">
+              <thead><tr><th scope="col">Course</th><th scope="col">Project</th><th scope="col">What it produced</th></tr></thead>
+              <tbody>
+                <tr><td>Data Analytics</td><th scope="row">Data analytics capstone</th><td>A Looker Studio dashboard and four recommendations</td></tr>
+                <tr><td>Software Engineering</td><th scope="row">Habit Tracker</th><td>A live web app, built by the 10 people I led in four weeks</td></tr>
+                <tr><td>Product Management</td><th scope="row">VIU app requirements</th><td>Personas, a journey map and a PRD</td></tr>
+                <tr><td>Digital Marketing</td><th scope="row">Fore Coffee ads plan</th><td>A Facebook Ads campaign plan</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <figcaption class="plate-cap"><span class="plate-no">Plate IV</span>The four-course track, redrawn</figcaption>
+        </figure>
+        <div class="exhibit-body">
           <ul class="dashes">
             <li>Led a 10-person team that built and launched a habit tracker web app in four weeks.</li>
             <li>Dug into retail sales data with an 11-person team and built a Looker Studio dashboard.</li>
             <li>Wrote personas, a customer journey map and a PRD for the VIU app, and planned a Facebook Ads campaign for Fore Coffee.</li>
             <li>Finished one track of four courses: Data Analytics, Software Engineering, Product Management and Digital Marketing.</li>
           </ul>
-          <ul class="xp-metrics" aria-label="In numbers">
-            <li><b>10</b><span>people on the team I led</span></li>
-            <li><b>4 weeks</b><span>from brief to live app</span></li>
-            <li><b>4</b><span>courses in one track</span></li>
-          </ul>
           <a class="job-more" href="#exp-revou">See the projects<svg class="i"><use href="#i-arrow"/></svg></a>
         </div>
       </li>
 
-      <li class="job" data-preview="pv-freelance">
-        <div class="job-when">
-          <p class="job-dates">Sep 2021 – Jan 2024</p>
-          <p class="job-org"><a href="#exp-freelance">Freelance</a></p>
-          <p class="job-place">Client websites</p>
+      <li class="exhibit">
+        <div class="exhibit-head">
+          <h3 class="job-org"><a href="#exp-freelance">Freelance</a></h3>
+          <p class="exhibit-line"><span>Web Project Coordinator</span><span>Sep 2021 – Jan 2024</span><span>Client websites</span></p>
         </div>
-        <div class="job-line" aria-hidden="true"></div>
-        <div class="job-what">
-          <h3>Web Project Coordinator</h3>
+        <figure class="exhibit-fig">
+          <div class="exhibit-plate">
+            <div class="doc-head"><span class="doc-title">Client register</span><span class="doc-meta">Sep 2021 – Jan 2024 · 7 sites</span></div>
+            <table class="ledger ledger-3">
+            <thead><tr><th scope="col">Site</th><th scope="col">Kind</th><th scope="col">Address</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Gambit Rojo</th><td>Agency website</td><td>gambit-rojo.netlify.app</td></tr>
+              <tr><th scope="row">Aslawfirm</th><td>Company profile</td><td>aslawfirm.netlify.app</td></tr>
+              <tr><th scope="row">SISEDU</th><td>Educational product site</td><td>sisedu.netlify.app</td></tr>
+              <tr><th scope="row">Caveera</th><td>Skincare landing page</td><td>caveera.netlify.app</td></tr>
+              <tr><th scope="row">Sieka</th><td>Brand website</td><td>siekadetergen.netlify.app</td></tr>
+              <tr><th scope="row">Orsan Spray</th><td>Product landing page</td><td>orsanspray-prototype.netlify.app</td></tr>
+              <tr><th scope="row">Photography portfolio</th><td>Portfolio</td><td>photpgraph-portfolio.netlify.app</td></tr>
+            </tbody>
+          </table>
+            <p class="doc-foot">For a law firm, a creative studio, a branding agency and university students</p>
+          </div>
+          <figcaption class="plate-cap"><span class="plate-no">Plate V</span>The client register, redrawn</figcaption>
+        </figure>
+        <div class="exhibit-body">
           <ul class="dashes">
             <li>Coordinated paid websites for three small companies and university students, from the first chat onwards.</li>
             <li>Agreed scope, timeline and price with each client before anything was built.</li>
             <li>Turned non-technical requests into tasks a developer could pick up, and kept both sides talking.</li>
             <li>Sent progress updates every one to two weeks while the sites were built.</li>
           </ul>
-          <ul class="xp-metrics" aria-label="In numbers">
-            <li><b>7</b><span>websites in this portfolio</span></li>
-            <li><b>2+ years</b><span>of client work</span></li>
-            <li><b>1–2 weeks</b><span>between progress updates</span></li>
-          </ul>
           <a class="job-more" href="#exp-freelance">See the projects<svg class="i"><use href="#i-arrow"/></svg></a>
         </div>
       </li>
-
     </ol>
-
-    <!-- Preview cards that follow the mouse over each role (computers only).
-         Edit the text freely, or replace a card with a photo: <img src="images/your-photo.webp" alt=""> -->
-    <template id="pv-sekawan">
-      <div class="pv-card pv-tracker">
-        <p class="pv-title">10 client sites in one tracker</p>
-        <ul>
-          <li><span>Glambox</span><b>Online store</b></li>
-          <li><span>Vallianz Offshore Maritim</span><b>Company website</b></li>
-          <li><span>Kosme Health</span><b>Company website</b></li>
-          <li><span>Wahana Visi Indonesia</span><b>Maintenance</b></li>
-        </ul>
-        <p class="pv-more">and 6 more sites</p>
-      </div>
-    </template>
-    <template id="pv-revou">
-      <div class="pv-card">
-        <p class="pv-title">4 courses, 4 projects</p>
-        <div class="sheets">
-          <div class="sheet-doc"><span class="doc-kind">Course</span><span class="doc-name">Data Analytics</span></div>
-          <div class="sheet-doc"><span class="doc-kind">Course</span><span class="doc-name">Software Engineering</span></div>
-          <div class="sheet-doc"><span class="doc-kind">Course</span><span class="doc-name">Product Management</span></div>
-          <div class="sheet-doc"><span class="doc-kind">Course</span><span class="doc-name">Digital Marketing</span></div>
-        </div>
-      </div>
-    </template>
-    <template id="pv-freelance">
-      <div class="pv-card">
-        <p class="pv-title">7 client websites</p>
-        <div class="frames">
-          <div class="frame"><span class="frame-bar"><i></i><i></i><i></i></span><span class="frame-name">Gambit Rojo</span><span class="frame-lines"><i></i><i></i><i class="short"></i></span></div>
-          <div class="frame"><span class="frame-bar"><i></i><i></i><i></i></span><span class="frame-name">SISEDU</span><span class="frame-lines"><i></i><i></i><i class="short"></i></span></div>
-          <div class="frame"><span class="frame-bar"><i></i><i></i><i></i></span><span class="frame-name">Sieka</span><span class="frame-lines"><i></i><i></i><i class="short"></i></span></div>
-        </div>
-      </div>
-    </template>
   </div>
 </section>
 
@@ -392,7 +400,7 @@
         </div>
       </div>
       <div class="project-body">
-        <ul class="project-tags"><li class="tag-featured">Featured</li><li>Project management</li><li>2023</li></ul>
+        <ul class="project-tags"><li class="tag-plate">Plate VI</li><li class="tag-featured">Featured</li><li>Project management</li><li>2023</li></ul>
         <h3 id="p-gambit"><a class="card-link" href="#gambit-rojo">Gambit Rojo</a></h3>
         <p class="project-desc">A seven-page website for a branding agency in South Jakarta, taken from the first brief to launch day.</p>
         <dl class="project-facts">
@@ -429,7 +437,7 @@
           <p class="cover-note"><span class="diamond" aria-hidden="true"></span>Milestones: site live, final deck submitted</p>
         </div>
         <div class="project-body">
-          <ul class="project-tags"><li>Project management</li><li>2023</li></ul>
+          <ul class="project-tags"><li class="tag-plate">Plate VII</li><li>Project management</li><li>2023</li></ul>
           <h3 id="p-habit"><a class="card-link" href="#habit-tracker">Habit Tracker</a></h3>
           <p class="project-desc">Ten people, four weeks, one habit tracker, live on GitHub Pages.</p>
           <dl class="project-facts">
@@ -455,7 +463,7 @@
           </table>
         </div>
         <div class="project-body">
-          <ul class="project-tags"><li>Data analytics</li><li>Thesis</li></ul>
+          <ul class="project-tags"><li class="tag-plate">Plate VIII</li><li>Data analytics</li><li>Thesis</li></ul>
           <h3 id="p-thesis"><a class="card-link" href="#segmentation">Customer segmentation</a></h3>
           <p class="project-desc">4,338 retail customers, three clustering methods, five segments.</p>
           <dl class="project-facts">
@@ -477,7 +485,7 @@
           <div class="sb-labels"><span>2009</span><span>2012</span><span>Goal, one year on</span></div>
         </div>
         <div class="project-body">
-          <ul class="project-tags"><li>Data analytics</li><li>2023</li></ul>
+          <ul class="project-tags"><li class="tag-plate">Plate IX</li><li>Data analytics</li><li>2023</li></ul>
           <h3 id="p-capstone"><a class="card-link" href="#data-capstone">Data analytics capstone</a></h3>
           <p class="project-desc">A retail company's sales fell 11.13% in three years. Our team of 11 built a dashboard and found four ways to aim for 15% growth.</p>
           <dl class="project-facts">
@@ -651,6 +659,7 @@
         <li><svg class="i"><use href="#i-heart"/></svg>Orphanage visits</li>
       </ul>
     </div>
+    <p class="plate-cap vol-cap"><span class="plate-no">Plate X</span>Almost six years in Malang, 2019 to 2025</p>
   </div>
 </section>
 

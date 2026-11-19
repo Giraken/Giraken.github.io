@@ -1,0 +1,438 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-19T18:00:00Z",
+  "title": "Design System: Gifari Asmara",
+  "extensions": {
+    "colorMeta": {
+      "champagne": {
+        "role": "primary",
+        "displayName": "Champagne",
+        "canonical": "#d4c4a8",
+        "tonalRamp": [
+          "#2e281f",
+          "#4d4334",
+          "#6f624c",
+          "#93846a",
+          "#b5a589",
+          "#d4c4a8",
+          "#e3d6bf",
+          "#f2ebdd"
+        ]
+      },
+      "champagne-hover": {
+        "role": "primary",
+        "displayName": "Pale Champagne",
+        "canonical": "#e3d6bf",
+        "tonalRamp": [
+          "#302a21",
+          "#4f4638",
+          "#726651",
+          "#968970",
+          "#bbad92",
+          "#e3d6bf",
+          "#ece3d2",
+          "#f6f1e8"
+        ]
+      },
+      "frame": {
+        "role": "primary",
+        "displayName": "Champagne Frame",
+        "canonical": "rgba(212, 196, 168, .6)",
+        "tonalRamp": [
+          "#2e281f",
+          "#4d4334",
+          "#6f624c",
+          "#93846a",
+          "#b5a589",
+          "#d4c4a8",
+          "#e3d6bf",
+          "#f2ebdd"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink Wall",
+        "canonical": "#0d1b2a",
+        "tonalRamp": [
+          "#05090e",
+          "#0d1b2a",
+          "#1b2c40",
+          "#2f4259",
+          "#4a5e77",
+          "#73859b",
+          "#a6b3c2",
+          "#dbe1e8"
+        ]
+      },
+      "navy": {
+        "role": "neutral",
+        "displayName": "Deep Navy",
+        "canonical": "#1b263b",
+        "tonalRamp": [
+          "#0a0e16",
+          "#1b263b",
+          "#2b3850",
+          "#405069",
+          "#5c6c85",
+          "#8592a7",
+          "#b4bdcb",
+          "#e1e5eb"
+        ]
+      },
+      "slate": {
+        "role": "neutral",
+        "displayName": "Slate Blue",
+        "canonical": "#415a77",
+        "tonalRamp": [
+          "#141c26",
+          "#22303f",
+          "#314459",
+          "#415a77",
+          "#5f7895",
+          "#8599b2",
+          "#b0bfd0",
+          "#dde4ec"
+        ]
+      },
+      "mist": {
+        "role": "neutral",
+        "displayName": "Mist",
+        "canonical": "#a9b5c4",
+        "tonalRamp": [
+          "#262b31",
+          "#3e464f",
+          "#59636f",
+          "#76828f",
+          "#8f9cab",
+          "#a9b5c4",
+          "#c8d0da",
+          "#e7ebf0"
+        ]
+      },
+      "ivory": {
+        "role": "neutral",
+        "displayName": "Ivory Paper",
+        "canonical": "#f4f1de",
+        "tonalRamp": [
+          "#2f2d22",
+          "#4e4b3c",
+          "#706c59",
+          "#959079",
+          "#bab59d",
+          "#dcd8c2",
+          "#f4f1de",
+          "#fbf9f0"
+        ]
+      },
+      "card": {
+        "role": "neutral",
+        "displayName": "Card Ivory",
+        "canonical": "#fbf9f0",
+        "tonalRamp": [
+          "#302f29",
+          "#4f4d44",
+          "#716f63",
+          "#969384",
+          "#bbb8a8",
+          "#ddd9cb",
+          "#f4f1de",
+          "#fbf9f0"
+        ]
+      },
+      "sage": {
+        "role": "neutral",
+        "displayName": "Sage (status)",
+        "canonical": "#778d7a",
+        "tonalRamp": [
+          "#1a201b",
+          "#2c362d",
+          "#415042",
+          "#5c7260",
+          "#778d7a",
+          "#97aa99",
+          "#bccbbe",
+          "#e2eae3"
+        ]
+      },
+      "sage-deep": {
+        "role": "neutral",
+        "displayName": "Deep Sage (status on paper)",
+        "canonical": "#5c7260",
+        "tonalRamp": [
+          "#151a16",
+          "#253027",
+          "#384839",
+          "#5c7260",
+          "#778d7a",
+          "#97aa99",
+          "#bccbbe",
+          "#e2eae3"
+        ]
+      },
+      "frame-paper": {
+        "role": "neutral",
+        "displayName": "Ink Frame",
+        "canonical": "rgba(13, 27, 42, .38)",
+        "tonalRamp": [
+          "#05090e",
+          "#0d1b2a",
+          "#1b2c40",
+          "#2f4259",
+          "#4a5e77",
+          "#73859b",
+          "#a6b3c2",
+          "#dbe1e8"
+        ]
+      },
+      "line-gold": {
+        "role": "neutral",
+        "displayName": "Gold Rule",
+        "canonical": "rgba(212, 196, 168, .4)"
+      },
+      "line-dark": {
+        "role": "neutral",
+        "displayName": "Dark Rule",
+        "canonical": "rgba(169, 181, 196, .2)"
+      },
+      "line-paper": {
+        "role": "neutral",
+        "displayName": "Paper Rule",
+        "canonical": "rgba(13, 27, 42, .13)"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The hero name only, two lines, second indented 0.62em."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Plate titles, ledger entries, job titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading text; prose capped at 60ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Wall-label lines, filters, nav and metadata; tabular numerals."
+      },
+      "caption": {
+        "displayName": "Plate Caption",
+        "purpose": "Instrument Serif italic plate numbers, greeting, proof headings, quote and ribbon."
+      },
+      "footer-display": {
+        "displayName": "Footer Display",
+        "purpose": "Sora 200 footer title, link names and wordmark; same faces as the rest of the site."
+      }
+    },
+    "shadows": [
+      {
+        "name": "floating-bar",
+        "value": "0 16px 36px -16px rgba(0, 0, 0, .7)",
+        "purpose": "Desktop nav bar, with backdrop-filter: blur(14px)."
+      },
+      {
+        "name": "floating-bar-phone",
+        "value": "0 14px 34px -10px rgba(0, 0, 0, .8)",
+        "purpose": "Phone bottom section bar."
+      },
+      {
+        "name": "toast",
+        "value": "0 18px 40px -14px rgba(0, 0, 0, .6)",
+        "purpose": "Missing-CV toast."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Frames drawing out, text rising, hover nudges, fills rising."
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(.76, 0, .24, 1)",
+        "purpose": "Wall-coloured sheet lifting off a plate; Plate I clip-path unveil."
+      },
+      {
+        "name": "plate-frame-draw",
+        "value": "outline-offset 0 to var(--mat), 1.3s ease-out; outline-color .9s",
+        "purpose": "First beat of the plate hang."
+      },
+      {
+        "name": "plate-sheet-lift",
+        "value": "::after scaleY(1) to scaleY(0), 1.2s ease-in-out, .5s delay, origin top",
+        "purpose": "Second beat: a sheet in the wall colour (--wall) lifts off the picture."
+      },
+      {
+        "name": "ledger-log-in",
+        "value": "tbody tr opacity 0 to 1 (.6s ease), translateY(6px) to 0 (.8s ease-out); first row at 1120ms, +70ms per row",
+        "purpose": "Third beat on document plates: once the sheet has lifted, the table rows are logged in one by one."
+      },
+      {
+        "name": "plate-one-unveil",
+        "value": "clip-path inset(100% 0 0 0) to inset(0), 1.3s ease-in-out .2s; scale 1.1 to 1, 1.9s; mount line inset 0 to 22px, 1.4s at 1.1s",
+        "purpose": "Hero photo unveil, then its mount line settles in."
+      },
+      {
+        "name": "fill-rise",
+        "value": "::before scaleY(0) to scaleY(1), .5s ease-out, origin bottom",
+        "purpose": "Champagne fill on footer rows, job-more and back-to-top hover."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "no .motion class; transitions off; ribbon static; scroll-behavior auto",
+        "purpose": "Everything shows at rest for visitors who ask for reduced motion or when script fails."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "tiny",
+        "value": "400px"
+      },
+      {
+        "name": "phone",
+        "value": "760px"
+      },
+      {
+        "name": "tablet-narrow",
+        "value": "900px"
+      },
+      {
+        "name": "tablet",
+        "value": "1080px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Filled champagne action on a dark wall; one per group.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">View my work</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 22px; border: 0; border-radius: 0; background: #d4c4a8; color: #0d1b2a; font-family: Manrope, system-ui, sans-serif; font-size: 15px; font-weight: 700; text-decoration: none; transition: background-color .2s; } .ds-btn-primary:hover { background: #f4f1de; } .ds-btn-primary:focus-visible { outline: 2px solid #d4c4a8; outline-offset: 3px; }"
+    },
+    {
+      "name": "Underlined Secondary",
+      "kind": "button",
+      "refersTo": "button-underline",
+      "description": "Unfilled action beside the primary: a 1px champagne frame underline.",
+      "html": "<div style=\"background:#0d1b2a;padding:24px\"><a class=\"ds-btn-under\" href=\"#\">Download CV</a></div>",
+      "css": ".ds-btn-under { display: inline-flex; align-items: center; min-height: 48px; padding: 12px 2px; border-bottom: 1px solid rgba(212, 196, 168, .6); color: #f4f1de; font-family: Manrope, system-ui, sans-serif; font-size: 15px; font-weight: 600; text-decoration: none; transition: color .2s, border-color .2s; } .ds-btn-under:hover { color: #d4c4a8; border-color: #d4c4a8; } .ds-btn-under:focus-visible { outline: 2px solid #d4c4a8; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ink Button",
+      "kind": "button",
+      "refersTo": "button-ink",
+      "description": "Filled action on an ivory paper wall.",
+      "html": "<div style=\"background:#f4f1de;padding:24px\"><a class=\"ds-btn-ink\" href=\"#\">Visit the site</a></div>",
+      "css": ".ds-btn-ink { display: inline-flex; align-items: center; min-height: 46px; padding: 11px 22px; border-radius: 0; background: #0d1b2a; color: #f4f1de; font-family: Manrope, system-ui, sans-serif; font-size: 15px; font-weight: 600; text-decoration: none; transition: background-color .3s; } .ds-btn-ink:hover { background: #415a77; } .ds-btn-ink:focus-visible { outline: 2px solid #0d1b2a; outline-offset: 3px; }"
+    },
+    {
+      "name": "Framed Plate with Wall Label",
+      "kind": "card",
+      "refersTo": "plate",
+      "description": "The signature: an ink plate inside a 1px frame at a 14px mat, with an engraved label beneath.",
+      "html": "<div class=\"ds-wall\"><figure class=\"ds-plate\"><div class=\"ds-plate-pic\">Four-week plan</div><figcaption class=\"ds-label\"><h3>Habit Tracker</h3><ul><li class=\"ds-no\">IV</li><li>Project plan</li><li>2024</li></ul></figcaption></figure></div>",
+      "css": ".ds-wall { background: #f4f1de; padding: 32px; color: #0d1b2a; } .ds-plate { margin: 0; } .ds-plate-pic { margin: 14px; aspect-ratio: 16 / 10; display: grid; place-items: center; background: #0d1b2a; color: #f4f1de; font-family: Sora, system-ui, sans-serif; font-weight: 500; outline: 1px solid rgba(13, 27, 42, .38); outline-offset: 14px; transition: outline-offset 1.3s cubic-bezier(.16, 1, .3, 1), outline-color .9s; } .ds-plate:hover .ds-plate-pic { outline-color: #0d1b2a; outline-offset: 20px; } .ds-label { padding-top: 40px; } .ds-label h3 { margin: 0; font-family: Sora, system-ui, sans-serif; font-size: 26px; font-weight: 300; letter-spacing: -.025em; } .ds-label ul { display: flex; align-items: center; margin: 8px 0 0; padding: 0; list-style: none; font-family: Manrope, system-ui, sans-serif; font-size: 14px; font-weight: 500; color: #415a77; } .ds-label li + li::before { content: '\\00B7'; margin-inline: 9px; color: rgba(13, 27, 42, .38); } .ds-no { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 19px; line-height: 1; color: #0d1b2a; }"
+    },
+    {
+      "name": "Document Plate",
+      "kind": "card",
+      "refersTo": "plate-document",
+      "description": "A redrawn working document hung on the ink wall: ivory sheet, champagne frame at the mat, ruled table, tonal team bar, caption saying 'redrawn'.",
+      "html": "<div class=\"ds-ink\"><figure class=\"ds-docfig\"><div class=\"ds-doc\"><div class=\"ds-doc-head\"><span class=\"ds-doc-title\">Client sites</span><span class=\"ds-doc-meta\">One tracker · 10 sites</span></div><table class=\"ds-ledger\"><thead><tr><th>No.</th><th>Site</th><th>Kind</th></tr></thead><tbody><tr><td>01</td><th>Indonesia Mapan Perkasa</th><td>Company website</td></tr><tr><td>02</td><th>Vallianz Offshore Maritim</th><td>Company website</td></tr><tr><td>03</td><th>Glambox</th><td>Online store</td></tr></tbody></table><div class=\"ds-team\"><p>The team I coordinated</p><div class=\"ds-segs\"><i style=\"flex:2\"></i><i style=\"flex:3\"></i><i style=\"flex:5\"></i><i style=\"flex:2\"></i></div></div><p class=\"ds-doc-foot\">For a law firm, a creative studio and university students</p></div><figcaption class=\"ds-cap\"><span class=\"ds-cap-no\">Plate III</span>The client tracker, redrawn</figcaption></figure></div>",
+      "css": ".ds-ink { background: #0d1b2a; padding: 32px; } .ds-docfig { margin: 0; } .ds-doc { margin: 14px; padding: 32px; background: #f4f1de; color: #0d1b2a; outline: 1px solid rgba(212, 196, 168, .6); outline-offset: 14px; font-family: Manrope, system-ui, sans-serif; } .ds-doc-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 20px; padding-bottom: 14px; border-bottom: 1px solid #0d1b2a; } .ds-doc-title { font-family: Sora, system-ui, sans-serif; font-size: 22px; font-weight: 300; letter-spacing: -.015em; } .ds-doc-meta { font-size: 13.5px; font-weight: 500; color: #415a77; font-variant-numeric: tabular-nums; } .ds-ledger { width: 100%; border-collapse: collapse; font-size: 14.5px; line-height: 1.35; } .ds-ledger thead th { padding: 12px 12px 8px 0; font-size: 12.5px; font-weight: 600; color: #415a77; text-align: left; border-bottom: 1px solid rgba(13, 27, 42, .38); } .ds-ledger tbody th, .ds-ledger td { padding: 9px 12px 9px 0; border-bottom: 1px solid rgba(13, 27, 42, .13); text-align: left; } .ds-ledger tbody th { font-weight: 600; color: #0d1b2a; } .ds-ledger td { color: #415a77; } .ds-ledger td:first-child { width: 3em; font-variant-numeric: tabular-nums; } .ds-ledger tbody tr { transition: background-color .3s; } .ds-ledger tbody tr:hover { background: rgba(13, 27, 42, .04); } .ds-team { margin-top: 26px; } .ds-team p { margin: 0; font-size: 13.5px; font-weight: 600; color: #415a77; } .ds-segs { display: flex; gap: 4px; height: 12px; margin-top: 12px; } .ds-segs i { flex-basis: 0; background: #0d1b2a; } .ds-segs i:nth-child(2) { background: rgba(13, 27, 42, .7); } .ds-segs i:nth-child(3) { background: rgba(13, 27, 42, .45); } .ds-segs i:nth-child(4) { background: rgba(13, 27, 42, .24); } .ds-doc-foot { margin: 16px 0 0; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 18px; line-height: 1.35; color: #415a77; } .ds-cap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin: 32px 0 0; font-family: Manrope, system-ui, sans-serif; font-size: 14px; color: #a9b5c4; } .ds-cap-no { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 22px; line-height: 1; color: #d4c4a8; }"
+    },
+    {
+      "name": "Plate Caption",
+      "kind": "custom",
+      "refersTo": "plate-no",
+      "description": "Italic serif plate number with a short caption line, as on a gallery wall.",
+      "html": "<div style=\"background:#0d1b2a;padding:24px\"><p class=\"ds-cap\"><span class=\"ds-cap-no\">Plate I</span>Gifari Asmara, Malang</p></div>",
+      "css": ".ds-cap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin: 0; font-family: Manrope, system-ui, sans-serif; font-size: 14px; line-height: 1.4; color: #a9b5c4; } .ds-cap-no { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 22px; line-height: 1; color: #d4c4a8; }"
+    },
+    {
+      "name": "Ruled Ledger Row",
+      "kind": "custom",
+      "description": "Courses, catalogue and process entries as ruled rows with a champagne status diamond.",
+      "html": "<div class=\"ds-ledger\"><div class=\"ds-row\"><span class=\"ds-issuer\">Google</span><h3>Project Management Certificate</h3><span class=\"ds-meta\">Completed 2024</span></div><div class=\"ds-row ds-next\"><span class=\"ds-issuer\">PMI</span><h3>CAPM</h3><span class=\"ds-meta\">In progress</span></div></div>",
+      "css": ".ds-ledger { background: #0d1b2a; color: #f4f1de; padding: 0 24px; border-top: 1px solid rgba(212, 196, 168, .4); font-family: Manrope, system-ui, sans-serif; } .ds-row { display: grid; grid-template-columns: 3fr 6fr 3fr; column-gap: 32px; align-items: baseline; padding: 26px 0; border-bottom: 1px solid rgba(169, 181, 196, .2); transition: background-color .3s; } .ds-row:hover { background: rgba(212, 196, 168, .04); } .ds-row h3 { margin: 0; font-family: Sora, system-ui, sans-serif; font-size: 22px; font-weight: 300; letter-spacing: -.02em; } .ds-issuer { font-size: 15px; color: #a9b5c4; } .ds-meta { display: flex; align-items: baseline; gap: 10px; font-size: 14.5px; color: #d4c4a8; font-variant-numeric: tabular-nums; } .ds-meta::before { content: ''; width: 7px; height: 7px; background: #d4c4a8; transform: translateY(-1px) rotate(45deg); } .ds-next .ds-meta { color: #a9b5c4; } .ds-next .ds-meta::before { background: transparent; border: 1px solid #a9b5c4; }"
+    },
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "refersTo": "nav-bar",
+      "description": "Floating square bar: brand with diamond, mist links, champagne current section, CV button.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-brand\" href=\"#\"><i></i>Gira</a><a href=\"#\" aria-current=\"true\">About</a><a href=\"#\">Experience</a><a href=\"#\">Projects</a><a class=\"ds-cv\" href=\"#\">Download CV</a></nav>",
+      "css": ".ds-nav { display: inline-flex; align-items: center; gap: 2px; padding: 7px 7px 7px 22px; background: rgba(13, 27, 42, .86); border: 1px solid rgba(212, 196, 168, .4); box-shadow: 0 16px 36px -16px rgba(0, 0, 0, .7); backdrop-filter: blur(14px); font-family: Manrope, system-ui, sans-serif; } .ds-nav a { padding: 9px 15px; font-size: 15px; font-weight: 500; color: #a9b5c4; text-decoration: none; transition: color .2s; } .ds-nav a:hover { color: #f4f1de; } .ds-nav a[aria-current] { color: #d4c4a8; box-shadow: inset 0 -1px 0 #d4c4a8; } .ds-nav a:focus-visible { outline: 2px solid #d4c4a8; outline-offset: 3px; } .ds-nav .ds-brand { display: inline-flex; align-items: center; gap: 8px; margin-right: 14px; padding: 0; font-family: Sora, system-ui, sans-serif; font-size: 19px; font-weight: 600; color: #f4f1de; } .ds-brand i { width: 8px; height: 8px; background: #d4c4a8; transform: rotate(45deg); } .ds-nav .ds-cv { margin-left: 10px; background: #d4c4a8; color: #0d1b2a; font-weight: 600; } .ds-nav .ds-cv:hover { background: #e3d6bf; color: #0d1b2a; }"
+    },
+    {
+      "name": "Text Filters",
+      "kind": "chip",
+      "description": "Project filters as text with a 1px ink underline when pressed; no pills.",
+      "html": "<div class=\"ds-filters\"><button aria-pressed=\"true\">All</button><button aria-pressed=\"false\">Project management</button><button aria-pressed=\"false\">Data</button></div>",
+      "css": ".ds-filters { display: flex; flex-wrap: wrap; gap: 4px 26px; background: #f4f1de; padding: 16px 24px; } .ds-filters button { min-height: 44px; padding: 10px 1px; border: 0; border-bottom: 1px solid transparent; background: transparent; font-family: Manrope, system-ui, sans-serif; font-size: 15px; font-weight: 600; color: #415a77; cursor: pointer; transition: color .3s, border-color .3s; } .ds-filters button:hover { color: #0d1b2a; } .ds-filters button[aria-pressed='true'] { color: #0d1b2a; border-bottom-color: #0d1b2a; } .ds-filters button:focus-visible { outline: 2px solid #0d1b2a; outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Salon",
+    "overview": "The site is a private gallery. Gira and his work hang as framed plates on alternating walls: deep navy ink rooms and ivory paper rooms. Every picture (the portrait, each role's redrawn working document, each project visual, the request-to-tasks example, the volunteering panel, the case-study cover) sits inside a 1px frame held off it by a mat gap, and is read through an engraved wall label beneath or beside it: an italic plate number, a title, then medium and year separated by middle dots. Corners are square throughout.\n\nThe register is quiet luxury: light Sora display type at very large sizes, a single champagne accent, thin rules instead of boxes, and generous wall space between plates. Lists read as ruled ledgers and catalogues rather than card grids. Motion is slow and exponential: a frame draws out to its mat, then a sheet the colour of the wall lifts off the picture.\n\nThe palette \"Holst\" and the four fonts are owner commitments and are kept as given. The system refuses the split hero over a stat strip and the grid of rounded cards with pill tags.",
+    "keyCharacteristics": [
+      "Navy ink walls alternating with ivory paper rooms; no third surface.",
+      "1px frame drawn as an `outline` offset by the mat (14px) around every plate.",
+      "Square corners everywhere; circles only for small dots.",
+      "Wall labels: Instrument Serif italic plate number, Sora title, Manrope medium/year line with \"·\" separators.",
+      "Champagne is the only accent: frames, actions, numerals, diamond markers.",
+      "Ruled ledgers (hairline top and bottom rules) for catalogues, steps, courses and links."
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "Champagne is the only accent hue. It marks frames, actions and numerals; it never fills a large surface (beyond a button, the hover fill of a footer row, or the intro column wipe).",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Walls Rule",
+        "body": "A section is either an ink wall or an ivory paper room. Navy is a raised plate or band on the dark side, not a third wall colour.",
+        "section": "colors"
+      },
+      {
+        "name": "The Light Display Rule",
+        "body": "Sora display and headings stay at weight 200-300; weight comes from size, not boldness.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Voice Rule",
+        "body": "The footer speaks in the same faces as the rooms above (Sora display, Manrope text); the owner retired Archivo on 2026-11-19. Do not bring a footer-only face back.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mat Not Shadow Rule",
+        "body": "A plate is lifted by its frame and mat, never by a drop shadow. Shadows are reserved for elements that float over scrolling content.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** hang every picture as a plate: 1px frame as an outline at the 14px mat offset, square corners, a wall label with an italic plate number.",
+      "**Do** alternate ink walls and ivory paper rooms, using the champagne frame on dark and the ink frame on paper.",
+      "**Do** separate wall-label items with \"·\" in the frame colour, and mark list items with small rotated-square diamonds.",
+      "**Do** set numerals in tabular figures, in champagne on dark walls.",
+      "**Do** present collections as ruled ledgers with hairline rules.",
+      "**Do** keep Sora at weight 200-300 and let size carry hierarchy.",
+      "**Do** keep the footer in Sora and Manrope, like every other room."
+    ],
+    "donts": [
+      "**Don't** round any corner; circles are only for small dots.",
+      "**Don't** use pill tags, icon tiles, or grids of rounded cards.",
+      "**Don't** introduce a second accent hue; sage is a status colour, not an accent.",
+      "**Don't** lift plates with drop shadows; shadows are for floating bars and the toast only.",
+      "**Don't** build a split hero over a stat strip; highlights live in the wall label."
+    ]
+  }
+}
