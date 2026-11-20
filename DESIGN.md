@@ -240,7 +240,7 @@ A redrawn working document hung as a picture: an ivory sheet on the ink wall, a 
 The engraved label read under or beside each plate. A caption pairs an Instrument Serif italic plate number (22px; champagne on dark, ink on paper) with a short line of 14px Manrope in mist or slate. A project label puts the title first, then the medium and year on one line, items separated by a middle dot in the frame colour. The hero wall label sits on a gold top rule and pairs highlights (tabular champagne numerals, 24px Sora 300) with an index of plates.
 
 ### Ledgers
-Ruled rows instead of cards: a stronger top rule, hairline row rules, generous 26-36px row padding, numerals and status at the right in champagne. Process steps show a 46px Sora 200 tabular numeral. Catalogue entries list skills with diamond bullets and a proof note headed in italic serif.
+Ruled rows instead of cards: a stronger top rule, hairline row rules, generous 26-36px row padding, numerals and status at the right in champagne. Process steps show a 46px Sora 200 tabular numeral. Catalogue entries list skills with diamond bullets and a proof note headed in italic serif. In the courses ledger, an earned row carries a filled diamond and a "View certificate" text link under its status: Manrope 600 14.5px in ivory, a 1px underline in the frame colour, turning champagne on hover. In-progress rows carry an open diamond and no link.
 
 ### Filters and Tabs
 Text only: Manrope 600 15-16px in slate, a 1px underline in ink when selected or pressed. No fills, no pills.

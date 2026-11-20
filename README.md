@@ -8,6 +8,7 @@ style.css    colours, fonts and layout (tokens at the top)
 script.js    extras: case study pages, tabs, filters, copy email, CV check, and the animations
 cv.pdf       your CV, linked from the top bar, the hero and the footer
 images/      your photos
+certificates/ your certificates as PDFs, linked from Courses (and from About and the RevoU page)
 fonts/       Sora, Manrope and Instrument Serif (self-hosted, with their licences)
 404.html     the page GitHub shows for an address that doesn't exist
 ```
@@ -16,7 +17,8 @@ fonts/       Sora, Manrope and Instrument Serif (self-hosted, with their licence
 
 | File | Where it shows |
 | --- | --- |
-| `images/gifari-photo.webp` | Hero, framed as "Plate I" with the "Open to work" label. 4:5 (1000 × 1250); use the same shape for a new photo. |
+| `images/gifari-hero.webp` | Hero, framed as "Plate I" with the "Open to work" label. A tall photo (720 × 1280) fits the plate best. To change it, upload the new photo under a new file name and change the `src` in the hero, so nobody sees the old one from their cache. |
+| `images/gifari-photo.webp` | The previous hero photo. Not shown at the moment. |
 | `images/about.webp` | About section. A cut-out (transparent background); the head rises above the frame on purpose. If the file is missing, your initials "GA" show instead. |
 | `images/gifari.webp` | The illustrated portrait used before. Not shown at the moment. |
 
@@ -62,9 +64,13 @@ Each project has `data-cat="delivery"`, `"data"` or `"product"`; it shows under 
 
 ## Courses
 
-The first card (`<li class="cert cert-main">`) is the RevoU certificate: one certificate for a track of four courses.
-The dashed cards (`<li class="cert cert-next">`) are the Udemy courses you're taking now, each with its own card.
-When you pass one, change its seal icon from `#i-clock` to `#i-award`, remove `cert-next`, and replace "Currently learning" with the month and year you finished.
+Courses is a ledger: certificates you've earned first (filled diamond), then the courses you're taking now (open diamond, "Currently learning").
+
+- **Earned.** RevoU (`<li class="cert cert-main">`, one certificate for a track of four courses), then the Udemy AI for Project Management certificate and the Fesmaro 2023 award (`<li class="cert">`). Each has a "View certificate" link (`<a class="cert-link">`) that opens its PDF in a new tab.
+- **In progress.** Each Udemy course you're taking is a `<li class="cert cert-next">`.
+
+**Add a certificate:** put the PDF in `certificates/` (lowercase letters, numbers and hyphens in the name), then copy an earned row and change the issuer, title, note, date and the link's `href`.
+**When you pass a course:** remove `cert-next`, change its seal from `#i-clock` to `#i-award`, replace "Currently learning" with the month and year you finished, add its PDF to `certificates/` and copy a "View certificate" link into the row. Move the row up with the other earned ones.
 
 ## Volunteering
 
