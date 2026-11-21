@@ -38,7 +38,8 @@ A junior PM with an Informatics Engineering degree who learned delivery by doing
 - Voice: first person, plain, warm and specific ("Halo! I'm Gira").
 
 ## Evidence on Hand
-- Photos: `images/gifari-photo.webp` (hero, 4:5), `images/about.webp` (cut-out), `images/gifari.webp` (illustration, unused).
+- Photos: `images/gifari-hero.webp` (hero, tall 720 × 1280), `images/about.webp` (cut-out), `images/gifari-photo.webp` (previous hero, unused), `images/gifari.webp` (illustration, unused).
+- Certificates (images only, in `images/certs/`; the PDFs are deliberately not published, the owner wants them view-only): RevoU Tech Academy (one certificate, four courses, June 2023, grade 89/A), Udemy 2 Week AI for Project Management (November 2026), Fesmaro 2023 App Development Competition, 3rd place, Celerates PM webinar (August 2024).
 - `cv.pdf`; live site for Gambit Rojo (gambit-rojo.netlify.app); Habit Tracker repo.
 - Real numbers in the copy (18+ projects, 10+ clients, 2+ years, GPA 3.76, thesis metrics).
 - No testimonials, client logos or press. Do not invent any.

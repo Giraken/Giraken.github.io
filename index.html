@@ -30,7 +30,7 @@
   </script>
   <link rel="preload" href="fonts/sora-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -153,9 +153,9 @@
       </div>
     </div>
 
-    <!-- Plate I: the portrait, full height. images/gifari-photo.webp is 4:5 (1000 x 1250); swap it for another photo of that shape. -->
+    <!-- Plate I: the portrait, full height. images/gifari-hero.webp is a tall photo (720 x 1280); a tall photo fits this plate best. -->
     <figure class="portrait-card">
-      <img src="images/gifari-photo.webp" fetchpriority="high" alt="Gifari Asmara in a black T-shirt, sitting outdoors and looking to the side" width="1000" height="1250">
+      <img src="images/gifari-hero.webp" fetchpriority="high" alt="Gifari Asmara in a pink cap, glasses and a black jacket, sitting in a café and looking to the side" width="720" height="1280">
       <span class="status-chip"><span class="dot-live" aria-hidden="true"></span>Open to work</span>
     </figure>
   </div>
@@ -209,7 +209,7 @@
             <div><dt>Years</dt><dd>Sep 2020 – Jan 2026</dd></div>
             <div><dt>GPA</dt><dd>3.76 out of 4.00</dd></div>
             <div class="wide"><dt>Thesis</dt><dd>Customer segmentation using RFM analysis and three clustering methods: Spectral Clustering, Self-Organizing Maps (SOM) and HDBSCAN</dd></div>
-            <div class="wide"><dt>Award</dt><dd>3rd place, App Development Competition, Fesmaro 2023</dd></div>
+            <div class="wide"><dt>Award</dt><dd>3rd place, App Development Competition, Fesmaro 2023. <button type="button" class="text-link" data-cert-view="images/certs/fesmaro-2023.webp" data-cert-title="3rd place, App Development Competition, FESMARO 2023">See the certificate</button></dd></div>
           </dl>
         </div>
         <div class="panel" role="tabpanel" id="panel-details" aria-labelledby="tab-details">
@@ -602,30 +602,35 @@
       <p class="section-lede">The three I'm proudest of. The rest, including what I'm learning right now, are on their own page.</p>
     </div>
     <ul class="course-grid">
+      <!-- "View certificate" opens the certificate image in the viewer (no PDF is published). -->
       <li class="cert cert-main">
         <span class="cert-seal" aria-hidden="true"><svg class="i"><use href="#i-award"/></svg></span>
-        <p class="cert-issuer"><span class="cert-kind">Award</span>Fesmaro 2023</p>
+        <p class="cert-issuer"><span class="cert-kind">Award</span>Universitas Negeri Malang</p>
         <h3>3rd place, App Development Competition</h3>
-        <p class="cert-meta">Award certificate, 2023</p>
+        <p class="cert-note">Festival Kreativitas Mahasiswa Teknik Elektro (FESMARO) 2023, Faculty of Engineering</p>
+        <p class="cert-meta">Awarded March 2023</p>
+        <button type="button" class="cert-link" data-cert-view="images/certs/fesmaro-2023.webp" data-cert-title="3rd place, App Development Competition, FESMARO 2023">View certificate<svg class="i"><use href="#i-search"/></svg></button>
       </li>
       <li class="cert cert-main">
         <span class="cert-seal" aria-hidden="true"><svg class="i"><use href="#i-award"/></svg></span>
         <p class="cert-issuer"><span class="cert-kind">Course</span>RevoU Tech Academy</p>
-        <h3>MSIB Batch 4 (Kampus Merdeka)</h3>
-        <p class="cert-note">One certificate for a track of four courses:</p>
+        <h3>Product, Engineering, Data</h3>
+        <p class="cert-note">MSIB Batch 4 (Kampus Merdeka), February to June 2023. One certificate for a track of four courses:</p>
         <ul class="cert-chips"><li>Data Analytics</li><li>Software Engineering</li><li>Product Management</li><li>Digital Marketing</li></ul>
-        <p class="cert-meta">Certificate of completion, February to June 2023</p>
+        <p class="cert-meta">Completed June 2023, final grade 89 out of 100 (A)</p>
+        <button type="button" class="cert-link" data-cert-view="images/certs/revou-msib.webp" data-cert-title="RevoU Tech Academy: Product, Engineering, Data">View certificate<svg class="i"><use href="#i-search"/></svg></button>
       </li>
       <li class="cert cert-main">
         <span class="cert-seal" aria-hidden="true"><svg class="i"><use href="#i-award"/></svg></span>
-        <p class="cert-issuer"><span class="cert-kind">Course</span>Celerates</p>
-        <h3>The Secrets to Successful Project Management</h3>
-        <p class="cert-note">Webinar on the way to CAP Jr. Project Manager: key techniques, skills and strategies for junior PMs.</p>
-        <p class="cert-meta">Certificate of participation, August 2024</p>
+        <p class="cert-issuer"><span class="cert-kind">Course</span>Udemy</p>
+        <h3>2 Week AI for Project Management Certification</h3>
+        <p class="cert-note">By School of AI, 5 hours</p>
+        <p class="cert-meta">Completed November 2026</p>
+        <button type="button" class="cert-link" data-cert-view="images/certs/udemy-ai-pm.webp" data-cert-title="2 Week AI for Project Management Certification">View certificate<svg class="i"><use href="#i-search"/></svg></button>
       </li>
     </ul>
     <div class="certs-foot">
-      <p class="certs-note">1 award, 2 courses completed and 4 in progress.</p>
+      <p class="certs-note">1 award, 3 courses completed and 3 in progress.</p>
       <a class="btn btn-secondary" href="#certificates">See all certificates<svg class="i"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
@@ -669,6 +674,7 @@
      Every certificate is one <li class="cert-card"> in the list below. Its data-type puts it under a tab:
      data-type="course", "award" or "progress". "All" shows everything. Without JavaScript everything shows.
      Certificate images live in images/certs/ as two WebP files: name.webp (full) and name-thumb.webp (small).
+     Any button with data-cert-view="images/certs/name.webp" opens that image in the viewer (data-cert-title is its caption).
      Only images go on the site, never the PDFs, so visitors can look but there's no file to download.
      When you finish a course: change its data-type to "course", remove " is-next", change #i-clock to #i-award,
      the tag to "Completed", "Currently learning" to the date, and add its <button class="cert-thumb"> image.
@@ -685,15 +691,15 @@
       <div class="cover case-visual sheets" aria-hidden="true">
         <div class="sheet-doc"><span class="doc-kind">Award</span><span class="doc-name">Fesmaro 2023, 3rd place</span></div>
         <div class="sheet-doc"><span class="doc-kind">Course</span><span class="doc-name">RevoU MSIB Batch 4</span></div>
+        <div class="sheet-doc"><span class="doc-kind">Course</span><span class="doc-name">Udemy AI for Project Management</span></div>
         <div class="sheet-doc"><span class="doc-kind">Course</span><span class="doc-name">Celerates PM webinar</span></div>
-        <div class="sheet-doc"><span class="doc-kind">In progress</span><span class="doc-name">AI for Project Management</span></div>
       </div>
     </div>
     <div class="wrap">
       <dl class="case-facts">
-        <div><dt>Courses completed</dt><dd>2</dd></div>
+        <div><dt>Courses completed</dt><dd>3</dd></div>
         <div><dt>Awards</dt><dd>1</dd></div>
-        <div><dt>In progress</dt><dd>4 courses</dd></div>
+        <div><dt>In progress</dt><dd>3 courses</dd></div>
       </dl>
     </div>
   </header>
@@ -703,26 +709,29 @@
       <div class="folder cert-folder">
         <div class="folder-tabs" role="tablist" aria-label="Show certificates">
           <button type="button" role="tab" aria-controls="cert-list" aria-selected="true" data-cert-filter="all">All <span class="tab-count">7</span></button>
-          <button type="button" role="tab" aria-controls="cert-list" aria-selected="false" data-cert-filter="course">Courses <span class="tab-count">2</span></button>
+          <button type="button" role="tab" aria-controls="cert-list" aria-selected="false" data-cert-filter="course">Courses <span class="tab-count">3</span></button>
           <button type="button" role="tab" aria-controls="cert-list" aria-selected="false" data-cert-filter="award">Awards <span class="tab-count">1</span></button>
-          <button type="button" role="tab" aria-controls="cert-list" aria-selected="false" data-cert-filter="progress">In progress <span class="tab-count">4</span></button>
+          <button type="button" role="tab" aria-controls="cert-list" aria-selected="false" data-cert-filter="progress">In progress <span class="tab-count">3</span></button>
         </div>
         <div class="folder-body">
           <div role="tabpanel" id="cert-list" aria-label="Certificates">
             <h2 class="sr-only">Certificate list</h2>
             <ul class="cert-cards">
               <li class="cert-card is-award" data-type="award">
-                <div class="cert-thumb is-empty" aria-hidden="true"><span>Certificate image coming soon</span></div>
+                <button class="cert-thumb" type="button" data-cert-view="images/certs/fesmaro-2023.webp" data-cert-title="3rd place, App Development Competition, FESMARO 2023" aria-label="View the certificate: 3rd place, App Development Competition, FESMARO 2023">
+                  <img src="images/certs/fesmaro-2023-thumb.webp" alt="" width="640" height="423" loading="lazy" draggable="false">
+                  <span class="cert-thumb-cta"><svg class="i"><use href="#i-search"/></svg>View certificate</span>
+                </button>
                 <div class="cert-card-text">
                   <span class="cert-card-tag"><svg class="i" aria-hidden="true"><use href="#i-award"/></svg>Award</span>
-                  <p class="cert-card-issuer">Fesmaro 2023</p>
+                  <p class="cert-card-issuer">Universitas Negeri Malang &middot; Faculty of Engineering</p>
                   <h3>3rd place, App Development Competition</h3>
-                  <p>Third place in the app development competition at Fesmaro 2023.</p>
-                  <p class="cert-card-meta">Award certificate, 2023</p>
+                  <p>Juara 3 in the digital technology innovation category (app development) at the Festival Kreativitas Mahasiswa Teknik Elektro (FESMARO) 2023, themed &ldquo;Bangkit Berprestasi Menuju Indonesia Emas 2045&rdquo;. Run by the Electrical Engineering and Informatics student association on 11 March 2023.</p>
+                  <p class="cert-card-meta">Awarded 13 March 2023</p>
                 </div>
               </li>
               <li class="cert-card" data-type="course">
-                <button class="cert-thumb" type="button" data-cert-view="images/certs/revou-msib.webp" aria-label="View the certificate: RevoU Tech Academy certificate of completion">
+                <button class="cert-thumb" type="button" data-cert-view="images/certs/revou-msib.webp" data-cert-title="RevoU Tech Academy: Product, Engineering, Data" aria-label="View the certificate: RevoU Tech Academy: Product, Engineering, Data">
                   <img src="images/certs/revou-msib-thumb.webp" alt="" width="640" height="453" loading="lazy" draggable="false">
                   <span class="cert-thumb-cta"><svg class="i"><use href="#i-search"/></svg>View certificate</span>
                 </button>
@@ -735,8 +744,21 @@
                 </div>
               </li>
               <li class="cert-card" data-type="course">
-                <button class="cert-thumb" type="button" data-cert-view="images/certs/celerates-pm-webinar.webp" aria-label="View the certificate: Celerates certificate of participation">
-                  <img src="images/certs/celerates-pm-webinar-thumb.webp" alt="" width="640" height="453" loading="lazy" draggable="false">
+                <button class="cert-thumb" type="button" data-cert-view="images/certs/udemy-ai-pm.webp" data-cert-title="2 Week AI for Project Management Certification" aria-label="View the certificate: 2 Week AI for Project Management Certification">
+                  <img src="images/certs/udemy-ai-pm-thumb.webp" alt="" width="640" height="476" loading="lazy" draggable="false">
+                  <span class="cert-thumb-cta"><svg class="i"><use href="#i-search"/></svg>View certificate</span>
+                </button>
+                <div class="cert-card-text">
+                  <span class="cert-card-tag"><svg class="i" aria-hidden="true"><use href="#i-award"/></svg>Completed</span>
+                  <p class="cert-card-issuer">Udemy &middot; School of AI</p>
+                  <h3>2 Week AI for Project Management Certification</h3>
+                  <p>A five-hour course taught by School of AI.</p>
+                  <p class="cert-card-meta">Certificate of completion, 20 November 2026</p>
+                </div>
+              </li>
+              <li class="cert-card" data-type="course">
+                <button class="cert-thumb" type="button" data-cert-view="images/certs/celerates-pm-webinar.webp" data-cert-title="The Secrets to Successful Project Management" aria-label="View the certificate: The Secrets to Successful Project Management">
+                  <img src="images/certs/celerates-pm-webinar-thumb.webp" alt="" width="640" height="451" loading="lazy" draggable="false">
                   <span class="cert-thumb-cta"><svg class="i"><use href="#i-search"/></svg>View certificate</span>
                 </button>
                 <div class="cert-card-text">
@@ -751,14 +773,6 @@
                 <div class="cert-card-text">
                   <span class="cert-card-tag"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>In progress</span>
                   <p class="cert-card-issuer">Udemy</p>
-                  <h3>AI for Project Management</h3>
-                  <p class="cert-card-meta">Currently learning</p>
-                </div>
-              </li>
-              <li class="cert-card is-next" data-type="progress">
-                <div class="cert-card-text">
-                  <span class="cert-card-tag"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>In progress</span>
-                  <p class="cert-card-issuer">Udemy</p>
                   <h3>Certified AI Engineering Masterclass: From Zero to AI Hero</h3>
                   <p class="cert-card-meta">Currently learning</p>
                 </div>
@@ -767,7 +781,7 @@
                 <div class="cert-card-text">
                   <span class="cert-card-tag"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>In progress</span>
                   <p class="cert-card-issuer">Udemy</p>
-                  <h3>The Ultimate Trading &amp; Wealth Mastery Program</h3>
+                  <h3>AWS Certified AI Business Strategist (AIB-C01) Exam Prep</h3>
                   <p class="cert-card-meta">Currently learning</p>
                 </div>
               </li>
@@ -775,7 +789,7 @@
                 <div class="cert-card-text">
                   <span class="cert-card-tag"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>In progress</span>
                   <p class="cert-card-issuer">Udemy</p>
-                  <h3>AWS Certified AI Business Strategist (AIB-C01) Exam Prep</h3>
+                  <h3>The Ultimate Trading &amp; Wealth Mastery Program</h3>
                   <p class="cert-card-meta">Currently learning</p>
                 </div>
               </li>
@@ -1629,7 +1643,7 @@
         <div><dt>Role</dt><dd>Participant and team lead</dd></div>
         <div><dt>When</dt><dd>Feb 2023 – Jun 2023</dd></div>
         <div><dt>Program</dt><dd>MSIB Batch 4</dd></div>
-        <div><dt>Certificate</dt><dd>1, covering 4 courses</dd></div>
+        <div><dt>Certificate</dt><dd><button type="button" class="text-link" data-cert-view="images/certs/revou-msib.webp" data-cert-title="RevoU Tech Academy: Product, Engineering, Data">1, covering 4 courses</button></dd></div>
         <div><dt>Team led</dt><dd>10 people</dd></div>
       </dl>
     </div>
@@ -1921,6 +1935,6 @@
 
 <div class="toast" role="status" aria-live="polite" hidden></div>
 
-<script src="script.js"></script>
+<script src="script.js?v=3"></script>
 </body>
 </html>

@@ -8,6 +8,7 @@ style.css    colours, fonts and layout (tokens at the top)
 script.js    extras: case study pages, tabs, filters, copy email, CV check, and the animations
 cv.pdf       your CV, linked from the top bar, the hero and the footer
 images/      your photos
+images/certs/ your certificates as images (never PDFs), shown in the certificate viewer
 fonts/       Sora, Manrope and Instrument Serif (self-hosted, with their licences)
 404.html     the page GitHub shows for an address that doesn't exist
 ```
@@ -16,7 +17,8 @@ fonts/       Sora, Manrope and Instrument Serif (self-hosted, with their licence
 
 | File | Where it shows |
 | --- | --- |
-| `images/gifari-photo.webp` | Hero, framed as "Plate I" with the "Open to work" label. 4:5 (1000 × 1250); use the same shape for a new photo. |
+| `images/gifari-hero.webp` | Hero, framed as "Plate I" with the "Open to work" label. A tall photo (720 × 1280) fits the plate best. To change it, upload the new photo under a new file name and change the `src` in the hero, so nobody sees the old one from their cache. |
+| `images/gifari-photo.webp` | The previous hero photo. Not shown at the moment. |
 | `images/about.webp` | About section. A cut-out (transparent background); the head rises above the frame on purpose. If the file is missing, your initials "GA" show instead. |
 | `images/gifari.webp` | The illustrated portrait used before. Not shown at the moment. |
 
@@ -63,7 +65,8 @@ Each project has `data-cat="delivery"`, `"data"` or `"product"`; it shows under 
 ## Certificates
 
 The navbar link "Certificates" goes to the home section (`id="courses"`), which shows only your **three best**
-certificates (`<li class="cert">` rows): Fesmaro 2023 award, RevoU MSIB, and the Celerates PM webinar.
+certificates (`<li class="cert">` rows): Fesmaro 2023 award, RevoU MSIB, and Udemy AI for Project Management.
+Each row's "View certificate" button (`<button class="cert-link" data-cert-view="images/certs/name.webp">`) opens the image in the viewer.
 To swap one of the three, replace its row. The line under them (`certs-note`) gives the totals,
 and the "See all certificates" button opens the full list.
 
@@ -72,6 +75,8 @@ Four tabs filter one list: **All**, **Courses**, **Awards** and **In progress**.
 Each certificate is one `<li class="cert-card" data-type="...">`; `data-type` is `course`, `award` or `progress`.
 
 Certificate images: only images go on the site, never the PDFs, so visitors can look but there's no file to download.
+Keep the PDFs on your own computer or Drive. To turn a PDF into the two images, ask Claude, or export page 1 as an image
+from any PDF viewer and convert it to WebP (for example at squoosh.app).
 Put two WebP files in `images/certs/`: `name.webp` (about 1400px wide) and `name-thumb.webp` (about 640px wide),
 then point the card's `<button class="cert-thumb" data-cert-view="images/certs/name.webp">` at them.
 Clicking the image opens it large in a viewer; right-click, dragging and long-press saving are switched off on it.

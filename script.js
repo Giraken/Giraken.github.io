@@ -182,11 +182,12 @@
     var opener = null;
     each('[data-cert-view]', function (button) {
       button.addEventListener('click', function () {
-        var card = button.closest('.cert-card');
-        var title = card ? card.querySelector('h3') : null;
+        var card = button.closest('.cert-card, .cert');
+        var heading = card ? card.querySelector('h3') : null;
+        var title = button.getAttribute('data-cert-title') || (heading ? heading.textContent : '');
         img.src = button.getAttribute('data-cert-view');
-        img.alt = title ? 'Certificate: ' + title.textContent : 'Certificate';
-        cap.textContent = title ? title.textContent : '';
+        img.alt = title ? 'Certificate: ' + title : 'Certificate';
+        cap.textContent = title;
         opener = button;
         viewer.showModal();
       });
