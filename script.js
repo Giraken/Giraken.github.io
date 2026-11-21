@@ -140,6 +140,71 @@
   });
 
 
+  /* 4b. Certificates page: All / Courses / Awards / In progress tabs filter one list */
+  each('.cert-folder', function (box) {
+    var tabs = Array.prototype.slice.call(box.querySelectorAll('[data-cert-filter]'));
+    var cards = Array.prototype.slice.call(box.querySelectorAll('.cert-card'));
+    var notes = Array.prototype.slice.call(box.querySelectorAll('[data-cert-note]'));
+    function select(index, moveFocus) {
+      var type = tabs[index].getAttribute('data-cert-filter');
+      tabs.forEach(function (tab, i) {
+        tab.setAttribute('aria-selected', String(i === index));
+        tab.tabIndex = i === index ? 0 : -1;
+      });
+      cards.forEach(function (card) { card.hidden = type !== 'all' && card.getAttribute('data-type') !== type; });
+      notes.forEach(function (note) { note.hidden = note.getAttribute('data-cert-note') !== type; });
+      box.setAttribute('data-showing', type);
+      if (moveFocus) tabs[index].focus();
+    }
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener('click', function () { select(i); });
+      tab.addEventListener('keydown', function (e) {
+        var last = tabs.length - 1;
+        var next = { ArrowRight: i === last ? 0 : i + 1, ArrowLeft: i === 0 ? last : i - 1, Home: 0, End: last }[e.key];
+        if (next === undefined) return;
+        e.preventDefault();
+        select(next, true);
+      });
+    });
+    select(0);
+  });
+
+  /* 4c. Certificate viewer: the image opens large, to look at only.
+     Right-click, dragging and long-press saving are switched off on certificate images. */
+  (function () {
+    var viewer = document.querySelector('.cert-viewer');
+    if (!viewer || typeof viewer.showModal !== 'function') return;
+    // The image is made here, so the page never ships an empty <img>
+    var img = document.createElement('img');
+    img.draggable = false;
+    viewer.querySelector('.cert-viewer-frame').insertBefore(img, viewer.querySelector('.cert-viewer-shield'));
+    var cap = viewer.querySelector('.cert-viewer-cap');
+    var opener = null;
+    each('[data-cert-view]', function (button) {
+      button.addEventListener('click', function () {
+        var card = button.closest('.cert-card');
+        var title = card ? card.querySelector('h3') : null;
+        img.src = button.getAttribute('data-cert-view');
+        img.alt = title ? 'Certificate: ' + title.textContent : 'Certificate';
+        cap.textContent = title ? title.textContent : '';
+        opener = button;
+        viewer.showModal();
+      });
+    });
+    function close() { viewer.close(); }
+    viewer.querySelector('.cert-viewer-close').addEventListener('click', close);
+    viewer.addEventListener('click', function (e) { if (e.target === viewer) close(); });
+    viewer.addEventListener('close', function () { img.removeAttribute('src'); if (opener) opener.focus(); });
+    window.addEventListener('hashchange', function () { if (viewer.open) close(); });
+    var guarded = '.cert-thumb, .cert-viewer-frame';
+    ['contextmenu', 'dragstart'].forEach(function (type) {
+      document.addEventListener(type, function (e) {
+        if (e.target.closest && e.target.closest(guarded)) e.preventDefault();
+      });
+    });
+  })();
+
+
   /* 5. Project filters. A group (the card grid, "More work") hides when none of its cards match. */
   var filterButtons = Array.prototype.slice.call(document.querySelectorAll('[data-filter]'));
   filterButtons.forEach(function (button) {

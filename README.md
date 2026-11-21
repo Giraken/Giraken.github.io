@@ -60,11 +60,26 @@ Gambit Rojo is the featured project (`<article class="project featured">`). Belo
 Each card shows a category and year, a short description, your role and one outcome.
 Each project has `data-cat="delivery"`, `"data"` or `"product"`; it shows under the filter button with the same `data-filter` value.
 
-## Courses
+## Certificates
 
-The first card (`<li class="cert cert-main">`) is the RevoU certificate: one certificate for a track of four courses.
-The dashed cards (`<li class="cert cert-next">`) are the Udemy courses you're taking now, each with its own card.
-When you pass one, change its seal icon from `#i-clock` to `#i-award`, remove `cert-next`, and replace "Currently learning" with the month and year you finished.
+The navbar link "Certificates" goes to the home section (`id="courses"`), which shows only your **three best**
+certificates (`<li class="cert">` rows): Fesmaro 2023 award, RevoU MSIB, and the Celerates PM webinar.
+To swap one of the three, replace its row. The line under them (`certs-note`) gives the totals,
+and the "See all certificates" button opens the full list.
+
+The full list is its own page, `index.html#certificates` (`<article class="case" id="certificates">`).
+Four tabs filter one list: **All**, **Courses**, **Awards** and **In progress**.
+Each certificate is one `<li class="cert-card" data-type="...">`; `data-type` is `course`, `award` or `progress`.
+
+Certificate images: only images go on the site, never the PDFs, so visitors can look but there's no file to download.
+Put two WebP files in `images/certs/`: `name.webp` (about 1400px wide) and `name-thumb.webp` (about 640px wide),
+then point the card's `<button class="cert-thumb" data-cert-view="images/certs/name.webp">` at them.
+Clicking the image opens it large in a viewer; right-click, dragging and long-press saving are switched off on it.
+A card with no image yet uses `<div class="cert-thumb is-empty">` ("Certificate image coming soon").
+
+Finished a course: change its `data-type` to `course`, remove ` is-next`, change `#i-clock` to `#i-award`,
+the tag to "Completed", "Currently learning" to the date, and add its image.
+Then update the counts in the tab buttons (`tab-count`), the facts row at the top of the page, and `certs-note` on the home page.
 
 ## Volunteering
 

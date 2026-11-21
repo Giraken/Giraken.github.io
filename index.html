@@ -99,7 +99,7 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#courses">Courses</a></li>
+      <li><a href="#courses">Certificates</a></li>
     </ul>
     <!-- CV: put your PDF next to index.html as cv.pdf, or replace every "cv.pdf" with a Google Drive link -->
     <a class="btn btn-champagne nav-cv" href="cv.pdf" target="_blank" rel="noopener" data-cv>Download CV</a>
@@ -593,49 +593,41 @@
 </section>
 
 <!-- ============ 7. COURSES AND CERTIFICATES ============ -->
+<!-- Only my three best certificates show here. The full list lives on its own page,
+     <article class="case" id="certificates"> further down. -->
 <section class="band courses" id="courses" aria-labelledby="courses-title">
   <div class="wrap">
     <div class="section-head">
-      <h2 id="courses-title">Courses and certificates</h2>
-      <p class="section-lede">What I've studied outside university, and what I'm learning right now.</p>
+      <h2 id="courses-title">Certificates</h2>
+      <p class="section-lede">The three I'm proudest of. The rest, including what I'm learning right now, are on their own page.</p>
     </div>
     <ul class="course-grid">
       <li class="cert cert-main">
         <span class="cert-seal" aria-hidden="true"><svg class="i"><use href="#i-award"/></svg></span>
-        <p class="cert-issuer">RevoU Tech Academy</p>
+        <p class="cert-issuer"><span class="cert-kind">Award</span>Fesmaro 2023</p>
+        <h3>3rd place, App Development Competition</h3>
+        <p class="cert-meta">Award certificate, 2023</p>
+      </li>
+      <li class="cert cert-main">
+        <span class="cert-seal" aria-hidden="true"><svg class="i"><use href="#i-award"/></svg></span>
+        <p class="cert-issuer"><span class="cert-kind">Course</span>RevoU Tech Academy</p>
         <h3>MSIB Batch 4 (Kampus Merdeka)</h3>
         <p class="cert-note">One certificate for a track of four courses:</p>
         <ul class="cert-chips"><li>Data Analytics</li><li>Software Engineering</li><li>Product Management</li><li>Digital Marketing</li></ul>
         <p class="cert-meta">Certificate of completion, February to June 2023</p>
       </li>
-      <!-- Courses in progress. When you pass one, change its seal to #i-award, remove "cert-next"
-           and replace "Currently learning" with the month and year you finished. -->
-      <li class="cert cert-next">
-        <span class="cert-seal" aria-hidden="true"><svg class="i"><use href="#i-clock"/></svg></span>
-        <p class="cert-issuer">Udemy</p>
-        <h3>AI for Project Management</h3>
-        <p class="cert-meta">Currently learning</p>
-      </li>
-      <li class="cert cert-next">
-        <span class="cert-seal" aria-hidden="true"><svg class="i"><use href="#i-clock"/></svg></span>
-        <p class="cert-issuer">Udemy</p>
-        <h3>Certified AI Engineering Masterclass: From Zero to AI Hero</h3>
-        <p class="cert-meta">Currently learning</p>
-      </li>
-      <li class="cert cert-next">
-        <span class="cert-seal" aria-hidden="true"><svg class="i"><use href="#i-clock"/></svg></span>
-        <p class="cert-issuer">Udemy</p>
-        <h3>The Ultimate Trading &amp; Wealth Mastery Program</h3>
-        <p class="cert-meta">Currently learning</p>
-      </li>
-      <li class="cert cert-next">
-        <span class="cert-seal" aria-hidden="true"><svg class="i"><use href="#i-clock"/></svg></span>
-        <p class="cert-issuer">Udemy</p>
-        <h3>AWS Certified AI Business Strategist (AIB-C01) Exam Prep</h3>
-        <p class="cert-meta">Currently learning</p>
+      <li class="cert cert-main">
+        <span class="cert-seal" aria-hidden="true"><svg class="i"><use href="#i-award"/></svg></span>
+        <p class="cert-issuer"><span class="cert-kind">Course</span>Celerates</p>
+        <h3>The Secrets to Successful Project Management</h3>
+        <p class="cert-note">Webinar on the way to CAP Jr. Project Manager: key techniques, skills and strategies for junior PMs.</p>
+        <p class="cert-meta">Certificate of participation, August 2024</p>
       </li>
     </ul>
-    <p class="certs-note">Each Udemy certificate goes up here once I pass the course.</p>
+    <div class="certs-foot">
+      <p class="certs-note">1 award, 2 courses completed and 4 in progress.</p>
+      <a class="btn btn-secondary" href="#certificates">See all certificates<svg class="i"><use href="#i-arrow"/></svg></a>
+    </div>
   </div>
 </section>
 
@@ -671,6 +663,146 @@
      Each <article class="case" id="..."> is its own page. It opens when the
      address ends in #its-id, for example index.html#habit-tracker.
      ===================================================================== -->
+
+<!-- ============ ALL CERTIFICATES ============ -->
+<!-- The full list, opened from "See all certificates" (index.html#certificates).
+     Every certificate is one <li class="cert-card"> in the list below. Its data-type puts it under a tab:
+     data-type="course", "award" or "progress". "All" shows everything. Without JavaScript everything shows.
+     Certificate images live in images/certs/ as two WebP files: name.webp (full) and name-thumb.webp (small).
+     Only images go on the site, never the PDFs, so visitors can look but there's no file to download.
+     When you finish a course: change its data-type to "course", remove " is-next", change #i-clock to #i-award,
+     the tag to "Completed", "Currently learning" to the date, and add its <button class="cert-thumb"> image.
+     Then update the counts in the tabs, the facts row, and "certs-note" on the home page. -->
+<article class="case" id="certificates" aria-labelledby="certificates-title">
+  <header class="case-hero">
+    <div class="wrap case-hero-grid">
+      <div class="case-intro">
+        <a class="case-back" href="#courses"><svg class="i"><use href="#i-back"/></svg>Back to certificates</a>
+        <ul class="case-tags"><li>Certificates</li><li>Courses</li><li>Awards</li><li>In progress</li></ul>
+        <h1 class="case-title" id="certificates-title" tabindex="-1">All certificates</h1>
+        <p class="case-lede">Everything I've earned or am working on outside university: finished courses, competition awards, and the ones I'm studying right now. Click a certificate to see it up close.</p>
+      </div>
+      <div class="cover case-visual sheets" aria-hidden="true">
+        <div class="sheet-doc"><span class="doc-kind">Award</span><span class="doc-name">Fesmaro 2023, 3rd place</span></div>
+        <div class="sheet-doc"><span class="doc-kind">Course</span><span class="doc-name">RevoU MSIB Batch 4</span></div>
+        <div class="sheet-doc"><span class="doc-kind">Course</span><span class="doc-name">Celerates PM webinar</span></div>
+        <div class="sheet-doc"><span class="doc-kind">In progress</span><span class="doc-name">AI for Project Management</span></div>
+      </div>
+    </div>
+    <div class="wrap">
+      <dl class="case-facts">
+        <div><dt>Courses completed</dt><dd>2</dd></div>
+        <div><dt>Awards</dt><dd>1</dd></div>
+        <div><dt>In progress</dt><dd>4 courses</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <div class="case-body">
+    <section class="c-sec">
+      <div class="folder cert-folder">
+        <div class="folder-tabs" role="tablist" aria-label="Show certificates">
+          <button type="button" role="tab" aria-controls="cert-list" aria-selected="true" data-cert-filter="all">All <span class="tab-count">7</span></button>
+          <button type="button" role="tab" aria-controls="cert-list" aria-selected="false" data-cert-filter="course">Courses <span class="tab-count">2</span></button>
+          <button type="button" role="tab" aria-controls="cert-list" aria-selected="false" data-cert-filter="award">Awards <span class="tab-count">1</span></button>
+          <button type="button" role="tab" aria-controls="cert-list" aria-selected="false" data-cert-filter="progress">In progress <span class="tab-count">4</span></button>
+        </div>
+        <div class="folder-body">
+          <div role="tabpanel" id="cert-list" aria-label="Certificates">
+            <h2 class="sr-only">Certificate list</h2>
+            <ul class="cert-cards">
+              <li class="cert-card is-award" data-type="award">
+                <div class="cert-thumb is-empty" aria-hidden="true"><span>Certificate image coming soon</span></div>
+                <div class="cert-card-text">
+                  <span class="cert-card-tag"><svg class="i" aria-hidden="true"><use href="#i-award"/></svg>Award</span>
+                  <p class="cert-card-issuer">Fesmaro 2023</p>
+                  <h3>3rd place, App Development Competition</h3>
+                  <p>Third place in the app development competition at Fesmaro 2023.</p>
+                  <p class="cert-card-meta">Award certificate, 2023</p>
+                </div>
+              </li>
+              <li class="cert-card" data-type="course">
+                <button class="cert-thumb" type="button" data-cert-view="images/certs/revou-msib.webp" aria-label="View the certificate: RevoU Tech Academy certificate of completion">
+                  <img src="images/certs/revou-msib-thumb.webp" alt="" width="640" height="453" loading="lazy" draggable="false">
+                  <span class="cert-thumb-cta"><svg class="i"><use href="#i-search"/></svg>View certificate</span>
+                </button>
+                <div class="cert-card-text">
+                  <span class="cert-card-tag"><svg class="i" aria-hidden="true"><use href="#i-award"/></svg>Completed</span>
+                  <p class="cert-card-issuer">RevoU Tech Academy &middot; MSIB Batch 4 (Kampus Merdeka)</p>
+                  <h3>RevoU Tech Academy: Product, Engineering, Data</h3>
+                  <p>Final grade 89 out of 100 (A). One certificate for a track of four courses: Data Analytics, Software Engineering, Product Management and Digital Marketing. On the way I led a 10-person team to a <a href="#habit-tracker">live web app</a> in four weeks.</p>
+                  <p class="cert-card-meta">Certificate of completion, issued 30 June 2023</p>
+                </div>
+              </li>
+              <li class="cert-card" data-type="course">
+                <button class="cert-thumb" type="button" data-cert-view="images/certs/celerates-pm-webinar.webp" aria-label="View the certificate: Celerates certificate of participation">
+                  <img src="images/certs/celerates-pm-webinar-thumb.webp" alt="" width="640" height="453" loading="lazy" draggable="false">
+                  <span class="cert-thumb-cta"><svg class="i"><use href="#i-search"/></svg>View certificate</span>
+                </button>
+                <div class="cert-card-text">
+                  <span class="cert-card-tag"><svg class="i" aria-hidden="true"><use href="#i-award"/></svg>Completed</span>
+                  <p class="cert-card-issuer">Celerates &middot; Webinar</p>
+                  <h3>The Secrets to Successful Project Management</h3>
+                  <p>Part of the road to CAP Jr. Project Manager: key techniques, essential skills and strategies for junior project managers.</p>
+                  <p class="cert-card-meta">Certificate of participation, August 2024</p>
+                </div>
+              </li>
+              <li class="cert-card is-next" data-type="progress">
+                <div class="cert-card-text">
+                  <span class="cert-card-tag"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>In progress</span>
+                  <p class="cert-card-issuer">Udemy</p>
+                  <h3>AI for Project Management</h3>
+                  <p class="cert-card-meta">Currently learning</p>
+                </div>
+              </li>
+              <li class="cert-card is-next" data-type="progress">
+                <div class="cert-card-text">
+                  <span class="cert-card-tag"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>In progress</span>
+                  <p class="cert-card-issuer">Udemy</p>
+                  <h3>Certified AI Engineering Masterclass: From Zero to AI Hero</h3>
+                  <p class="cert-card-meta">Currently learning</p>
+                </div>
+              </li>
+              <li class="cert-card is-next" data-type="progress">
+                <div class="cert-card-text">
+                  <span class="cert-card-tag"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>In progress</span>
+                  <p class="cert-card-issuer">Udemy</p>
+                  <h3>The Ultimate Trading &amp; Wealth Mastery Program</h3>
+                  <p class="cert-card-meta">Currently learning</p>
+                </div>
+              </li>
+              <li class="cert-card is-next" data-type="progress">
+                <div class="cert-card-text">
+                  <span class="cert-card-tag"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>In progress</span>
+                  <p class="cert-card-issuer">Udemy</p>
+                  <h3>AWS Certified AI Business Strategist (AIB-C01) Exam Prep</h3>
+                  <p class="cert-card-meta">Currently learning</p>
+                </div>
+              </li>
+            </ul>
+            <p class="cert-cards-note" data-cert-note="progress" hidden>Each one gets its certificate here once I pass it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <nav class="case-end" aria-label="More">
+    <div class="wrap case-end-grid">
+      <p class="thanks">Thanks for looking.</p>
+      <a class="next-case" href="#projects"><span>Next up</span><strong>Selected projects</strong><svg class="i"><use href="#i-arrow"/></svg></a>
+    </div>
+  </nav>
+</article>
+
+<!-- Certificate viewer. Opens when a certificate image is clicked. -->
+<dialog class="cert-viewer" aria-label="Certificate">
+  <div class="cert-viewer-frame">
+    <span class="cert-viewer-shield" aria-hidden="true"></span>
+  </div>
+  <p class="cert-viewer-cap"></p>
+  <button class="cert-viewer-close" type="button" aria-label="Close"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+</dialog>
 
 <!-- ============ CASE 0: GAMBIT ROJO (HIGHLIGHT) ============ -->
 <article class="case" id="gambit-rojo" aria-labelledby="gambit-rojo-title">
