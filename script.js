@@ -140,7 +140,7 @@
   });
 
 
-  /* 4b. Certificates page: All / Courses / Awards / In progress tabs filter one list */
+  /* 4b. Certificates and All projects pages: folder tabs filter one list of cards by data-type */
   each('.cert-folder', function (box) {
     var tabs = Array.prototype.slice.call(box.querySelectorAll('[data-cert-filter]'));
     var cards = Array.prototype.slice.call(box.querySelectorAll('.cert-card'));
@@ -190,12 +190,19 @@
         cap.textContent = title;
         opener = button;
         viewer.showModal();
+        // The open viewer sits in the browser's top layer, above everything in <body>,
+        // so the custom cursor moves inside it while it's open (and back out on close)
+        each('.cursor-dot, .cursor-ring', function (el) { viewer.appendChild(el); });
       });
     });
     function close() { viewer.close(); }
     viewer.querySelector('.cert-viewer-close').addEventListener('click', close);
     viewer.addEventListener('click', function (e) { if (e.target === viewer) close(); });
-    viewer.addEventListener('close', function () { img.removeAttribute('src'); if (opener) opener.focus(); });
+    viewer.addEventListener('close', function () {
+      each('.cursor-dot, .cursor-ring', function (el) { document.body.appendChild(el); });
+      img.removeAttribute('src');
+      if (opener) opener.focus();
+    });
     window.addEventListener('hashchange', function () { if (viewer.open) close(); });
     var guarded = '.cert-thumb, .cert-viewer-frame';
     ['contextmenu', 'dragstart'].forEach(function (type) {
@@ -206,21 +213,7 @@
   })();
 
 
-  /* 5. Project filters. A group (the card grid, "More work") hides when none of its cards match. */
-  var filterButtons = Array.prototype.slice.call(document.querySelectorAll('[data-filter]'));
-  filterButtons.forEach(function (button) {
-    button.addEventListener('click', function () {
-      var filter = button.getAttribute('data-filter');
-      filterButtons.forEach(function (b) { b.setAttribute('aria-pressed', String(b === button)); });
-      each('[data-cat]', function (item) {
-        var cats = item.getAttribute('data-cat').split(' ');
-        item.hidden = !(filter === 'all' || cats.indexOf(filter) > -1);
-      });
-      each('[data-group]', function (group) {
-        group.hidden = !group.querySelector('[data-cat]:not([hidden])');
-      });
-    });
-  });
+  /* 5. Project filters live on the All projects page now (#all-projects), using the folder tabs in 4b. */
 
 
   /* 6. Copy email (some browsers block the clipboard; then the address is selected instead) */

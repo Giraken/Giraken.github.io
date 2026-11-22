@@ -60,7 +60,7 @@ To show more projects under a role, copy one `<li class="c-project">` in its "Pr
 
 Gambit Rojo is the featured project (`<article class="project featured">`). Below it, three cards with a dark visual, and "More work" with three smaller cards.
 Each card shows a category and year, a short description, your role and one outcome.
-Each project has `data-cat="delivery"`, `"data"` or `"product"`; it shows under the filter button with the same `data-filter` value.
+The home page shows the featured project, three plates and "More work", then a **See all projects** button. The full list is its own page, `index.html#all-projects` (`<article class="case" id="all-projects">`), with folder tabs like the certificates page: **All**, **Project management**, **Data analytics** and **Product and marketing**. Each card has `data-type="delivery"`, `"data"` or `"product"`.
 
 ## Certificates
 
@@ -88,7 +88,7 @@ Then update the counts in the tab buttons (`tab-count`), the facts row at the to
 
 ## Volunteering
 
-Volunteering has its own section (`id="volunteering"`) after Courses, and its own page (`#exp-volunteer`) with the details.
+Volunteering shows as **Organization experience** (`id="volunteering"`), right after Work experience, and has its own page (`#exp-volunteer`) with the details.
 
 ## Animations
 

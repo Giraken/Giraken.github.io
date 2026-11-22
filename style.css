@@ -470,11 +470,12 @@ h1, h2, h3, h4,
 .exhibit-head { align-self: end; }
 .exhibit-body { align-self: start; }
 /* Sekawan, the longest role, hangs widest */
-.exhibit:nth-child(1) .exhibit-fig { grid-column: 1 / span 8; }
+.exhibit:nth-child(1) .exhibit-fig { grid-column: 1 / span 7; }
 .exhibit:nth-child(1) .exhibit-head, .exhibit:nth-child(1) .exhibit-body { grid-column: 9 / span 4; }
-/* RevoU hangs narrower, on the right, dropped below its label */
-.exhibit:nth-child(2) .exhibit-fig { grid-column: 7 / span 6; margin-top: 120px; }
+/* RevoU hangs narrower, on the right, its frame level with the top of its label */
+.exhibit:nth-child(2) .exhibit-fig { grid-column: 7 / span 6; }
 .exhibit:nth-child(2) .exhibit-head, .exhibit:nth-child(2) .exhibit-body { grid-column: 1 / span 5; }
+.exhibit:nth-child(2) .exhibit-head { align-self: start; }
 /* Freelance steps in from the left edge */
 .exhibit:nth-child(3) .exhibit-fig { grid-column: 2 / span 6; }
 .exhibit:nth-child(3) .exhibit-head, .exhibit:nth-child(3) .exhibit-body { grid-column: 9 / span 4; }
@@ -486,6 +487,10 @@ h1, h2, h3, h4,
   background: var(--ivory); color: var(--ink);
   outline: 1px solid var(--frame); outline-offset: var(--mat);
 }
+/* The last row of a shortened ledger: "…" for the sites not listed */
+.ledger tbody .ledger-more td { width: auto; font-size: 18px; font-weight: 600; letter-spacing: .25em; color: var(--slate); }
+.ledger tbody .ledger-more:hover { background: none; }
+
 .doc-head {
   display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 20px;
   padding-bottom: 14px; border-bottom: 1px solid var(--ink);
@@ -667,7 +672,7 @@ h1, h2, h3, h4,
 .project-grid:not(.compact) > .project:nth-child(3) .sb-bar { max-width: 120px; height: calc(var(--v) * 1.35px); }
 .project-grid:not(.compact) > .project:nth-child(3) .sb-note { font-size: 16px; margin-bottom: 8px; }
 .project-grid:not(.compact) > .project:nth-child(3) .sb-labels { gap: 40px; font-size: 13px; }
-.project-grid:not(.compact) > .project:nth-child(2) { grid-column: 7 / span 6; margin-top: 168px; }
+.project-grid:not(.compact) > .project:nth-child(2) { grid-column: 7 / span 6; }
 .project-grid:not(.compact) > .project:nth-child(3) { grid-column: 3 / span 8; }
 .project-grid:not(.compact) > .project:nth-child(3) .project-body { max-width: 560px; }
 
@@ -830,6 +835,15 @@ h1, h2, h3, h4,
 .skill-list li::before { content: ""; width: 5px; height: 5px; background: var(--frame); transform: rotate(45deg); }
 .proof { max-width: 56ch; margin-top: 4px; font-size: 16px; line-height: 1.65; color: var(--mist); }
 .proof b { display: block; margin-bottom: 4px; font-family: var(--font-display); font-style: italic; font-size: 20px; font-weight: 400; color: var(--ivory); }
+
+/* On paper (same wall as Projects): dark ink text and paper lines */
+.paper .skill-grid { border-bottom-color: var(--frame-paper); }
+.paper .skill { border-top-color: var(--frame-paper); }
+.paper .skill-list { color: var(--ink); }
+.paper .skill-list li::before { background: var(--slate); }
+.paper .proof { color: var(--slate); }
+.paper .proof b { color: var(--ink); }
+.paper .skill-example { outline-color: var(--frame-paper); }
 
 /* A request, turned into developer tasks */
 .skill-example {
@@ -1398,7 +1412,7 @@ h1, h2, h3, h4,
 /* Tablets: the third project card spans the row, picture beside the text */
 @media (max-width: 1080px) and (min-width: 761px) {
   .project-grid:not(.compact) > .project:nth-child(1) { grid-column: 1 / span 6; }
-  .project-grid:not(.compact) > .project:nth-child(2) { grid-column: 7 / span 6; margin-top: 120px; }
+  .project-grid:not(.compact) > .project:nth-child(2) { grid-column: 7 / span 6; }
   .project-grid:not(.compact) > .project:nth-child(3) { grid-column: 2 / span 10; }
 }
 
@@ -1826,3 +1840,21 @@ h1, h2, h3, h4,
   [data-reveal] { opacity: 1 !important; animation: none !important; }
   .motion .ch, .motion [data-reveal="mask"] .mask-in { transform: none !important; }
 }
+
+/* All projects page: the same folder and cards as the certificates page, without images */
+#all-projects .case-body { padding-top: clamp(24px, 3vw, 40px); }
+.projects-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 28px; margin-top: clamp(32px, 4vw, 44px); }
+.projects-foot .certs-note { color: var(--slate); }
+.proj-card { transition: border-color .3s, transform .3s; }
+.proj-card:hover { border-color: var(--ink); transform: translateY(-2px); }
+.proj-card:hover h3 a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .22em; }
+.proj-card .card-link:focus-visible { outline: none; }
+.proj-card:focus-within { outline: 2px solid var(--ink); outline-offset: 3px; }
+.proj-card.is-featured { grid-column: 1 / -1; background: var(--ink); border-color: var(--ink); color: var(--ivory); }
+.proj-card.is-featured .cert-card-text { padding: 34px 36px; }
+.proj-card.is-featured .cert-card-tag { background: var(--champagne); color: var(--ink); }
+.proj-card.is-featured h3 { font-size: clamp(24px, 2.6vw, 32px); }
+.proj-card.is-featured .cert-card-issuer, .proj-card.is-featured .cert-card-text p:not([class]) { color: var(--mist); }
+.proj-card.is-featured .cert-card-meta { color: var(--champagne); border-top-color: var(--line-dark); }
+.proj-card.is-featured .cert-card-meta::before { background: var(--champagne); }
+@media (prefers-reduced-motion: reduce) { .proj-card { transition: none; } .proj-card:hover { transform: none; } }
