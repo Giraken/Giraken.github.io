@@ -177,4 +177,4 @@ GitHub Pages publishes the `main` branch, so every change pushed there goes live
 To update it on github.com: open the repository, click a file, choose the pencil icon, edit, and commit to `main`.
 To replace a photo or the CV: "Add file" → "Upload files", using the same file name.
 
-The Habit Tracker has its own repository: https://github.com/Giraken/habit-tracker. When it's live somewhere, put its link back in the Habit Tracker case study (`id="habit-tracker"`, the "Shipped" fact).
+The Habit Tracker has its own repository: https://github.com/Giraken/habit-tracker. When it's live somewhere, put its link back in the Habit Tracker case study (`id="habit-tracker"`, the "Delivered" fact).
